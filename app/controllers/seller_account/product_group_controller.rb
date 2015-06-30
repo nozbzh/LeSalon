@@ -32,7 +32,7 @@ class ProductGroupController < ApplicationController
   end
 
   def update
-    @product_group.update(booking_params)
+    @product_group.update(product_group_params)
     # redirect_to
   end
 
@@ -45,7 +45,7 @@ class ProductGroupController < ApplicationController
   end
 
   def find_product_group
-    @product_group = current_sellerr.product_groups.find(params[:id])
+    @product_group = current_seller.product_groups.find(params[:id])
   end
 
 end
