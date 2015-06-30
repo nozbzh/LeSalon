@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
+
+
+  get '/sellers/:id', to: 'sellers#show_to_user'
+
   resources :product_refs, only: [:index, :show]
 
   get 'users/omniauth_callbacks_controller'
