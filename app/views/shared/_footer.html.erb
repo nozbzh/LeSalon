@@ -1,0 +1,41 @@
+<div id="footer" class="">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <div class="pull-right">
+          <%= link_to "Seller sign in", new_seller_session_path %>
+          <%= link_to "Seller log out", destroy_seller_session_path, method: :delete %>
+          <%= link_to "New seller account", new_seller_registration_path %>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <div id="social-links" class="pull-left">
+          <ul class="list-inline">
+            <li>
+              <%= link_to "#" do %>
+              <i class="fa fa-facebook"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+              <i class="fa fa-twitter"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to "#" do %>
+              <i class="fa fa-youtube"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pull-right">
+          <span>&copy; LeSalon</span>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
