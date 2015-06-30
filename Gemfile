@@ -24,6 +24,8 @@ gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
 
+gem "geocoder"
+
 group :development, :test do
   gem "spring"
   gem "annotate"
