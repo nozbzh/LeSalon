@@ -4,7 +4,13 @@ class SellersController < ApplicationController
 
   def show_to_user
     @seller = Seller.find(params[:id])
-    @seller_location = [{ lat: @seller.latitude, lng: @seller.longitude }]
+    @seller_location = [
+      {
+       lat: @seller.latitude,
+       lng: @seller.longitude
+       }
+     ]
+    authorize @seller
   end
 
 

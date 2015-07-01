@@ -1,15 +1,40 @@
 <h1><%= @seller.name %></h1>
 
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @seller_location.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setZoom(14);
-      });
-    })
-  <% end %>
-<% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+
+        <h3>Products available at <%= @seller.name %>'s shop:</h3>
+        <ul>
+          <% @seller.product_groups.each do |product_group| %>
+            <li>
+              <%= product_group.name %>
+            </li>
+          <% end %>
+        </ul>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div id="map" style="width: 100%; height: 600px;"></div>
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            var sellerLocation = <%= raw @seller_location.to_json %>
+            console.log(sellerLocation);
+            $(document).on('ready', function() {
+              handler = Gmaps.build('Google');
+              handler.buildMap({ internal: { id: 'map' } }, function(){
+                markers = handler.addMarkers(sellerLocation);
+                console.log(markers);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+                handler.getMap().setZoom(14);
+              });
+            });
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
