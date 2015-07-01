@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!, unless: :pages_controller?
 
   after_action :verify_authorized, except:  :index, unless: :devise_or_pages_controller?
   after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_controller?
@@ -27,7 +26,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :address_zip
     devise_parameter_sanitizer.for(:sign_up) << :address_city
     devise_parameter_sanitizer.for(:sign_up) << :address_country
+  end
 
+  def after_sign_in_path_for(resource)
+    if resource.class == Seller
+      seller_account_sellers_home_path
+    else
+      home_path
+    end
   end
 
   private
