@@ -1,0 +1,13 @@
+<h1>My shop</h1>
+
+<% @pictures.each do |pic| %>
+  <%= image_tag pic.picture.url(:thumb) %>
+  <%= print "hello" %>
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
+
+<%= link_to "add a photo", new_seller_account_picture_seller_path %>

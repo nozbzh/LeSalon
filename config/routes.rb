@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
   namespace :seller_account do
+    resources :picture_sellers
     resources :product_groups do
       resources :product_refs
     end
