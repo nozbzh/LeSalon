@@ -3,9 +3,15 @@
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
         <div class="pull-right">
-          <%= link_to "Seller sign in", new_seller_session_path %>
-          <%= link_to "Seller log out", destroy_seller_session_path, method: :delete %>
-          <%= link_to "New seller account", new_seller_registration_path %>
+          <% unless seller_signed_in? %>
+            <%= link_to "Seller sign in", new_seller_session_path %>
+          <% end %>
+          <% if seller_signed_in? %>
+            <%= link_to "Seller log out", destroy_seller_session_path, method: :delete %>
+          <% end %>
+          <% unless seller_signed_in? %>
+            <%= link_to "New seller account", new_seller_registration_path %>
+          <% end %>
         </div>
       </div>
     <div class="row">

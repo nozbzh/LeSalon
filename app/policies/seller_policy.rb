@@ -8,4 +8,9 @@ class SellerPolicy < ApplicationPolicy
   def show_to_user?
     true
   end
+
+  def home?
+    true
+  end
 end
+
