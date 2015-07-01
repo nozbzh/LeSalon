@@ -21,7 +21,7 @@ class PictureSeller < ActiveRecord::Base
   belongs_to :seller
 
   has_attached_file :picture,
-    styles: { medium: "300x300>", thumb: "100x100>" }
+    styles: { large: "750x500>", medium: "200x200#", thumb: "50x50#" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/

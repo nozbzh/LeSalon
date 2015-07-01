@@ -2,7 +2,8 @@
 
 <% @pictures.each do |pic| %>
   <%= image_tag pic.picture.url(:thumb) %>
-  <%= print "hello" %>
+  <%= link_to "delete", seller_account_picture_seller_path(pic), method: :delete,
+      data: { confirm: "Are you sure?" } %>
 <% end %>
 
 <br>

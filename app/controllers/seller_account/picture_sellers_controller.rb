@@ -1,14 +1,11 @@
 module SellerAccount
-  class PictureSellersController < ApplicationController
+  class PictureSellersController < SellerAccount::BaseController
     before_action :authenticate_seller!
 
     def index
       @pictures = policy_scope(PictureSeller)
     end
 
-    def show
-
-    end
 
     def new
       @picture = PictureSeller.new
@@ -20,19 +17,16 @@ module SellerAccount
       @picture.seller = current_seller
       authorize @picture
       if @picture.save
-        raise ""
         redirect_to seller_account_picture_sellers_path
       else
-        raise ""
+
       end
     end
 
-    def edit
-
-    end
-
-    def update
-
+    def destroy
+      find_picture
+      @picture.destroy
+      redirect_to seller_account_picture_sellers_path
     end
 
     private
@@ -42,7 +36,7 @@ module SellerAccount
     end
 
     def find_picture
-      @picture = PictureSeller.find
+      @picture = current_seller.picture_sellers.find(params[:id])
     end
 
   end

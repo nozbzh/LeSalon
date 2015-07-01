@@ -18,7 +18,10 @@ class PictureSellerPolicy < ApplicationPolicy
   end
 
   def create?
-    raise
+    user.class == Seller
+  end
+
+  def destroy?
     user.class == Seller
   end
 
