@@ -1,8 +1,6 @@
 module SellerAccount
-  class ProductRefsController < ApplicationController
-    before_action :authenticate_seller!
+  class ProductRefsController < SellerAccount::BaseController
     before_action :find_product_group
-    before_action :find_product_ref
 
     def index
       @product_refs = []

@@ -18,7 +18,7 @@
 #
 
 class ProductGroup < ActiveRecord::Base
-  # belongs_to :seller
+  belongs_to :seller
   has_many :product_refs
   validates :name, presence: true, uniqueness: true
   validates :category_type, presence: true

@@ -12,5 +12,6 @@ class SellerPolicy < ApplicationPolicy
   def home?
     true
   end
+
 end
 
