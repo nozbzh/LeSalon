@@ -22,7 +22,6 @@ class ProductGroupPolicy < ApplicationPolicy
     else
       scope.all
     end
-    # user.class == User || record.seller == user
   end
 
 end
