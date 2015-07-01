@@ -17,6 +17,12 @@ class ProductGroupPolicy < ApplicationPolicy
   end
 
   def show?
-    user.class == User || record.seller == user
+    if user.class == Seller
+      user.product_groups
+    else
+      scope.all
+    end
+    # user.class == User || record.seller == user
   end
+
 end
