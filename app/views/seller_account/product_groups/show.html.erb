@@ -1,0 +1,18 @@
+<div class="text-center">
+  <h1><%= @product_group.name %></h1>
+  <p>Type : <%=@product_group.category_type%></p>
+  <p>Style : <%=@product_group.category_style%></p>
+  <p>Material : <%=@product_group.material%></p>
+  <p>Longueur : <%=@product_group.dimensions_length_cm%></p>
+  <p>Largeur : <%=@product_group.dimensions_width_cm%></p>
+  <p>Hauteur : <%=@product_group.dimensions_height_cm%></p>
+  <p>Présentation : <%=@product_group.description%></p>
+  <p>Caractéristiques : <%=@product_group.characteristics%></p>
+<br>
+  <% @product_group.picture_products.each do |picture| %>
+  <%= image_tag picture.url(:medium) %>
+  <%end%>
+  <%= link_to "Edit product", "#", class: "btn btn-warning" %>
+  <%= link_to "Delete product", "#", class: "btn btn-danger"%>
+  <%= link_to "Add photos", new_seller_account_product_group_picture_product_path(@product_group), class: "btn btn-success"%>
+</div>

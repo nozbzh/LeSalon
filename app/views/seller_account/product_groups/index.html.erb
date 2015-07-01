@@ -11,10 +11,8 @@
               <p>images to come soon</p>
             </div>
             <div class="col-xs-12 col-sm-6 text-center">
-              <%= product_group.name %>
+              <h4><%=link_to product_group.name, seller_account_product_group_path(product_group) %></h4>
               <br>
-              <%= link_to "Edit flat", "#", class: "btn btn-warning" %>
-              <%= link_to "Delete flat", "#", class: "btn btn-danger"%>
             </div>
           </div>
         </div>

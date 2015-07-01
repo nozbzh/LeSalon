@@ -24,7 +24,7 @@ module SellerAccount
 
     def show
       find_product_group
-      @product_group = ProductGroup.find(params[:id])
+      authorize @product_group
     end
 
     def edit
