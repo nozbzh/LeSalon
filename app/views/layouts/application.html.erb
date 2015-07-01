@@ -13,6 +13,7 @@
 <body>
   <% unless seller_signed_in? %>
   <%= render "shared/navbar" %>
+  <%= render "shared/navbar_products" %>
   <% end %>
   <% if seller_signed_in? %>
   <%= render "seller_account/shared/navbar" %>
