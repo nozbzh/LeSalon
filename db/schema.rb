@@ -19,8 +19,12 @@ ActiveRecord::Schema.define(version: 20150701120702) do
   create_table "picture_sellers", force: :cascade do |t|
     t.string   "name"
     t.integer  "seller_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "picture_sellers", ["seller_id"], name: "index_picture_sellers_on_seller_id", using: :btree
