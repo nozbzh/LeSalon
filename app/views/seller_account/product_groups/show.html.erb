@@ -9,10 +9,55 @@
   <p>Présentation : <%=@product_group.description%></p>
   <p>Caractéristiques : <%=@product_group.characteristics%></p>
 <br>
+  <%= link_to "Modifier le produit", edit_seller_account_product_group_path(@product_group), class: "btn btn-warning" %>
+  <%= link_to "Supprimer le produit", seller_account_product_group_path(@product_group), method: :delete,
+      data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+</div>
+
+<div class="text-center">
+  <h1><%= "Images" %></h1>
+  <h5>La première image chargée sera la première à apparaître et sera utilisée comme image de référence</h5>
   <% @product_group.picture_products.each do |picture| %>
-  <%= image_tag picture.url(:medium) %>
+    <%= image_tag picture.url(:medium) %>
   <%end%>
-  <%= link_to "Edit product", "#", class: "btn btn-warning" %>
-  <%= link_to "Delete product", "#", class: "btn btn-danger"%>
-  <%= link_to "Add photos", new_seller_account_product_group_picture_product_path(@product_group), class: "btn btn-success"%>
+  <%= link_to "Ajouter des images", new_seller_account_product_group_picture_product_path(@product_group), class: "btn btn-success"%>
+</div>
+
+<div class="text-center">
+  <h1><%= "Références pour ce produit" %></h1>
+  <h5>Une référence au moins est nécessaire pour que le produit soit référencé sur le site</h5>
+</div>
+<div class="container bg-darker-grey">
+    <% @product_group.product_refs.each do |product_ref| %>
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+          <div class="row white-card">
+            <div class="col-xs-12 col-sm-6 text-center">
+              <p>image to come soon</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 text-center">
+              <h4>Couleur: <%= product_ref.color_name %></h4>
+              <p>Prix : <%= product_ref.price%> €</p>
+              <p>Promotion : <%= product_ref.promotion_percentage * 100 %> %</p>
+              <p>Prix net : <%= product_ref.price * (1 - product_ref.promotion_percentage) %> €</p>
+              <p>Disponibilité : <%= product_ref.availability%></p>
+              <p>Délais de livraison : <%= product_ref.delivery_time%></p>
+              <br>
+              <%= link_to "#" do %>
+                <i class="fa fa-pencil"></i>
+              <% end %>
+              <%= link_to "#" do %>
+                <i class="fa fa-trash-o"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+    <% end %>
+    <div class="row text-center">
+      <%= link_to "Add new reference", new_seller_account_product_group_product_ref_path(@product_group), class: "btn btn-primary"%>
+    </div>
+<br>
 </div>
