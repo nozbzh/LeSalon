@@ -1,7 +1,6 @@
 module SellerAccount
-  class ProductGroupController < ApplicationController
+  class ProductGroupsController < ApplicationController
     before_action :authenticate_seller!
-    before_action :find_product_group
 
     def index
       @product_groups = []
@@ -25,11 +24,12 @@ module SellerAccount
     end
 
     def show
+      find_product_group
       @product_group = ProductGroup.find(params[:id])
     end
 
     def edit
-
+      find_product_group
     end
 
     def update

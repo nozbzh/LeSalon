@@ -13,6 +13,4 @@ Rails.application.routes.draw do
   resources :product_refs, only: [:index, :show]
 
   get 'users/omniauth_callbacks_controller'
-
-
 end

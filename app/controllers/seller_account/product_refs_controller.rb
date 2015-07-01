@@ -1,5 +1,5 @@
 module SellerAccount
-  class ProductRefController < ApplicationController
+  class ProductRefsController < ApplicationController
     before_action :authenticate_seller!
     before_action :find_product_group
     before_action :find_product_ref
