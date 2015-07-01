@@ -1,42 +1,50 @@
-<nav class="navbar navbar-default navbar-wagon" role="navigation">
+<nav class="navbar navbar-default navbar-second" role="navigation">
   <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-            <%= image_tag "chair.png" %>
+            <%#= image_tag "chair.png" %>
             S'asseoir <span class="caret"></span>
           <% end %>
           <ul class="dropdown-menu" role="menu">
             <br/>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "sofa.png", class: "icons-dropdown" %> Canapés
+                <%#= image_tag "sofa.png", class: "icons-dropdown" %> Canapés
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "fauteil.png", class: "icons-dropdown" %> Fauteuils
+                <%#= image_tag "fauteil.png", class: "icons-dropdown" %> Fauteuils
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "chair-icon.png", class: "icons-dropdown" %> Chaises
+                <%#= image_tag "chair-icon.png", class: "icons-dropdown" %> Chaises
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "tabouret.png", class: "icons-dropdown" %> Tabourets
+                <%#= image_tag "tabouret.png", class: "icons-dropdown" %> Tabourets
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "chair-office.png", class: "icons-dropdown" %> Chaises de bureau
+                <%#= image_tag "chair-office.png", class: "icons-dropdown" %> Chaises de bureau
               <% end %>
             </li>
           </ul>
@@ -45,32 +53,32 @@
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-            <%= image_tag "storage.png" %>
+            <%#= image_tag "storage.png" %>
             Rangement <span class="caret"></span>
           <% end %>
           <ul class="dropdown-menu" role="menu">
             <br/>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "library.png", class: "icons-dropdown" %> Bibliothequès
+                <%#= image_tag "library.png", class: "icons-dropdown" %> Bibliothequès
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "shelf.png", class: "icons-dropdown" %> Etagères
+                <%#= image_tag "shelf.png", class: "icons-dropdown" %> Etagères
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "commode.png", class: "icons-dropdown" %> Commodes
+                <%#= image_tag "commode.png", class: "icons-dropdown" %> Commodes
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "cupboard.png", class: "icons-dropdown" %> Armoires
+                <%#= image_tag "cupboard.png", class: "icons-dropdown" %> Armoires
               <% end %>
             </li>
           </ul>
@@ -79,32 +87,32 @@
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-            <%= image_tag "table-menu.png" %>
+            <%#= image_tag "table-menu.png" %>
             Tables <span class="caret"></span>
           <% end %>
           <ul class="dropdown-menu" role="menu">
             <br/>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "console.png", class: "icons-dropdown" %> Consoles
+                <%#= image_tag "console.png", class: "icons-dropdown" %> Consoles
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "table-office.png", class: "icons-dropdown" %> Bureaux
+                <%#= image_tag "table-office.png", class: "icons-dropdown" %> Bureaux
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "table-bass.png", class: "icons-dropdown" %> Tables basses
+                <%#= image_tag "table-bass.png", class: "icons-dropdown" %> Tables basses
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "dinning-table.png", class: "icons-dropdown" %> Tables à manger
+                <%#= image_tag "dinning-table.png", class: "icons-dropdown" %> Tables à manger
               <% end %>
             </li>
           </ul>
@@ -113,38 +121,38 @@
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-            <%= image_tag "lamp-menu.png" %>
+            <%#= image_tag "lamp-menu.png" %>
             Luminaires <span class="caret"></span>
           <% end %>
           <ul class="dropdown-menu" role="menu">
             <br/>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "lampadaire.png", class: "icons-dropdown" %> Lampadaires
+                <%#= image_tag "lampadaire.png", class: "icons-dropdown" %> Lampadaires
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "lamp-table.png", class: "icons-dropdown" %> Lampes de table
+                <%#= image_tag "lamp-table.png", class: "icons-dropdown" %> Lampes de table
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "lamp-office.png", class: "icons-dropdown" %> Lampes de bureau
+                <%#= image_tag "lamp-office.png", class: "icons-dropdown" %> Lampes de bureau
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "lamp-hang.png", class: "icons-dropdown" %> Suspension
+                <%#= image_tag "lamp-hang.png", class: "icons-dropdown" %> Suspension
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "lamp-object.png", class: "icons-dropdown" %> Objects lumineux
+                <%#= image_tag "lamp-object.png", class: "icons-dropdown" %> Objects lumineux
               <% end %>
             </li>
           </ul>
@@ -153,20 +161,20 @@
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-            <%= image_tag "night.png" %>
+            <%#= image_tag "night.png" %>
             Nuit <span class="caret"></span>
           <% end %>
           <ul class="dropdown-menu" role="menu">
             <br/>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "bed.png", class: "icons-dropdown" %> Lits
+                <%#= image_tag "bed.png", class: "icons-dropdown" %> Lits
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "night-table.png", class: "icons-dropdown" %> Tables de chevet
+                <%#= image_tag "night-table.png", class: "icons-dropdown" %> Tables de chevet
               <% end %>
             </li>
           </ul>
@@ -175,50 +183,50 @@
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-            <%= image_tag "deco.png" %>
+            <%#= image_tag "deco.png" %>
             Deco <span class="caret"></span>
           <% end %>
           <ul class="dropdown-menu" role="menu">
             <br/>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "cushion.png", class: "icons-dropdown" %> Coussins
+                <%#= image_tag "cushion.png", class: "icons-dropdown" %> Coussins
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "mirror.png", class: "icons-dropdown" %> Miroirs
+                <%#= image_tag "mirror.png", class: "icons-dropdown" %> Miroirs
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "tray.png", class: "icons-dropdown" %> Vide-poches
+                <%#= image_tag "tray.png", class: "icons-dropdown" %> Vide-poches
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "cat.png", class: "icons-dropdown" %> Bibelots
+                <%#= image_tag "cat.png", class: "icons-dropdown" %> Bibelots
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "pot.png", class: "icons-dropdown" %> Pots
+                <%#= image_tag "pot.png", class: "icons-dropdown" %> Pots
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "screen.png", class: "icons-dropdown" %> Paravents
+                <%#= image_tag "screen.png", class: "icons-dropdown" %> Paravents
               <% end %>
             </li>
             <hr>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "carpet.png", class: "icons-dropdown" %> Tapis
+                <%#= image_tag "carpet.png", class: "icons-dropdown" %> Tapis
               <% end %>
             </li>
             <hr>
@@ -233,14 +241,14 @@
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-            <%= image_tag "tree.png" %>
+            <%#= image_tag "tree.png" %>
             Extérieur <span class="caret"></span>
           <% end %>
           <ul class="dropdown-menu" role="menu">
             <br/>
             <li>
               <%= link_to "#" do %>
-                <%= image_tag "bed.png", class: "icons-dropdown" %> Lits
+                <%#= image_tag "bed.png", class: "icons-dropdown" %> Lits
               <% end %>
             </li>
             <hr>
