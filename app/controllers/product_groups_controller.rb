@@ -5,7 +5,10 @@ class ProductGroupsController < ApplicationController
     if params[:category]
       @product_groups = @product_groups.where(category_type: params[:category])
     end
+  end
 
-    # @pg_canapes = @product_groups.category_type("Canapés")
+  def show
+    @product_group = ProductGroup.find(params[:id])
+    authorize @product_group
   end
 end
