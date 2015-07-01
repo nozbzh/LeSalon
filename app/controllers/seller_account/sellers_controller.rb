@@ -1,17 +1,8 @@
 module SellerAccount
-  class SellersController < ApplicationController
-    before_action :authenticate_seller!
-    before_action :find_seller
+  class SellersController < SellerAccount::BaseController
+    skip_after_action :verify_authorized
 
     def home
-      authorize @seller
     end
-
-    private
-
-    def find_seller
-      @seller = current_seller
-    end
-
   end
 end
