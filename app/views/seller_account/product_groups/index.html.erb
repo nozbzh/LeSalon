@@ -1,1 +1,8 @@
 Hello !!!
+<br>
+<h3>Your current product offer: </h3>
+<% current_seller.product_groups.each do |product_group| %>
+<%= product_group.name %>
+<% end %>
+
+<%= link_to "Add new product", new_seller_account_product_group_path, class: "btn btn-primary"%>

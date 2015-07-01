@@ -1,26 +1,25 @@
 module SellerAccount
-  class ProductGroupsController < ApplicationController
-    before_action :authenticate_seller!
-
+  class ProductGroupsController < SellerAccount::BaseController
     def index
-      @product_groups = []
-      current_seller.product_groups.each do |product_group|
-        @product_groups << product_group
-      end
+      @product_groups = policy_scope(ProductGroup)
+      #syntaxe pour index, liée à scope
     end
 
     def new
       @product_group = ProductGroup.new
+      authorize @product_group
+      #syntaxe pour les autres fonctions
     end
 
     def create
       @product_group = current_seller.product_groups.build(product_group_params)
-      @product_group.save
-      # if @product_group.save
-      #   redirect_to creation of product_refs
-      # else
-      #   render :new
-      # end
+      @product_group.seller = current_seller
+      authorize @product_group
+      if @product_group.save
+        redirect_to seller_account_product_groups_path
+      else
+        render :new
+      end
     end
 
     def show
