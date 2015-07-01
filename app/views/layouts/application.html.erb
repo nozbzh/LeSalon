@@ -11,15 +11,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% unless seller_signed_in? %>
   <%= render "shared/navbar" %>
   <%= render "shared/navbar_products" %>
+  <% end %>
+  <% if seller_signed_in? %>
+  <%= render "seller_account/shared/navbar" %>
+  <% end %>
   <%= render "shared/flashes" %>
 
   <%= yield %>
 
   <%= render "shared/footer" %>
 
-  <%= javascript_include_tag :application %>
+  <%= javascript_include_tag "https://maps.google.com/maps/api/js?sensor=false" %>
+  <%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
+
+  <%= javascript_include_tag "application" %>
+
   <%= yield(:after_js) %>
 
 </body>
