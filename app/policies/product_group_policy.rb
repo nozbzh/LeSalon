@@ -16,7 +16,19 @@ class ProductGroupPolicy < ApplicationPolicy
     user.class == Seller
   end
 
+  def edit?
+    user.class == Seller
+  end
+
+  def update?
+    user.class == Seller
+  end
+
   def show?
     user.class == User || record.seller == user
+  end
+
+  def destroy?
+    user.class == Seller
   end
 end

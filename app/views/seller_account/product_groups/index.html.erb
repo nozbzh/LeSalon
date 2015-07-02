@@ -1,9 +1,26 @@
-Hello !!!
+<div class="text-center">
+  <h1><%= "Your current catalogue" %></h1>
+</div>
+<div class="container bg-darker-grey">
+    <% @product_groups.each do |product_group| %>
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+          <div class="row white-card">
+            <div class="col-xs-12 col-sm-6 text-center">
+              <p>images to come soon</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 text-center">
+              <h4><%=link_to product_group.name, seller_account_product_group_path(product_group) %></h4>
+              <br>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+    <% end %>
+    <div class="row text-center">
+      <%= link_to "Add new product", new_seller_account_product_group_path, class: "btn btn-primary"%>
+    </div>
 <br>
-<h3>Your current product offer: </h3>
-<% @product_groups.each do |product_group| %>
-<%= product_group.name %>
-<br>
-<% end %>
-<br>
-<%= link_to "Add new product", new_seller_account_product_group_path, class: "btn btn-primary"%>
+</div>

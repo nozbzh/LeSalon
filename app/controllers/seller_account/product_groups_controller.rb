@@ -24,16 +24,27 @@ module SellerAccount
 
     def show
       find_product_group
-      @product_group = ProductGroup.find(params[:id])
+      authorize @product_group
     end
 
     def edit
       find_product_group
+      authorize @product_group
     end
 
     def update
+      find_product_group
+      authorize @product_group
       @product_group.update(product_group_params)
-      # redirect_to
+      redirect_to seller_account_product_group_path(@product_group)
+    end
+
+    def destroy
+      find_product_group
+      authorize @product_group
+      @product_group.destroy
+      redirect_to seller_account_product_groups_path
+
     end
 
     private

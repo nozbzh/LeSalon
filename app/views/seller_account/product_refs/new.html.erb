@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
+      <h1>Créer une nouvelle référence pour <%=@product_group.name %></h1>
+      <br>
+
+      <%= simple_form_for(@product_ref, url: seller_account_product_group_product_refs_path(@product_group)) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :color_name, :label => "Couleur" %>
+        <%= f.input :price, :label => "Prix en euro" %>
+        <%= f.input :promotion_percentage, :label => "Promotion (compris entre 0,00 et 0,70" %>
+        <%= f.input :availability, :label => "Disponibilité actuelle" %>
+        <%= f.input :delivery_time, :label => "Délai de livraison" %>
+        <%= f.input :reference, :label => "Code de référence" %>
+        <p><%= f.button :submit, :label => "Créer la référence" %></p>
+      <% end %>
+    </div>
+    <div class="col-xs-2"></div>
+  </div>
+</div>
