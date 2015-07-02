@@ -1,0 +1,5 @@
+<h1>My shop</h1>
+
+<% @pictures.each do |pic| %>
+  <%= image_tag pic.picture.url(:thumb) %>
+<% end %>
