@@ -22,4 +22,26 @@
   </div>
 <% end %>
 
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :name %>
+    <%= f.input :description_short %>
+    <%= f.input :description %>
+    <%= f.input :phone %>
+    <%= f.input :address_street %>
+    <%= f.input :address_zip %>
+    <%= f.input :address_city %>
+    <%= f.input :address_country %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <%= f.input :password_confirmation, required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
 <%= render "sellers/shared/links" %>

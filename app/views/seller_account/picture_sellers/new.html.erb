@@ -1,0 +1,10 @@
+<h1>Add photos here</h1>
+
+<%= simple_form_for(@picture, url: seller_account_picture_sellers_path, html: { multipart: true }) do |f| %>
+  <%= f.input :picture, as: :file, label: "Add photos of your shop" %>
+  <%= f.input :picture, as: :file %>
+  <%= f.input :picture, as: :file %>
+  <%= f.input :picture, as: :file %>
+  <%= f.input :picture, as: :file %>
+  <%= f.button :submit %>
+<% end %>
