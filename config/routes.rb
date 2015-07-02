@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :seller_account do
     resources :picture_sellers, only: [:index, :new, :create, :destroy]
     resources :product_groups do
+      resources :picture_products, only: [:index, :new, :create, :destroy]
       resources :product_refs
     end
     get 'sellers/home', to: "sellers#home", as: :sellers_home
