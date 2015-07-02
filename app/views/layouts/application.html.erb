@@ -10,7 +10,12 @@
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+
+<% if seller_signed_in? %>
+  <body>
+<% else %>
+  <body id="user">
+<% end %>
   <% unless seller_signed_in? %>
   <%= render "shared/navbar" %>
   <%= render "shared/navbar_products" %>

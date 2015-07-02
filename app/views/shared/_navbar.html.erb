@@ -19,8 +19,7 @@
         <% if user_signed_in? %>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <%= image_tag current_user.picture, class: "img-avatar" %>
-              Profile <span class="caret"></span>
+              <%= current_user.first_name %> <span class="caret"></span>
             <% end %>
             <ul class="dropdown-menu" role="menu">
               <li>

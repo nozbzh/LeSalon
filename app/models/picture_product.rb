@@ -16,7 +16,7 @@ class PictureProduct < ActiveRecord::Base
   belongs_to :product_group
 
   has_attached_file :picture,
-    styles: {large: "750x500#", medium: "200x200#", thumb: "50x50#" }
+    styles: {large: "750x500>", medium: "200x200>", thumb: "50x50#" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/

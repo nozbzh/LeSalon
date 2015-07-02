@@ -1,1 +1,18 @@
 // Your footer style
+
+#footer {
+  background-color: #0099CC;
+  font-size: 28px;
+  a {
+    color: black;
+    &:hover {
+      color: rgb(200, 200, 200);
+      transition: ease 0.3s;
+    }
+  }
+}
+
+#padded-li {
+  padding-right: 30px;
+}
+
