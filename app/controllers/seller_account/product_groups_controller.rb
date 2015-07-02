@@ -44,7 +44,6 @@ module SellerAccount
       authorize @product_group
       @product_group.destroy
       redirect_to seller_account_product_groups_path
-
     end
 
     private

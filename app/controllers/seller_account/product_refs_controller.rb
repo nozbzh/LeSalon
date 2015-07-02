@@ -31,23 +31,41 @@ module SellerAccount
     end
 
     def edit
+      find_product_ref
+      find_product_group
+      authorize @product_ref
 
     end
 
     def update
+      find_product_ref
+      find_product_group
+      authorize @product_ref
       @product_ref.update(product_ref_params)
-      # redirect_to
+      redirect_to seller_account_product_group_path(@product_group)
+    end
+
+    def destroy
+      find_product_ref
+      find_product_group
+      authorize @product_ref
+      @product_ref.destroy
+      redirect_to seller_account_product_group_path(@product_group)
     end
 
     private
 
     def product_ref_params
       params.require(:product_ref).permit(:color_name, :price, :promotion_percentage,
-        :availability, :delivery_time, :reference)
+        :availability, :delivery_time, :reference, :picture)
     end
 
     def find_product_group
       @product_group = current_seller.product_groups.find(params[:product_group_id])
+    end
+
+    def find_product_ref
+      @product_ref = ProductRef.find(params[:id])
     end
 
   end
