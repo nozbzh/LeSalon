@@ -8,7 +8,7 @@
         <div class="col-xs-10">
           <div class="row white-card">
             <div class="col-xs-12 col-sm-6 text-center">
-              <p>images to come soon</p>
+              <%= image_tag product_group.picture_products.first.picture.url(:medium) %>
             </div>
             <div class="col-xs-12 col-sm-6 text-center">
               <h4><%=link_to product_group.name, seller_account_product_group_path(product_group) %></h4>

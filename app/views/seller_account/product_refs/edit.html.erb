@@ -5,7 +5,7 @@
       <h1>Créer une nouvelle référence pour <%=@product_group.name %></h1>
       <br>
 
-      <%= simple_form_for(@product_ref, url: seller_account_product_group_product_refs_path(@product_group), html: { multipart: true }) do |f| %>
+      <%= simple_form_for(@product_ref, url: seller_account_product_group_product_ref_path(@product_group, @product_ref), html: { multipart: true }) do |f| %>
         <%= f.error_notification %>
         <%= f.input :color_name, :label => "Couleur" %>
         <%= f.input :price, :label => "Prix en euro" %>

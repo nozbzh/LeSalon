@@ -1,6 +1,5 @@
 <h1>ProductGroups#show</h1>
-<%= @product_group.name %>
-<%= @product_group.description %>
+
 
 <%= simple_form_for(@basket_item) do |f| %>
   <%= f.error_notification %>
@@ -16,3 +15,8 @@
 <%#= link_to "Add to basket", basket_items_path, class: "btn btn-primary" %>
 
 <%#= link_to "Quantity", basket_items_path, class: "btn btn-primary" %>
+
+<p><%= @product_group.name %></p>
+<p><%= @product_group.description %></p>
+<p>By <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
+

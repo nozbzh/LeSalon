@@ -9,9 +9,13 @@ Rails.application.routes.draw do
     resources :picture_sellers, only: [:index, :new, :create, :destroy]
     resources :product_groups do
       resources :picture_products, only: [:index, :new, :create, :destroy]
-      resources :product_refs
+      resources :product_refs do
+        resources :picture_refs, only: [:create, :destroy]
+      end
     end
+    resources :sellers, only: [:edit, :update]
     get 'sellers/home', to: "sellers#home", as: :sellers_home
+    get 'sellers/profile', to: "sellers#profile", as: :sellers_profile
   end
 
   resources :product_groups, only: [:index, :show]
@@ -21,7 +25,8 @@ Rails.application.routes.draw do
 
   resources :baskets, only: [:index]
 
-  get '/sellers/:id', to: 'sellers#show_to_user'
+  get '/sellers/:id', to: 'sellers#show_to_user', as: :sellers_page
+
 
   resources :product_refs, only: [:index, :show]
 

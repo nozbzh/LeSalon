@@ -1,7 +1,11 @@
 class SellerPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
+      if user.class == Seller
+        user.picture_sellers
+      else
+      scope.all
+      end
     end
   end
 
@@ -10,6 +14,10 @@ class SellerPolicy < ApplicationPolicy
   end
 
   def home?
+    true
+  end
+
+  def profile?
     true
   end
 

@@ -1,4 +1,4 @@
-class PictureProductPolicy < ApplicationPolicy
+class PictureRefPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope
