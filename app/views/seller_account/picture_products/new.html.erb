@@ -7,10 +7,6 @@
 
       <%= simple_form_for(@picture_product, url: seller_account_product_group_picture_products_path(@product_group), html: { multipart: true }) do |f| %>
         <%= f.input :picture, as: :file, label: "Add pictures of the product" %>
-        <%= f.input :picture, as: :file %>
-        <%= f.input :picture, as: :file %>
-        <%= f.input :picture, as: :file %>
-        <%= f.input :picture, as: :file %>
         <%= f.button :submit %>
       <% end %>
     </div>
