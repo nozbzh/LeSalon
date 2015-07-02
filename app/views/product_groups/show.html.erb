@@ -1,3 +1,4 @@
 <h1>ProductGroups#show</h1>
-<%= @product_group.name %>
-<%= @product_group.description %>
+<p><%= @product_group.name %></p>
+<p><%= @product_group.description %></p>
+<p>By <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
