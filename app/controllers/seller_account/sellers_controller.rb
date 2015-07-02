@@ -4,5 +4,19 @@ module SellerAccount
 
     def home
     end
+
+    def profile
+      @pictures = policy_scope(PictureSeller)
+    end
+
+    def edit
+
+    end
+
+    def update
+
+    end
+
+
   end
 end

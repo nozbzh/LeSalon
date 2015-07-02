@@ -1,4 +1,6 @@
-<h1>My shop</h1>
+<h1>My profile</h1>
+
+<h3>Photos of my shop</h3>
 
 <% @pictures.each do |pic| %>
   <%= image_tag pic.picture.url(:thumb) %>
@@ -12,3 +14,9 @@
 <br>
 
 <%= link_to "add a photo", new_seller_account_picture_seller_path %>
+
+
+<h3>My details</h3>
+
+Description: <%= current_seller.description %>
+<%= link_to "Edit",

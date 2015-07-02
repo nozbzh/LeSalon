@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :product_refs
     end
     get 'sellers/home', to: "sellers#home", as: :sellers_home
+    get 'sellers/profile', to: "sellers#profile", as: :sellers_profile
   end
 
   resources :product_groups, only: [:index, :show]
