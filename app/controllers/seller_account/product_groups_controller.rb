@@ -1,6 +1,7 @@
 module SellerAccount
   class ProductGroupsController < SellerAccount::BaseController
     def index
+
       @product_groups = policy_scope(ProductGroup)
       #syntaxe pour index, liée à scope
     end

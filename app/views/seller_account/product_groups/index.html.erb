@@ -8,7 +8,9 @@
         <div class="col-xs-10">
           <div class="row white-card">
             <div class="col-xs-12 col-sm-6 text-center">
-              <%= image_tag product_group.picture_products.first.picture.url(:medium) %>
+              <% unless product_group.picture_products.empty? %>
+                <%= image_tag product_group.picture_products.first.picture.url(:medium) %>
+              <% end %>
             </div>
             <div class="col-xs-12 col-sm-6 text-center">
               <h4><%=link_to product_group.name, seller_account_product_group_path(product_group) %></h4>
@@ -22,5 +24,6 @@
     <div class="row text-center">
       <%= link_to "Add new product", new_seller_account_product_group_path, class: "btn btn-primary"%>
     </div>
+
 <br>
 </div>
