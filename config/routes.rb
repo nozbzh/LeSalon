@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :picture_products, only: [:index, :new, :create, :destroy]
       resources :product_refs
     end
+    resources :sellers, only: [:edit, :update]
     get 'sellers/home', to: "sellers#home", as: :sellers_home
     get 'sellers/profile', to: "sellers#profile", as: :sellers_profile
   end
