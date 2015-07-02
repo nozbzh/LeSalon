@@ -27,7 +27,7 @@ module SellerAccount
       find_picture
       authorize @picture
       @picture.destroy
-      redirect_to seller_account_picture_sellers_path
+      redirect_to seller_account_sellers_profile_path
     end
 
     private
