@@ -1,5 +1,6 @@
 class BasketItemsController < ApplicationController
   before_action :find_product_ref, only: [ :create ]
+  before_action :authenticate_user!
 
   def create
     @basket_item = current_user.basket.basket_items.build(items_params)
