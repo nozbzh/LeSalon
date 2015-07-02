@@ -54,8 +54,25 @@
         <div class="col-xs-10">
           <div class="row white-card">
             <div class="col-xs-12 col-sm-6 text-center">
-              <p>image to come soon</p>
-            </div>
+              <% if product_ref.picture_ref == nil %>
+                <% @picture_ref = PictureRef.new %>
+                <%= simple_form_for(@picture_ref, url: seller_account_product_group_product_ref_picture_refs_path(@product_group, product_ref), html: { multipart: true }) do |f| %>
+                <%= f.input :picture, as: :file, label: "Ajouter une image pour cette référence" %>
+                <%= f.button :submit %>
+                <% end %>
+              <% else %>
+                <%= image_tag product_ref.picture_ref.picture.url(:medium) %>
+                <br>
+                <div id="pencil-card">
+                <div id="pencil">
+                <%= link_to seller_account_product_group_product_ref_picture_ref_path(@product_group, product_ref, product_ref.picture_ref), method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+                <i class="fa fa-pencil"></i>
+              <% end %>
+              </div>
+              </div>
+              <% end %>
+              </div>
             <div class="col-xs-12 col-sm-6 text-center">
               <h4>Couleur: <%= product_ref.color_name %></h4>
               <p>Prix : <%= product_ref.price%> €</p>
@@ -63,13 +80,22 @@
               <p>Prix net : <%= product_ref.price * (1 - product_ref.promotion_percentage) %> €</p>
               <p>Disponibilité : <%= product_ref.availability%></p>
               <p>Délais de livraison : <%= product_ref.delivery_time%></p>
+              <p>Référence : <%= product_ref.reference%></p>
+              <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
               <br>
-              <%= link_to "#" do %>
+              <div id="pencil-card">
+              <div id="pencil">
+              <%= link_to edit_seller_account_product_group_product_ref_path(@product_group, product_ref) do %>
                 <i class="fa fa-pencil"></i>
               <% end %>
-              <%= link_to "#" do %>
-                <i class="fa fa-trash-o"></i>
+              </div>
+              </div>
+              <div id="delete-cross">
+              <%= link_to seller_account_product_group_product_ref_path(@product_group, product_ref), method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+                <i class="fa fa-times"></i>
               <% end %>
+              </div>
             </div>
           </div>
         </div>

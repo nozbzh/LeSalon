@@ -1,10 +1,9 @@
 # == Schema Information
 #
-# Table name: picture_sellers
+# Table name: picture_refs
 #
 #  id                   :integer          not null, primary key
-#  name                 :string
-#  seller_id            :integer
+#  product_ref_id       :integer
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  picture_file_name    :string
@@ -12,13 +11,10 @@
 #  picture_file_size    :integer
 #  picture_updated_at   :datetime
 #
-# Indexes
-#
-#  index_picture_sellers_on_seller_id  (seller_id)
-#
 
-class PictureSeller < ActiveRecord::Base
-  belongs_to :seller
+class PictureRef < ActiveRecord::Base
+  belongs_to :product_ref
+  validates :picture, presence: true
 
   has_attached_file :picture,
     styles: { large: "750x500#", medium: "200x200#", thumb: "50x50#" }

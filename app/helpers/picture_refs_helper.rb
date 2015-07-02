@@ -1,0 +1,2 @@
+module PictureRefsHelper
+end

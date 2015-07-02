@@ -19,7 +19,7 @@ module SellerAccount
       if @picture.save
         redirect_to seller_account_sellers_profile_path
       else
-
+        render :new
       end
     end
 

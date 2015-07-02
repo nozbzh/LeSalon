@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :picture_sellers, only: [:index, :new, :create, :destroy]
     resources :product_groups do
       resources :picture_products, only: [:index, :new, :create, :destroy]
-      resources :product_refs
+      resources :product_refs do
+        resources :picture_refs, only: [:create, :destroy]
+      end
     end
     resources :sellers, only: [:edit, :update]
     get 'sellers/home', to: "sellers#home", as: :sellers_home
