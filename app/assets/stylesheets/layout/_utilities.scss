@@ -141,3 +141,30 @@
 .bg-image-cover {
   background-size: cover;
 }
+
+.background-home {
+  background-image: asset-url("large-sofa-thonet.jpg");
+  background-size: cover;
+}
+
+.img-relative {
+  position: relative;
+  padding: 40px 0px;
+  margin: 20px 0px;
+}
+
+.legend-absolute {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 25%;
+  right: 0px;
+  height: 40px;
+  width: 50%;
+  border: 1px solid rgb(220, 220, 220);
+  color: rgb(150, 150, 150);
+}
+
+.s25-font {
+  font-size: 25px;
+}

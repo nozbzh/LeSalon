@@ -7,6 +7,7 @@
             <% unless seller_signed_in? %>
               <%= link_to "Seller sign in", new_seller_session_path %>
             <% end %>
+            <br>
             <% if seller_signed_in? %>
               <%= link_to "Seller log out", destroy_seller_session_path, method: :delete %>
             <% end %>
