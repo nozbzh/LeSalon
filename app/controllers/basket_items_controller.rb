@@ -10,6 +10,13 @@ class BasketItemsController < ApplicationController
     redirect_to baskets_path
   end
 
+  def destroy
+    @basket_item = BasketItem.find(params[:id])
+    authorize @basket_item
+    @basket_item.destroy
+    redirect_to baskets_path
+  end
+
   private
 
   def items_params
