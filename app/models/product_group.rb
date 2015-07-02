@@ -19,8 +19,8 @@
 
 class ProductGroup < ActiveRecord::Base
   belongs_to :seller
-  has_many :product_refs
-  has_many :picture_products
+  has_many :product_refs, dependent: :destroy
+  has_many :picture_products, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   validates :category_type, presence: true
   validates :category_style, presence: true
