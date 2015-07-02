@@ -28,12 +28,14 @@
   </div>
 <% else %>
   <% @basket.basket_items.each do |item| %>
-    <%= link_to "Delete", basket_item_path(item),
-      method: :delete %>
     <div>
       <%= image_tag "http://placehold.it/200x200"%>
       <p><%= item.product_ref.product_group.name %></p>
       <p><%= item.product_ref.product_group.seller.name %></p>
+    </div>
+    <div>
+      <%= link_to "X", basket_item_path(item),
+      method: :delete %>
     </div>
     <p><%= item.product_ref.product_group.name %></p>
     <p>price <%= item.product_ref.price %> &euro;</p>
