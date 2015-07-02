@@ -8,16 +8,16 @@
           <% @seller.product_groups.each do |product_group| %>
             <div class="white-card text-center">
               <div class="row">
-                <div class="col-xs-3">
-                  <h5><%= link_to product_group.name, product_group_path(product_group) %></h5>
-                  <p><%= product_group.product_refs.first.price %> &euro;</p>
-                </div>
                 <div class="col-xs-9">
                   <% product_group.picture_products.each do |pic| %>
                     <%= link_to product_group_path(product_group) do %>
                         <%= image_tag pic.picture.url(:medium) %>
                     <% end %>
                   <% end %>
+                </div>
+                <div class="col-xs-3">
+                  <h5><%= link_to product_group.name, product_group_path(product_group) %></h5>
+                  <p><%= product_group.product_refs.first.price %> &euro;</p>
                 </div>
               </div>
             </div>
