@@ -17,7 +17,7 @@ module SellerAccount
       @picture.seller = current_seller
       authorize @picture
       if @picture.save
-        redirect_to seller_account_picture_sellers_path
+        redirect_to seller_account_sellers_profile_path
       else
 
       end

@@ -1,0 +1,26 @@
+<div class="padded">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+          <h1>Edit my profile</h1>
+
+            <%= simple_form_for(@seller, url: seller_account_seller_path(@seller)) do |f| %>
+              <%= f.error_notification %>
+
+              <%= f.input :description, label: "Full description" %>
+              <%= f.input :description_short, label: "Brief description" %>
+              <%= f.input :phone, label: "Phone number" %>
+              <%= f.input :address_street, label: "Street Address" %>
+              <%= f.input :address_zip, label: "Zip code" %>
+              <%= f.input :address_city, label: "City" %>
+              <%= f.input :address_country, label: "Country" %>
+
+              <p><%= f.button :submit %></p>
+
+            <% end %>
+        </div>
+      <div class="col-xs-2"></div>
+    </div>
+  </div>
+</div>

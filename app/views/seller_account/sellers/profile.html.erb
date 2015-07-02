@@ -1,0 +1,29 @@
+<h1>My profile</h1>
+
+<h3>Photos of my shop</h3>
+
+<% @pictures.each do |pic| %>
+  <%= image_tag pic.picture.url(:thumb) %>
+  <%= link_to "delete", seller_account_picture_seller_path(pic), method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
+
+<%= link_to "add a photo", new_seller_account_picture_seller_path %>
+
+
+<h3>My details</h3>
+
+<%= link_to "Edit", edit_seller_account_seller_path(current_seller) %>
+
+
+<p>Name: <%= current_seller.name %></p>
+<p>Brief description: <%= current_seller.description_short %></p>
+<p>Full description: <%= current_seller.description %></p>
+<p>Phone number: <%= current_seller.phone %></p>
+<p>Address: <%= current_seller.full_address %></p>
+
