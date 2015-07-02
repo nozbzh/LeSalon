@@ -12,10 +12,15 @@
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  reference            :string
+#  picture_file_name    :string
+#  picture_content_type :string
+#  picture_file_size    :integer
+#  picture_updated_at   :datetime
 #
 
 class ProductRef < ActiveRecord::Base
   belongs_to :product_group
+  has_one :picture_ref
   validates :color_name, presence: true
   validates :price, presence: true
   validates :promotion_percentage, presence: true
