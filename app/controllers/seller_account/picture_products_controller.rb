@@ -19,7 +19,7 @@ class PictureProductsController < SellerAccount::BaseController
       @picture_product.product_group = @product_group
       authorize @picture_product
       if @picture_product.save
-        redirect_to seller_account_product_group_path
+        redirect_to seller_account_product_group_path(@product_group)
       else
         render :new
       end
