@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # get 'product_groups/index'
 
   devise_for :sellers
@@ -20,7 +21,12 @@ Rails.application.routes.draw do
   resources :product_groups, only: [:index, :show]
   # get 'product_groups/index', to: "product#:category_type"
 
+  resources :basket_items, only: [:create]
+
+  resources :baskets, only: [:index]
+
   get '/sellers/:id', to: 'sellers#show_to_user', as: :sellers_page
+
 
   resources :product_refs, only: [:index, :show]
 

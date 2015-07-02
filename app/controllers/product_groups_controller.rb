@@ -10,5 +10,7 @@ class ProductGroupsController < ApplicationController
   def show
     @product_group = ProductGroup.find(params[:id])
     authorize @product_group
+    @basket_item = BasketItem.new
+
   end
 end
