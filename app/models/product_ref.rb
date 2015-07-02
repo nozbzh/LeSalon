@@ -21,4 +21,11 @@ class ProductRef < ActiveRecord::Base
   validates :promotion_percentage, presence: true
   validates :availability, presence: true
   validates :delivery_time, presence: true
+  validates :reference, presence: true, uniqueness: true
+
+  has_attached_file :picture,
+    styles: { thumb: "40x40#" }
+
+  validates_attachment_content_type :picture,
+    content_type: /\Aimage\/.*\z/
 end

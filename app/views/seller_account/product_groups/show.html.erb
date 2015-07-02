@@ -63,11 +63,13 @@
               <p>Prix net : <%= product_ref.price * (1 - product_ref.promotion_percentage) %> €</p>
               <p>Disponibilité : <%= product_ref.availability%></p>
               <p>Délais de livraison : <%= product_ref.delivery_time%></p>
+              <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
               <br>
-              <%= link_to "#" do %>
+              <%= link_to edit_seller_account_product_group_product_ref_path(@product_group, product_ref) do %>
                 <i class="fa fa-pencil"></i>
               <% end %>
-              <%= link_to "#" do %>
+              <%= link_to seller_account_product_group_product_ref_path(@product_group, product_ref), method: :delete,
+                data: { confirm: "Are you sure?" } do %>
                 <i class="fa fa-trash-o"></i>
               <% end %>
             </div>

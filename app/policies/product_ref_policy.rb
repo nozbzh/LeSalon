@@ -8,4 +8,16 @@ class ProductRefPolicy < ApplicationPolicy
   def create?
     user.class == Seller
   end
+
+  def edit?
+    user.class == Seller
+  end
+
+  def update?
+    user.class == Seller
+  end
+
+  def destroy?
+    user.class == Seller
+  end
 end
