@@ -1,6 +1,10 @@
-<h1>Baskets#index</h1>
-<% @basket.basket_items.each do |item| %>
-  <p><%= item.product_ref.product_group.name %></p>
-  <p>price <%= item.product_ref.price %> &euro;</p>
-  <p>quantiy <%= item.quantity %></p>
+<h1>Votre panier</h1>
+<% if @basket.basket_items.empty? %>
+  <p>Votre panier est vide.</p>
+<% else %>
+  <% @basket.basket_items.each do |item| %>
+    <p><%= item.product_ref.product_group.name %></p>
+    <p>price <%= item.product_ref.price %> &euro;</p>
+    <p>quantiy <%= item.quantity %></p>
+  <% end %>
 <% end %>
