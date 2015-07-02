@@ -14,13 +14,33 @@
       data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 </div>
 
+<div class="container bg-darker-grey">
 <div class="text-center">
   <h1><%= "Images" %></h1>
   <h5>La première image chargée sera la première à apparaître et sera utilisée comme image de référence</h5>
+  <div class="row">
   <% @product_group.picture_products.each do |picture| %>
-    <%= image_tag picture.picture.url(:medium) %>
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="photo-card">
+      <%= image_tag picture.picture.url(:medium) %>
+      <div id="bin-card">
+        <div id="bin">
+        <%= link_to seller_account_product_group_picture_product_path(@product_group, picture), method: :delete,
+      data: { confirm: "Are you sure?" } do %>
+          <i class="fa fa-trash-o"></i>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
   <%end%>
+  <br>
+  <br>
+</div>
+<div class="row">
   <%= link_to "Ajouter des images", new_seller_account_product_group_picture_product_path(@product_group), class: "btn btn-success"%>
+  </div>
+</div>
 </div>
 
 <div class="text-center">

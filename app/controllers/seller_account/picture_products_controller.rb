@@ -26,7 +26,12 @@ class PictureProductsController < SellerAccount::BaseController
     end
 
     def destroy
-
+      find_picture_product
+      find_product_group
+      authorize @picture_product
+      authorize @product_group
+      @picture_product.destroy
+      redirect_to seller_account_product_group_path(@product_group)
     end
 
     private
@@ -37,6 +42,10 @@ class PictureProductsController < SellerAccount::BaseController
 
     def find_product_group
       @product_group = ProductGroup.find(params[:product_group_id])
+    end
+
+    def find_picture_product
+      @picture_product = PictureProduct.find(params[:id])
     end
   end
 end
