@@ -1,0 +1,6 @@
+<h1>Baskets#index</h1>
+<% @basket.basket_items.each do |item| %>
+  <p><%= item.product_ref.product_group.name %></p>
+  <p>price <%= item.product_ref.price %> &euro;</p>
+  <p>quantiy <%= item.quantity %></p>
+<% end %>
