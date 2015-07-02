@@ -1,4 +1,22 @@
 <h1>ProductGroups#show</h1>
+
+
+<%= simple_form_for(@basket_item) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.select :quantity, [['1','1'],['2','2'],['3','3']] %>
+  <% @product_group.product_refs.each do |product_ref| %>
+    <%= label "product_ref", product_ref.color_name %>
+    <%= radio_button_tag :product_ref_id, product_ref.id %>
+  <% end %>
+  <%= f.button :submit, "add to basket"%>
+<% end %>
+
+<%#= link_to "Add to basket", basket_items_path, class: "btn btn-primary" %>
+
+<%#= link_to "Quantity", basket_items_path, class: "btn btn-primary" %>
+
 <p><%= @product_group.name %></p>
 <p><%= @product_group.description %></p>
 <p>By <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
+
