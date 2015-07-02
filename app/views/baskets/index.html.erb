@@ -1,8 +1,42 @@
-<h1>Votre panier</h1>
+<h1 class="text-panier">Votre panier</h1>
 <% if @basket.basket_items.empty? %>
-  <p>Votre panier est vide.</p>
+  <div class="text-panier">
+    <p>Votre panier est vide.</p>
+    <p>Check out our products:</p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
+      </div>
+    </div>
+  </div>
 <% else %>
   <% @basket.basket_items.each do |item| %>
+    <div>
+      <%= image_tag "http://placehold.it/200x200"%>
+      <p><%= item.product_ref.product_group.name %></p>
+      <p><%= item.product_ref.product_group.seller.name %></p>
+    </div>
+    <div>
+      <%= link_to "X", basket_item_path(item),
+      method: :delete %>
+    </div>
     <p><%= item.product_ref.product_group.name %></p>
     <p>price <%= item.product_ref.price %> &euro;</p>
     <p>quantiy <%= item.quantity %></p>

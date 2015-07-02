@@ -37,8 +37,8 @@ class Seller < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :picture_sellers
-  has_many :product_groups
+  has_many :picture_sellers, dependent: :destroy
+  has_many :product_groups, dependent: :destroy
   has_many :product_refs, through: :product_groups
   has_many :orders
   has_many :order_items, through: :orders

@@ -57,7 +57,7 @@ module SellerAccount
 
     def product_ref_params
       params.require(:product_ref).permit(:color_name, :price, :promotion_percentage,
-        :availability, :delivery_time, :reference, :picture)
+        :availability, :delivery_time, :reference, :picture, :image)
     end
 
     def find_product_group
