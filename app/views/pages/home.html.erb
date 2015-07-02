@@ -6,23 +6,25 @@
   <%# TODO %>
 <% end %>
 
+<div class= "img-home">
+  <%= image_tag "http://placehold.it/1200x400"%>
+</div>
+
+<div class="text-center">
+  <h1>Notre selection Italie</h1>
+</div>
+
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <h1>Welcome!</h1>
-
-      <h2>This is the homepage</h2>
-
-      <p>
-        Find me in <code>app/views/pages/home.html.erb</code>
-      </p>
-
-      <p>
-        Thanks to the <a href="https://github.com/thoughtbot/high_voltage">high_voltage</a>
-        gem, if you need more static pages (like <code>/contact</code> or <code>/about-us</code>),
-        just create a file in the <code>app/views/pages</code> folder, the route will be automatically
-        available without you adding any controller or touching the <code>config/routes.rb</code> file!
-      </p>
+    <div class="col-xs-6 col-sm-4">
+      <%= image_tag "http://placehold.it/300x300", class: "img-selection"%>
+    </div>
+      <div class="col-xs-6 col-sm-4">
+        <%= image_tag "http://placehold.it/300x300", class: "img-selection"%>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+        <%= image_tag "http://placehold.it/300x300", class: "img-selection"%>
+      </div>
     </div>
   </div>
 </div>

@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-xs-2"></div>
     <div class="col-xs-8">
-      <h1>Créer un nouveau produit</h1>
+      <h1>Modifier le produit</h1>
       <br>
 
-      <%= simple_form_for(@product_group, url: seller_account_product_groups_path) do |f| %>
+      <%= simple_form_for(@product_group, url: seller_account_product_group_path(@product_group)) do |f| %>
         <%= f.error_notification %>
         <%= f.input :name, :label => "Nom du produit" %>
         <%= f.input :category_type, :label => "Catégorie du produit", :collection => ["Canapés","Fauteuils", "Chaises", "Tabourets","Chaises de bureau", "Bibliothèques", "Etagères", "Commodes", "Armoires", "Consoles", "Bureaux", "Tables basses", "Salle à manger", "Lampadaires", "Lampes de table", "Lampes de bureau", "Suspensions", "Objets lumineux", "Lits", "Tables de chevet", "Coussins", "Miroirs", "Vide-poches", "Bibelots", "Pots", "Paravents", "Tapis", "Vases", "Extérieur"] %>
@@ -16,7 +16,7 @@
         <%= f.input :dimensions_height_cm, :label => "Hauteur en cm" %>
         <%= f.input :description, :label => "Description du produit" %>
         <%= f.input :characteristics, :label => "Caractéristiques du produit" %>
-        <p><%= f.button :submit, :label => "Créer le produit" %></p>
+        <p><%= f.button :submit, :label => "Modifier le produit" %></p>
       <% end %>
     </div>
     <div class="col-xs-2"></div>
