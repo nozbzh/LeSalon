@@ -14,6 +14,7 @@
 
 class PictureRef < ActiveRecord::Base
   belongs_to :product_ref
+  validates :picture, presence: true
 
   has_attached_file :picture,
     styles: { large: "750x500#", medium: "200x200#", thumb: "50x50#" }
