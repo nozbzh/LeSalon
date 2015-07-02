@@ -46,7 +46,9 @@
           </li>
         <% end %>
         <li>
-          <%= image_tag "truck_small.png", class: "img-cart" %>
+          <%= link_to baskets_path do %>
+            <%= image_tag "truck_small.png", class: "img-cart" %>
+          <% end %>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
