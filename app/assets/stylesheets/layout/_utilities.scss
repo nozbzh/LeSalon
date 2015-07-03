@@ -17,6 +17,9 @@
 .padded-top {
   padding-top: 8em;
 }
+.margin-top {
+  margin-top: 6em;
+}
 .bg-red {
   background: $red;
   color: white;
@@ -173,24 +176,15 @@
   font-size: 25px;
 }
 
+.s20-font {
+  font-size: 20px;
+}
+.padding-left {
+  padding-left: 10px;
+}
+
 .relative {
   position: relative;
-}
-
-#product-description {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
-}
-
-#adding-basket {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 70%;
 }
 
 .s13-font {

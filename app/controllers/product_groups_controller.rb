@@ -8,9 +8,11 @@ class ProductGroupsController < ApplicationController
   end
 
   def show
+    unless params[:product].nil?
+      @product = ProductRef.find(params[:product])
+    end
     @product_group = ProductGroup.find(params[:id])
     authorize @product_group
     @basket_item = BasketItem.new
-
   end
 end
