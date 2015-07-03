@@ -25,6 +25,7 @@
 class ProductRef < ActiveRecord::Base
   belongs_to :product_group
   has_one :picture_ref
+  has_many :basket_items, dependent: :destroy
   validates :color_name, presence: true
   validates :price, presence: true
   validates :promotion_percentage, presence: true

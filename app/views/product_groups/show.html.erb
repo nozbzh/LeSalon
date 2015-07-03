@@ -1,22 +1,40 @@
-<h1>ProductGroups#show</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <%= image_tag @product_group.picture_products.first.picture.url(:large) %>
+      <div>
+        <% @product_group.product_refs.each do |product_ref| %>
+          <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 padded relative">
 
 
-<%= simple_form_for(@basket_item) do |f| %>
-  <%= f.error_notification %>
+      <div id="product-description">
+        <h3><%= @product_group.name %></h3>
+        <p><%= @product_group.description %></p>
+        <p>By <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
+      </div>
 
-  <%= f.select :quantity, [['1','1'],['2','2'],['3','3']] %>
-  <% @product_group.product_refs.each do |product_ref| %>
-    <%= label "product_ref", product_ref.color_name %>
-    <%= radio_button_tag :product_ref_id, product_ref.id %>
-  <% end %>
-  <%= f.button :submit, "add to basket"%>
-<% end %>
+      <div id="adding-basket">
+        <%= simple_form_for(@basket_item) do |f| %>
+          <%= f.error_notification %>
 
-<%#= link_to "Add to basket", basket_items_path, class: "btn btn-primary" %>
+          <%= f.select :quantity, options_for_select((1..10).to_a) %>
+          <% @product_group.product_refs.each do |product_ref| %>
+            <%= label "product_ref", product_ref.color_name %>
+            <%= radio_button_tag :product_ref_id, product_ref.id %>
+          <% end %>
+          <%= f.button :submit, "Add to basket", class: "btn btn-primary" %>
+        <% end %>
 
-<%#= link_to "Quantity", basket_items_path, class: "btn btn-primary" %>
+        <p><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</p>
+      </div>
 
-<p><%= @product_group.name %></p>
-<p><%= @product_group.description %></p>
-<p>By <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
-
+    </div>
+  </div>
+</div>

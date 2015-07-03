@@ -14,6 +14,9 @@
 .padded-bottom {
   padding-bottom: 8em;
 }
+.padded-top {
+  padding-top: 8em;
+}
 .bg-red {
   background: $red;
   color: white;
@@ -167,4 +170,8 @@
 
 .s25-font {
   font-size: 25px;
+}
+
+.relative {
+  position: relative;
 }
