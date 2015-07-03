@@ -58,6 +58,33 @@ $navbar-profile-border-width: 2px;
     height: 57px;
   }
 
+ .img-cart {
+  a {
+    opacity: 0.7;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+ }
+
+ .image-circle-panier {
+  width: 30px;
+  border-radius: 50%;
+  background-color: $red;
+  position: relative;
+  height: 30px;
+  top: 15%;
+  right: -52%;
+ }
+
+ .image-circle-number {
+  position: absolute;
+  top: 0%;
+  right: 22%;
+  font-size: 20px;
+  color: white;
+ }
+
   .navbar-nav > li > a,
   .navbar-nav > .open > a,
   .navbar-nav > li > a:focus,

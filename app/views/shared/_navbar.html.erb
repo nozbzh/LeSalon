@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">
-        <%= image_tag "le_salon_logo.png" %>
+        <%= image_tag "logo_no_house.png" %>
       </a>
     </div>
 
@@ -45,11 +45,18 @@
             <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
           </li>
         <% end %>
-        <li id="image-padding-nav">
+        <li id="image-padding-nav" class="img-cart">
           <%= link_to baskets_path do %>
-            <%= image_tag "truck_small.png", class: "img-cart" %>
+            <%= image_tag "truck_small.png"%>
           <% end %>
         </li>
+        <% if current_user.basket.basket_items.present? %>
+          <div class="image-circle-panier">
+            <div class="image-circle-number">
+              <%= current_user.basket.basket_items.count %>
+            </div>
+          </div>
+        <%end%>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
