@@ -22,6 +22,15 @@ body {
  .empty-basket {
   margin: 20px;
  }
+ .alert-basket-empty {
+  color: $red;
+ }
+
+ #text-like-panier {
+  margin-left: 72px;
+  margin-right: 72px;
+  padding-bottom: 40px;
+ }
 
  .text-panier {
   margin-left: 72px;

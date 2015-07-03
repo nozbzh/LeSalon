@@ -1,31 +1,35 @@
-<div class="window-height">
+<div>
   <div>
     <h1 class="text-panier">Votre panier</h1>
   </div>
   <% if @basket.basket_items.empty? %>
     <div class="text-panier">
-      <p>Votre panier est vide.</p>
-      <p>Check out our products:</p>
+      <div class="alert-basket-empty">
+        <p>Votre panier est vide.</p>
+      </div>
     </div>
+    <hr>
+    <h2 id="text-like-panier" class="text-center">Vous aimerez peut-être</h2>
     <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
+      <div class="row text-center">
+        <div class="col-xs-6 col-sm-4">
+          <%= image_tag "outdoor-homepage.jpg", class: "text-center img-relative text-center"%>
+          <div class="legend-absolute">
+            <h5>Extérieur</h5>
+          </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
+          <div class="col-xs-6 col-sm-4">
+            <%= image_tag "lamps-homepage.jpg", class: "text-center img-relative text-center"%>
+            <div class="legend-absolute">
+            <h5>Luminaires</h5>
+          </div>
+          </div>
+          <div class="col-xs-6 col-sm-4">
+            <%= image_tag "italians-homepage.jpg", class: "text-center img-relative text-center"%>
+            <div class="legend-absolute">
+            <h5>Mobilier italien</h5>
+          </div>
+          </div>
         </div>
       </div>
     </div>
