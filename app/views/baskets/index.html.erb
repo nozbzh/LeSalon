@@ -34,12 +34,12 @@
       </div>
     </div>
   <% else %>
-    <div class="window-height">
+    <div>
       <% @basket.basket_items.each do |item| %>
         <div class="position">
           <div class="panier-card">
             <%= link_to product_group_path(item.product_ref.product_group) do %>
-              <%= image_tag item.product_ref.image, width: "200", class: "img-product-panier" %>
+              <%= image_tag item.product_ref.image.url(:medium), class: "img-product-panier" %>
             <% end %>
             <p><%= item.product_ref.product_group.name %></p>
             <%= link_to sellers_page_path(item.product_ref.product_group.seller) do %>
@@ -70,8 +70,9 @@
             <p><%= item.product_ref.delivery_time %></p>
           </div>
         </div>
+        <hr>
       <% end %>
-      <hr>
+
     <div class="position">
       <p class="panier-card"><b>Prix Total:</b></p>
       <% sum = 0 %>
@@ -80,6 +81,7 @@
           <% sum += item.product_ref.price * item.quantity %>
           <% end %>
           <p><b><%= number_to_currency_fr(sum) %> &euro;</b></p>
+          <br><br>
       </div>
     </div>
   <% end %>
