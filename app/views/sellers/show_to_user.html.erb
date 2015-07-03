@@ -1,48 +1,90 @@
 <div class="container">
-    <div class="row">
+  <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <h1 class="text-center"><%= @seller.name %></h1>
-
+        <br>
         <% if @seller.picture_sellers.present? %>
-          <div class="">
-            <%= image_tag @seller.picture_sellers.first.picture.url(:large) %>
-          </div>
-        <% end %>
-        <h3>All of <%= @seller.name %>'s products:</h3>
-
-          <% @seller.product_groups.each do |product_group| %>
-            <div class="white-card text-center">
-              <div class="row">
-                <div class="col-xs-9">
-                  <% product_group.picture_products.each do |pic| %>
-                    <%= link_to product_group_path(product_group) do %>
-                        <%= image_tag pic.picture.url(:medium) %>
-                    <% end %>
-                  <% end %>
-                </div>
-                <div class="col-xs-3">
-                  <h5><%= link_to product_group.name, product_group_path(product_group) %></h5>
-                  <p><%= number_to_currency_fr(product_group.product_refs.first.price) %> &euro;</p>
-                </div>
-              </div>
+         <div class="text-center">
+          <br>
+           <%= image_tag @seller.picture_sellers.first.picture.url(:large) %>
+         </div>
+       <% end %>
+      </div>
+  </div>
+</div>
+<br>
+<div class="text-center">
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+    </div>
+    <div class="col-xs-8">
+      <p><%= @seller.description %></p>
+    </div>
+    <div class="col-xs-2">
+    </div>
+  </div>
+</div>
+<h3>Tous les produits de <%= @seller.name %></h3>
+</div>
+<br>
+<br>
+<br>
+<% if @product_groups.empty? %>
+<h3>Il n'y a aucun résultat pour ce fabricatn</h3>
+<% else %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+    </div>
+    <div class="col-xs-8">
+      <div class="row">
+        <% @seller.product_groups.each do |product_group| %>
+          <div class="col-xs-4">
+            <div class="row">
+              <%= link_to product_group_path(product_group) do %>
+                <%= image_tag product_group.picture_products.first.picture.url(:medium) %>
+              <% end %>
             </div>
-          <% end %>
-
-
-<!--
-        add background image from seller_pictures -->
-
-
-
-
-
-
+            <div class="row" id="product-index-card">
+              <br>
+              <p><%= product_group.name %></p>
+              <p class="s13-font">By <%= product_group.seller.name %></p>
+              <% product_ref = product_group.product_refs.first %>
+              <% if product_ref.promotion_percentage == 0 %>
+                <p class="s13-font"><%= number_to_currency_fr(product_ref.price)%> &euro;</p>
+              <% else %>
+                <p class="s13-font"><del class="s13-font text-muted"><%= number_to_currency_fr(product_ref.price) %> &euro;</del>     <%= number_to_currency_fr(product_ref.price * (1 - product_ref.promotion_percentage)) %> &euro;</p>
+                  <div id="promotion-card">
+                  <div id="promotion">
+                    <p class="s13-font"><%= number_to_currency_fr(product_ref.promotion_percentage * 100) %> %</p>
+                  </div>
+                </div>
+              <% end %>
+              <br>
+            </div>
+            <hr>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-2">
+    </div>
+  </div>
+</div>
+<%end%>
         <br>
         <br>
-        <br>
-        <br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+    </div>
+      <div class="col-xs-8">
         <div class="padded-bottom">
-          <div id="map" style="width: 100%; height: 300px;"></div>
+          <div id="map" style="width: 100%; height: 400px;"></div>
           <% content_for(:after_js) do %>
             <%= javascript_tag do %>
               var sellerLocation = <%= raw @seller_location.to_json %>
@@ -60,6 +102,8 @@
             <% end %>
           <% end %>
         </div>
+      </div>
+      <div class="col-xs-2">
       </div>
     </div>
   </div>
