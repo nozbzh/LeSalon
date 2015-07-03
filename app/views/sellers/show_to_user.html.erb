@@ -3,10 +3,11 @@
       <div class="col-md-10 col-md-offset-1">
         <h1 class="text-center"><%= @seller.name %></h1>
 
-        <div class="">
-          <%= image_tag @seller.picture_sellers.first.picture.url(:large) %>
-        </div>
-
+        <% if @seller.picture_sellers.present? %>
+          <div class="">
+            <%= image_tag @seller.picture_sellers.first.picture.url(:large) %>
+          </div>
+        <% end %>
         <h3>All of <%= @seller.name %>'s products:</h3>
 
           <% @seller.product_groups.each do |product_group| %>
