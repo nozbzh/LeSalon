@@ -45,12 +45,13 @@
             <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
           </li>
         <% end %>
+        <% if user_signed_in? && current_user.basket.basket_items.present? %>
+
         <li id="image-padding-nav" class="img-cart">
           <%= link_to baskets_path do %>
             <%= image_tag "truck_small.png"%>
           <% end %>
         </li>
-        <% if current_user.basket.basket_items.present? %>
           <div class="image-circle-panier">
             <div class="image-circle-number">
               <%= current_user.basket.basket_items.count %>
