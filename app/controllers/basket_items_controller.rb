@@ -27,10 +27,10 @@ class BasketItemsController < ApplicationController
   private
 
   def items_params
-    params.require(:basket_item).permit(:quantity)
+    params.require(:basket_item).permit(:quantity, :product_ref_id)
   end
 
   def find_product_ref
-    @product_ref = ProductRef.find(params[:product_ref_id])
+    @product_ref = ProductRef.find(params[:basket_item][:product_ref_id])
   end
 end

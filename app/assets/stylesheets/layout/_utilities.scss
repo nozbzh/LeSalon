@@ -14,6 +14,12 @@
 .padded-bottom {
   padding-bottom: 8em;
 }
+.padded-top {
+  padding-top: 8em;
+}
+.margin-top {
+  margin-top: 6em;
+}
 .bg-red {
   background: $red;
   color: white;
@@ -170,6 +176,17 @@
   font-size: 25px;
 }
 
+.s20-font {
+  font-size: 20px;
+}
+.padding-left {
+  padding-left: 10px;
+}
+
+.relative {
+  position: relative;
+}
+
 .s13-font {
   font-size: 13px;
 }
@@ -195,5 +212,4 @@
 #product-index-card {
   position: relative;
 }
-
 
