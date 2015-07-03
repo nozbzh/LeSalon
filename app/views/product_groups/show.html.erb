@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 text-center">
+    <div class="col-xs-12 text-center image-padded">
       <%= image_tag @product_group.product_refs.first.image.url(:large) %>
       <div>
         <% @product_group.product_refs.each do |product_ref| %>
@@ -52,7 +52,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 text-center">
+    <div class="col-xs-12 text-center image-padded">
       <%= image_tag @product.image.url(:large) %>
       <div>
         <% @product_group.product_refs.each do |product_ref| %>
