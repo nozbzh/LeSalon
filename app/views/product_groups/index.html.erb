@@ -1,5 +1,8 @@
 <br>
 <br>
+<% if @product_groups.empty? %>
+<h3>Il n'y a aucun résultat dans cette catégorie</h3>
+<% else %>
 <div class="container">
   <div class="row">
     <div class="col-xs-3">
@@ -37,3 +40,4 @@
     </div>
   </div>
 </div>
+<% end %>
