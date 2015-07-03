@@ -24,6 +24,57 @@ body {
 
  .text-panier {
   margin-left: 72px;
+  padding-bottom: 40px;
+ }
+
+ .position {
+  position: relative;
+ }
+
+ .img-product-panier {
   padding-bottom: 20px;
  }
+
+ .panier-card {
+  margin-left: 71px;
+ }
+
+ #delete-panier {
+  position: absolute;
+  top: -1%;
+  right: 16%;
+  font-size: 20px;
+ }
+
+ #color-panier{
+  position: absolute;
+  top: 23%;
+  right: 64%;
+ }
+
+ #text-color-panier {
+  padding-top: 25px;
+ }
+
+ #text-price-panier {
+  padding-top: 33px;
+ }
+
+#quantity-panier {
+  position: absolute;
+  top: 15%;
+  right: 20%;
+}
+
+#delivery-panier {
+  position: absolute;
+  top: 27%;
+  right: 46%;
+}
+
+#total-price-basket {
+  position: absolute;
+  top: 29%;
+  right: 20%;
+}
 
