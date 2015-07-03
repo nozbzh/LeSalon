@@ -1,44 +1,84 @@
-<h1 class="text-panier">Votre panier</h1>
-<% if @basket.basket_items.empty? %>
-  <div class="text-panier">
-    <p>Votre panier est vide.</p>
-    <p>Check out our products:</p>
+<div>
+  <div>
+    <h1 class="text-panier">Votre panier</h1>
   </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= image_tag "http://placehold.it/200x200", class: "empty-basket"%>
+  <% if @basket.basket_items.empty? %>
+    <div class="text-panier">
+      <div class="alert-basket-empty">
+        <p>Votre panier est vide.</p>
       </div>
     </div>
-  </div>
-<% else %>
-  <% @basket.basket_items.each do |item| %>
-    <div>
-      <%= image_tag "http://placehold.it/200x200"%>
-      <p><%= item.product_ref.product_group.name %></p>
-      <p><%= item.product_ref.product_group.seller.name %></p>
+    <hr>
+    <h2 id="text-like-panier" class="text-center">Vous aimerez peut-être</h2>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-xs-6 col-sm-4">
+          <%= image_tag "outdoor-homepage.jpg", class: "text-center img-relative text-center"%>
+          <div class="legend-absolute">
+            <h5>Extérieur</h5>
+          </div>
+        </div>
+          <div class="col-xs-6 col-sm-4">
+            <%= image_tag "lamps-homepage.jpg", class: "text-center img-relative text-center"%>
+            <div class="legend-absolute">
+            <h5>Luminaires</h5>
+          </div>
+          </div>
+          <div class="col-xs-6 col-sm-4">
+            <%= image_tag "italians-homepage.jpg", class: "text-center img-relative text-center"%>
+            <div class="legend-absolute">
+            <h5>Mobilier italien</h5>
+          </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      <%= link_to "X", basket_item_path(item),
-      method: :delete %>
+  <% else %>
+    <% @basket.basket_items.each do |item| %>
+      <div class="position">
+        <div class="panier-card">
+          <%= link_to product_group_path(item.product_ref.product_group) do %>
+            <%= image_tag item.product_ref.image, width: "200", class: "img-product-panier" %>
+          <% end %>
+          <p><%= item.product_ref.product_group.name %></p>
+          <%= link_to sellers_page_path(item.product_ref.product_group.seller) do %>
+            <p><%= item.product_ref.product_group.seller.name %></p>
+          <% end %>
+        </div>
+        <div id="delete-panier">
+          <%= link_to basket_item_path(item), method: :delete do %>
+            <i class="fa fa-times"></i>
+          <%end %>
+        </div>
+        <div id="color-panier">
+          <%= image_tag item.product_ref.picture.url(:thumb), class: "sample-image" %>
+          <p id="text-color-panier"><%= item.product_ref.color_name %></p>
+        </div>
+        <div id="quantity-panier">
+          <div>
+            <%= simple_form_for(item) do |f| %>
+              <%= f.select :quantity, [['1','1'],['2','2'],['3','3']] %>
+            <% end %>
+          </div>
+          <p id="text-price-panier">Prix par unité: <%= item.product_ref.price %> &euro;</p>
+          <p>Prix total: <%= item.product_ref.price * item.quantity %> &euro;</p>
+        </div>
+        <div id="delivery-panier">
+          <p>Délai de livraison</p>
+          <hr>
+          <p><%= item.product_ref.delivery_time %></p>
+        </div>
+      </div>
+    <% end %>
+    <hr>
+    <div class="position">
+      <p class="panier-card"><b>Prix Total:</b></p>
+      <% sum = 0 %>
+      <div id="total-price-basket">
+        <% @basket.basket_items.each do |item| %>
+          <p><b><%= sum += item.product_ref.price * item.quantity %> &euro;</b></p>
+        <% end %>
+      </div>
     </div>
-    <p><%= item.product_ref.product_group.name %></p>
-    <p>price <%= item.product_ref.price %> &euro;</p>
-    <p>quantiy <%= item.quantity %></p>
   <% end %>
-<% end %>
+</div>

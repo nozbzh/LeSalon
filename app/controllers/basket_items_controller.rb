@@ -17,6 +17,13 @@ class BasketItemsController < ApplicationController
     redirect_to baskets_path
   end
 
+  def update
+    @basket_item = BasketItem.find(params[:id])
+    authorize @basket_item
+    @basket_item.update(items_params)
+    redirect_to baskets_path
+  end
+
   private
 
   def items_params
