@@ -1,10 +1,12 @@
+<% if @product.nil? %>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 text-center">
-      <%= image_tag @product_group.picture_products.first.picture.url(:large) %>
+      <%= image_tag @product_group.product_refs.first.image.url(:large) %>
       <div>
         <% @product_group.product_refs.each do |product_ref| %>
-          <%= link_to "#" do %>
+          <%= link_to product_group_path(@product_group, :product => product_ref) do %>
             <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
           <% end %>
         <% end %>
@@ -16,37 +18,77 @@
     <div class="col-xs-6 padded">
 
 
-      <div id="product-description">
+      <div>
         <h3><%= @product_group.name %></h3>
+        <p>Vendu par <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
         <p><%= @product_group.description %></p>
-        <p>By <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
+        <p>Longueur: <%= @product_group.dimensions_length_cm %> cm</p>
+        <p>Largeur: <%= @product_group.dimensions_width_cm %> cm</p>
+        <p>Hauteur: <%= @product_group.dimensions_height_cm %> cm</p>
       </div>
 
     </div>
     <div class="col-xs-6 padded">
-      <div id="adding-basket">
+      <div class="pull-right">
         <%= simple_form_for(@basket_item) do |f| %>
           <%= f.error_notification %>
           <%= f.select :quantity, options_for_select((1..10).to_a) %>
-          <% @product_group.product_refs.each do |product_ref| %>
-            <%= label :product_ref_id, product_ref.id, style: "background: url(#{image_url product_ref.picture.url(:thumb)})" %>
-            <div class="hide">
-              <%= radio_button_tag :product_ref_id, product_ref.id %>
-            </div>
-          <% end %>
+          <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product_group.product_refs.first.id } %>
           <p><strong><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</strong></p>
-          <%= f.button :submit, "Add to basket", class: "btn btn-primary" %>
+          <%= f.button :submit, "Ajouter au panier", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<!-- if no product ref_id in params
+<% else %>
 
-show original page
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <%= image_tag @product.image.url(:large) %>
+      <div>
+        <% @product_group.product_refs.each do |product_ref| %>
+          <%= link_to product_group_path(@product_group, :product => product_ref) do %>
+            <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-else
+  <div class="row">
+    <div class="col-xs-6 padded">
 
-take product ref object and show its price and photo
- -->
+
+      <div>
+        <h3><%= @product_group.name %></h3>
+        <p>Vendu par <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
+        <p><%= @product_group.description %></p>
+        <h4>Mesures</h4>
+        <p>Longueur: <%= @product_group.dimensions_length_cm %> cm</p>
+        <p>Largeur: <%= @product_group.dimensions_width_cm %> cm</p>
+        <p>Hauteur: <%= @product_group.dimensions_height_cm %> cm</p>
+        <h4>Informations complementaires</h4>
+        <p>Delais de livraison: <%= @product.delivery_time %></p>
+        <p>Disponibilite: <%= @product.availability %></p>
+
+      </div>
+
+    </div>
+    <div class="col-xs-6 padded">
+      <div class="pull-right">
+        <%= simple_form_for(@basket_item) do |f| %>
+          <%= f.error_notification %>
+          <%= f.select :quantity, options_for_select((1..10).to_a) %>
+          <span class="s20-font padding-left"><%= @product.color_name %></span>
+          <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product.id } %>
+          <p class="s25-font"><br><%= number_to_currency_fr(@product.price) %> &euro;</p>
+          <%= f.button :submit, "Ajouter au panier", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
