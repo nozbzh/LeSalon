@@ -4,14 +4,16 @@
       <%= image_tag @product_group.picture_products.first.picture.url(:large) %>
       <div>
         <% @product_group.product_refs.each do |product_ref| %>
-          <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
+          <%= link_to "#" do %>
+            <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
+          <% end %>
         <% end %>
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-xs-12 padded relative">
+    <div class="col-xs-6 padded">
 
 
       <div id="product-description">
@@ -20,21 +22,31 @@
         <p>By <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
       </div>
 
+    </div>
+    <div class="col-xs-6 padded">
       <div id="adding-basket">
         <%= simple_form_for(@basket_item) do |f| %>
           <%= f.error_notification %>
-
           <%= f.select :quantity, options_for_select((1..10).to_a) %>
           <% @product_group.product_refs.each do |product_ref| %>
-            <%= label "product_ref", product_ref.color_name %>
-            <%= radio_button_tag :product_ref_id, product_ref.id %>
+            <%= label :product_ref_id, product_ref.id, style: "background: url(#{image_url product_ref.picture.url(:thumb)})" %>
+            <div class="hide">
+              <%= radio_button_tag :product_ref_id, product_ref.id %>
+            </div>
           <% end %>
+          <p><strong><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</strong></p>
           <%= f.button :submit, "Add to basket", class: "btn btn-primary" %>
         <% end %>
-
-        <p><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</p>
       </div>
-
     </div>
   </div>
 </div>
+
+<!-- if no product ref_id in params
+
+show original page
+
+else
+
+take product ref object and show its price and photo
+ -->
