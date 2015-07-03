@@ -22,10 +22,15 @@
         <h3><%= @product_group.name %></h3>
         <p>Vendu par <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
         <p><%= @product_group.description %></p>
+        <h4>Mesures</h4>
         <p>Longueur: <%= @product_group.dimensions_length_cm %> cm</p>
         <p>Largeur: <%= @product_group.dimensions_width_cm %> cm</p>
         <p>Hauteur: <%= @product_group.dimensions_height_cm %> cm</p>
+        <h4>Informations complementaires</h4>
+        <p>Delais de livraison: <%= @product_group.product_refs.first.delivery_time %></p>
+        <p>Disponibilite: <%= @product_group.product_refs.first.availability %></p>
       </div>
+
 
     </div>
     <div class="col-xs-6 padded">
@@ -33,8 +38,9 @@
         <%= simple_form_for(@basket_item) do |f| %>
           <%= f.error_notification %>
           <%= f.select :quantity, options_for_select((1..10).to_a) %>
+          <span class="s20-font padding-left"><%= @product_group.product_refs.first.color_name %></span>
           <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product_group.product_refs.first.id } %>
-          <p><strong><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</strong></p>
+          <p class="s25-font"><br><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</p>
           <%= f.button :submit, "Ajouter au panier", class: "btn btn-primary" %>
         <% end %>
       </div>
