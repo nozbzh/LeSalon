@@ -61,8 +61,8 @@
                 <%= f.select :quantity, [['1','1'],['2','2'],['3','3']] %>
               <% end %>
             </div>
-            <p id="text-price-panier">Prix par unité: <%= item.product_ref.price %> &euro;</p>
-            <p>Prix total: <%= item.product_ref.price * item.quantity %> &euro;</p>
+            <p id="text-price-panier">Prix unitaire: <%= number_to_currency_fr(item.product_ref.price) %> &euro;</p>
+          <p>Prix total: <%= number_to_currency_fr(item.product_ref.price * item.quantity) %> &euro;</p>
           </div>
           <div id="delivery-panier">
             <p>Délai de livraison</p>
@@ -72,15 +72,17 @@
         </div>
       <% end %>
       <hr>
-      <div class="position">
-        <p class="panier-card"><b>Prix Total:</b></p>
-        <% sum = 0 %>
-        <div id="total-price-basket">
-          <% @basket.basket_items.each do |item| %>
-            <p><b><%= sum += item.product_ref.price * item.quantity %> &euro;</b></p>
+    <div class="position">
+      <p class="panier-card"><b>Prix Total:</b></p>
+      <% sum = 0 %>
+      <div id="total-price-basket">
+        <% @basket.basket_items.each do |item| %>
+          <% sum += item.product_ref.price * item.quantity %>
           <% end %>
-        </div>
+          <p><b><%= number_to_currency_fr(sum) %> &euro;</b></p>
       </div>
     </div>
   <% end %>
 </div>
+<br>
+<br>
