@@ -1,6 +1,39 @@
-<h1>ProductGroups#index</h1>
-<p>Find me in app/views/product_groups/index.html.erb</p>
-<% @product_groups.each do |pg| %>
-  <%= link_to pg.name, product_group_path(pg) %>
-  <%= pg.description %>
-<% end %>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-9">
+      <div class="row">
+        <% @product_groups.each do |product_group| %>
+          <div class="col-xs-4">
+            <div class="row">
+              <%= link_to product_group_path(product_group) do %>
+                <%= image_tag product_group.picture_products.first.picture.url(:medium) %>
+              <% end %>
+            </div>
+            <div class="row" id="product-index-card">
+              <br>
+              <p><%= product_group.name %></p>
+              <p class="s13-font">By <%= product_group.seller.name %></p>
+              <% product_ref = product_group.product_refs.first %>
+              <% if product_ref.promotion_percentage == 0 %>
+                <p class="s13-font"><%= number_to_currency_fr(product_ref.price)%> &euro;</p>
+              <% else %>
+                <p class="s13-font"><del class="s13-font text-muted"><%= number_to_currency_fr(product_ref.price) %> &euro;</del>     <%= number_to_currency_fr(product_ref.price * (1 - product_ref.promotion_percentage)) %> &euro;</p>
+                  <div id="promotion-card">
+                  <div id="promotion">
+                    <p class="s13-font"><%= number_to_currency_fr(product_ref.promotion_percentage * 100) %> %</p>
+                  </div>
+                </div>
+              <% end %>
+              <br>
+            </div>
+            <hr>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -155,16 +155,45 @@
 
 .legend-absolute {
   position: absolute;
-  top: 0px;
+  top: 40px;
   bottom: 0px;
   left: 25%;
   right: 0px;
   height: 40px;
   width: 50%;
   border: 1px solid rgb(220, 220, 220);
-  color: rgb(150, 150, 150);
+  color: rgb(80, 80, 80);
+  background-color: rgba(255, 255, 255, 1)
 }
 
 .s25-font {
   font-size: 25px;
 }
+
+.s13-font {
+  font-size: 13px;
+}
+
+#promotion-card {
+  position: absolute;
+  background: rgba(50, 50, 50, 0.4);
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  color: white;
+  font-size: 12px;
+}
+
+#promotion {
+  position: absolute;
+  top: 28%;
+  bottom: 0;
+  left: 10%;
+  right: 0;
+}
+
+#product-index-card {
+  position: relative;
+}
+
+
