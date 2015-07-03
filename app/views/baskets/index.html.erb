@@ -51,7 +51,7 @@
           <%end %>
         </div>
         <div id="color-panier">
-          <%= image_tag item.product_ref.picture, class: "sample-image" %>
+          <%= image_tag item.product_ref.picture.url(:thumb), class: "sample-image" %>
           <p id="text-color-panier"><%= item.product_ref.color_name %></p>
         </div>
         <div id="quantity-panier">
