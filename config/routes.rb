@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :product_groups, only: [:index, :show]
   # get 'product_groups/index', to: "product#:category_type"
 
-  resources :basket_items, only: [:create, :destroy]
+  resources :basket_items, only: [:create, :destroy, :update]
 
   resources :baskets, only: [:index]
 
