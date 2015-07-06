@@ -1,13 +1,225 @@
 <br>
+<div id="sidebar-wrapper">
+  <p>Styles</p>
+  <% if params[:category_style] && params[:price_min] %>
+  <%= link_to product_groups_path(:category_style => "Moderne", :category => params[:category], :price_min => params[:price_min], :price_max => params[:price_max]) do %>
+            Moderne
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Classique", :category => params[:category], :price_min => params[:price_min], :price_max => params[:price_max]) do %>
+            Classique
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Suédois", :category => params[:category], :price_min => params[:price_min], :price_max => params[:price_max]) do %>
+            Suédois
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Enfant", :category => params[:category], :price_min => params[:price_min], :price_max => params[:price_max]) do %>
+            Enfant
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category => params[:category], :price_min => params[:price_min], :price_max => params[:price_max]) do %>
+            Tous
+  <% end %>
+
+  <br>
+  <br>
+  <br>
+  <p>Prix</p>
+  <%= link_to product_groups_path(:price_min => 0, :price_max => 100, :category => params[:category], :category_style => params[:category_style]) do %>
+            < 100€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 100, :price_max => 500, :category => params[:category], :category_style => params[:category_style]) do %>
+            100€ - 500€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 500, :price_max => 1000, :category => params[:category], :category_style => params[:category_style]) do %>
+            500€ - 1 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 1000, :price_max => 2000, :category => params[:category], :category_style => params[:category_style]) do %>
+            1 000€ - 2 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 2000, :category => params[:category], :category_style => params[:category_style]) do %>
+            > 2 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category => params[:category], :category_style => params[:category_style]) do %>
+            Tous
+  <% end %>
+
+  <% elsif params[:category_style] %>
+    <%= link_to product_groups_path(:category_style => "Moderne", :category => params[:category]) do %>
+            Moderne
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Classique", :category => params[:category]) do %>
+            Classique
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Suédois", :category => params[:category]) do %>
+            Suédois
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Enfant", :category => params[:category]) do %>
+            Enfant
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category => params[:category]) do %>
+            Tous
+  <% end %>
+
+  <br>
+  <br>
+  <br>
+  <p>Prix</p>
+  <%= link_to product_groups_path(:price_min => 0, :price_max => 100, :category => params[:category], :category_style => params[:category_style]) do %>
+            < 100€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 100, :price_max => 500, :category => params[:category], :category_style => params[:category_style]) do %>
+            100€ - 500€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 500, :price_max => 1000, :category => params[:category], :category_style => params[:category_style]) do %>
+            500€ - 1 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 1000, :price_max => 2000, :category => params[:category], :category_style => params[:category_style]) do %>
+            1 000€ - 2 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 2000, :category => params[:category], :category_style => params[:category_style]) do %>
+            > 2 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category => params[:category], :category_style => params[:category_style]) do %>
+            Tous
+  <% end %>
+  <% elsif params[:price_min] %>
+    <%= link_to product_groups_path(:category_style => "Moderne", :category => params[:category], :price_min => params[:price_min], :price_max => params[:price_max]) do %>
+            Moderne
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Classique", :category => params[:category], :price_min => params[:price_min], :price_max => params[:price_max]) do %>
+            Classique
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Suédois", :category => params[:category], :price_min => params[:price_min], :price_max => params[:price_max]) do %>
+            Suédois
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Enfant", :category => params[:category], :price_min => params[:price_min], :price_max => params[:price_max]) do %>
+            Enfant
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category => params[:category], :price_min => params[:price_min], :price_max => params[:price_max]) do %>
+            Tous
+  <% end %>
+
+  <br>
+  <br>
+  <br>
+  <p>Prix</p>
+  <%= link_to product_groups_path(:price_min => 0, :price_max => 100, :category => params[:category]) do %>
+            < 100€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 100, :price_max => 500, :category => params[:category]) do %>
+            100€ - 500€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 500, :price_max => 1000, :category => params[:category]) do %>
+            500€ - 1 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 1000, :price_max => 2000, :category => params[:category]) do %>
+            1 000€ - 2 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 2000, :category => params[:category]) do %>
+            > 2 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price => params[:category]) do %>
+            Tous
+  <% end %>
+
+  <% else %>
+  <%= link_to product_groups_path(:category_style => "Moderne", :category => params[:category]) do %>
+            Moderne
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Classique", :category => params[:category]) do %>
+            Classique
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Suédois", :category => params[:category]) do %>
+            Suédois
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category_style => "Enfant", :category => params[:category]) do %>
+            Enfant
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:category => params[:category]) do %>
+            Tous
+  <% end %>
+
+  <br>
+  <br>
+  <br>
+  <p>Prix</p>
+  <%= link_to product_groups_path(:price_min => 0, :price_max => 100, :category => params[:category]) do %>
+            < 100€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 100, :price_max => 500, :category => params[:category]) do %>
+            100€ - 500€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 500, :price_max => 1000, :category => params[:category]) do %>
+            500€ - 1 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 1000, :price_max => 2000, :category => params[:category]) do %>
+            1 000€ - 2 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price_min => 2000, :category => params[:category]) do %>
+            > 2 000€
+  <% end %>
+  <br>
+  <%= link_to product_groups_path(:price => params[:category]) do %>
+            Tous
+  <% end %>
+
+  <% end %>
+
+</div>
 <br>
+<div class="Site-content">
 <% if @product_groups.empty? %>
-<h3>Le Salon est vide pour le moment</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-9">
+      <h3>Le Salon est vide pour le moment</h3>
+    </div>
+  </div>
+</div>
 <% else %>
 <div class="container">
+  <br>
+  <br>
  <div class="row">
    <div class="col-xs-3">
    </div>
    <div class="col-xs-9">
+    <p><%=@product_groups.count%> produits trouvés</p>
      <div class="row">
        <% @product_groups.each do |product_group| %>
          <div class="col-xs-4">
@@ -41,3 +253,4 @@
  </div>
 </div>
 <% end %>
+</div>

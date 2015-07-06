@@ -39,6 +39,14 @@ $navbar-profile-border-width: 2px;
 /* -------------------------------------
  * SCSS code
  * ------------------------------------- */
+.navbar-2-z {
+  z-index: 2;
+}
+
+.navbar-3-z {
+  z-index: 3;
+}
+
 .navbar-wagon {
   background: $navbar-bg;
   font-family: $navbar-font-family;
@@ -199,7 +207,7 @@ $navbar-profile-border-width: 2px;
   height: 57px;
   margin-bottom: 0px;
   position: relative;
-  top: 3px;
+  top: 0px;
 
 
   .not-fixed {
