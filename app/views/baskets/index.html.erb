@@ -53,7 +53,7 @@
           </div>
           <div id="color-panier">
             <%= image_tag item.product_ref.picture.url(:thumb), class: "sample-image" %>
-            <p id="text-color-panier"><%= item.product_ref.color_name %></p>
+            <p id="text-color-panier" class="text-center"><%= item.product_ref.color_name %></p>
           </div>
           <div id="quantity-panier">
             <div>
@@ -61,14 +61,28 @@
                 <%= f.select :quantity, [['1','1'],['2','2'],['3','3']] %>
               <% end %>
             </div>
-            <p id="text-price-panier">Prix unitaire: <%= number_to_currency_fr(item.product_ref.price) %> &euro;</p>
-          <p>Prix total: <%= number_to_currency_fr(item.product_ref.price * item.quantity) %> &euro;</p>
+            <% if item.product_ref.promotion_percentage == 0 %>
+              <p id="text-price-panier">Prix unitaire: <%= number_to_currency_fr(item.product_ref.price) %> &euro;</p>
+              <p>Prix total: <%= number_to_currency_fr(item.product_ref.price * item.quantity) %> &euro;</p>
+            <% else %>
+              <p id="text-price-panier"><del class="text-muted">Prix unitaire: <%= number_to_currency_fr(item.product_ref.price) %> &euro;</del>     <%= number_to_currency_fr(item.product_ref.price * (1 - item.product_ref.promotion_percentage)) %> &euro;</p>
+              <p>Prix total: <%= number_to_currency_fr(item.product_ref.price * (1 - item.product_ref.promotion_percentage) * item.quantity) %> &euro;</p>
+            <% end %>
           </div>
           <div id="delivery-panier">
             <p>Délai de livraison</p>
             <hr>
             <p><%= item.product_ref.delivery_time %></p>
           </div>
+          <% if item.product_ref.promotion_percentage > 0 %>
+            <div id="promotion-panier">
+              <div id="promotion-card-basket">
+                <div id="promotion-basket">
+                  <p><%= number_to_currency_fr(item.product_ref.promotion_percentage * 100) %> %</p>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
         <hr>
       <% end %>
@@ -78,10 +92,16 @@
       <% sum = 0 %>
       <div id="total-price-basket">
         <% @basket.basket_items.each do |item| %>
-          <% sum += item.product_ref.price * item.quantity %>
+          <% if item.product_ref.promotion_percentage == 0 %>
+            <% sum += item.product_ref.price * item.quantity %>
+            <p><b><%= number_to_currency_fr(sum) %> &euro;</b></p>
+            <br><br>
+          <% else %>
+            <% sum += item.product_ref.price * (1 - item.product_ref.promotion_percentage) * item.quantity %>
+            <p><b><%= number_to_currency_fr(sum) %> &euro;</b></p>
+            <br><br>
           <% end %>
-          <p><b><%= number_to_currency_fr(sum) %> &euro;</b></p>
-          <br><br>
+        <% end %>
       </div>
     </div>
   <% end %>
