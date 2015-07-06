@@ -1,0 +1,17 @@
+#sidebar-wrapper {
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    padding-top: 150px;
+    left: 250px;
+    width: 250px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    padding-left: 50px;
+}
