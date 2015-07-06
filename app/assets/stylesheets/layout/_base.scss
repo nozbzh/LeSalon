@@ -100,7 +100,34 @@ body {
 
 #total-price-basket {
   position: absolute;
-  top: 29%;
+  top: 3%;
   right: 20%;
+}
+
+#promotion-panier {
+  position: absolute;
+  top: -4%;
+  right: 76%;
+}
+
+#promotion-card-basket {
+  background: rgba(50, 50, 50, 0.4);
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  color: white;
+}
+
+#promotion-basket {
+  position: absolute;
+  top: 31%;
+  bottom: 0;
+  left: 21%;
+  right: 0;
+
+
+  p {
+    font-size: 18px;
+  }
 }
 
