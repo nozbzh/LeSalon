@@ -17,6 +17,16 @@ $brand-info:      $yellow;
 $brand-danger:    $red;
 $brand-warning:   $orange;
 
+// button color
+
+$btn-primary-bg: rgba(200, 125, 58, 0.8);
+$btn-primary-border: rgba(200, 125, 58, 0.8);
+$btn-border-radius-base: 4px;
+
+.btn {
+  font-family: "Lucida Grande", "sans-serif";
+}
+
 // General radius (for buttons, inputs, popover...)
 $border-radius-base:  2px;
 $border-radius-large: 2px;
