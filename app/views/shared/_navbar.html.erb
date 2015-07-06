@@ -41,15 +41,15 @@
           <li>
             <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path %>
           </li>
-          <li>
-            <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
-          </li>
+<!--           <li> -->
+            <%#= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
+<!--           </li> -->
         <% end %>
         <% if user_signed_in? && current_user.basket.basket_items.present? %>
 
         <li id="image-padding-nav" class="img-cart">
           <%= link_to baskets_path do %>
-            <%= image_tag "truck_small.png"%>
+            <%= image_tag "basket_new.png"%>
           <% end %>
         </li>
           <div class="image-circle-panier">
