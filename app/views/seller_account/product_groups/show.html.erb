@@ -71,6 +71,20 @@
   <% end %>
 <% end %>
 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-11 col-sm-offset-1">
+      <h2> Références pour ce produit </h2>
+      <div id="add-img-seller-ref">
+        <%= link_to new_seller_account_product_group_product_ref_path(@product_group) do%>
+          <i class="fa fa-plus"></i>
+        <% end %>
+      </div>
+      <h5>Une référence au moins est nécessaire pour que le produit soit référencé sur le site</h5>
+    </div>
+  </div>
+</div>
+
 <% @product_group.product_refs.each do |product_ref| %>
   <div class="container">
     <div class="row">
@@ -78,17 +92,10 @@
         <div class="seller-product-card">
           <div class="row">
             <div class="col-sm-5 col-sm-offset-1">
-              <h2> Références pour ce produit </h2>
-              <div id="add-img-seller-ref">
-                <%= link_to new_seller_account_product_group_product_ref_path(@product_group) do%>
-                  <i class="fa fa-plus"></i>
-                <% end %>
+              <div id="seller-img-ref">
+                <%= image_tag product_ref.image.url(:medium) %>
+                <%= image_tag product_ref.picture.url(:thumb), class: "sample-image", id: "sample-seller-show" %>
               </div>
-              <h5>Une référence au moins est nécessaire pour que le produit soit référencé sur le site</h5>
-              <br>
-              <br>
-              <%= image_tag product_ref.image.url(:medium) %>
-              <%= image_tag product_ref.picture.url(:thumb), class: "sample-image", id: "sample-seller-show" %>
             </div>
             <div class="col-sm-6" id="seller-reference-show">
               <h4><b>Couleur: <%= product_ref.color_name %></b></h4>
