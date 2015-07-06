@@ -16,14 +16,16 @@
 <% else %>
   <body id="user">
 <% end %>
-  <% unless seller_signed_in? %>
-  <%= render "shared/navbar" %>
-  <%= render "shared/navbar_products" %>
-  <% end %>
+
   <% if seller_signed_in? %>
-  <%= render "seller_account/shared/navbar" %>
+    <%= render "shared/flashes" %>
+    <%= render "seller_account/shared/navbar" %>
+  <% else %>
+    <%= render "shared/flashes" %>
+    <%= render "shared/navbar" %>
+    <%= render "shared/navbar_products" %>
   <% end %>
-  <%= render "shared/flashes" %>
+
 
   <%= yield %>
 
