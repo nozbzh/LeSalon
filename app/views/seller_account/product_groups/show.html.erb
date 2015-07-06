@@ -1,92 +1,119 @@
-<div class="text-center">
-  <h1><%= @product_group.name %></h1>
-  <p>Type : <%=@product_group.category_type%></p>
-  <p>Style : <%=@product_group.category_style%></p>
-  <p>Material : <%=@product_group.material%></p>
-  <p>Longueur : <%=@product_group.dimensions_length_cm%></p>
-  <p>Largeur : <%=@product_group.dimensions_width_cm%></p>
-  <p>Hauteur : <%=@product_group.dimensions_height_cm%></p>
-  <p>Présentation : <%=@product_group.description%></p>
-  <p>Caractéristiques : <%=@product_group.characteristics%></p>
-<br>
-  <%= link_to "Modifier le produit", edit_seller_account_product_group_path(@product_group), class: "btn btn-warning" %>
-  <%= link_to "Supprimer le produit", seller_account_product_group_path(@product_group), method: :delete,
-      data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-</div>
-
-<div class="container bg-darker-grey">
-<div class="text-center">
-  <h1><%= "Images" %></h1>
-  <h5>La première image chargée sera la première à apparaître et sera utilisée comme image de référence</h5>
+<div class="container">
   <div class="row">
-  <% @product_group.picture_products.each do |picture| %>
-  <div class="col-xs-12 col-sm-6 col-md-4">
-    <div class="photo-card">
-      <%= image_tag picture.picture.url(:medium) %>
-      <div id="bin-card">
-        <div id="bin">
-        <%= link_to seller_account_product_group_picture_product_path(@product_group, picture), method: :delete,
-      data: { confirm: "Are you sure?" } do %>
-          <i class="fa fa-trash-o"></i>
-        <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <%end%>
-  <br>
-  <br>
-</div>
-<div class="row">
-  <%= link_to "Ajouter des images", new_seller_account_product_group_picture_product_path(@product_group), class: "btn btn-success"%>
-  </div>
-</div>
-</div>
-
-<div class="text-center">
-  <h1><%= "Références pour ce produit" %></h1>
-  <h5>Une référence au moins est nécessaire pour que le produit soit référencé sur le site</h5>
-</div>
-<div class="container bg-darker-grey">
-    <% @product_group.product_refs.each do |product_ref| %>
-      <div class="row">
-        <div class="col-xs-1"></div>
-        <div class="col-xs-10">
-          <div class="row white-card">
-            <div class="col-xs-12 col-sm-6 text-center">
-              <%= image_tag product_ref.image.url(:medium) %>
-            </div>
-            <div class="col-xs-12 col-sm-6 text-center">
-              <h4>Couleur: <%= product_ref.color_name %></h4>
-              <p>Prix : <%= product_ref.price%> €</p>
-              <p>Promotion : <%= product_ref.promotion_percentage * 100 %> %</p>
-              <p>Prix net : <%= product_ref.price * (1 - product_ref.promotion_percentage) %> €</p>
-              <p>Disponibilité : <%= product_ref.availability%></p>
-              <p>Délais de livraison : <%= product_ref.delivery_time%></p>
-              <p>Référence : <%= product_ref.reference%></p>
-              <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
-              <br>
-              <div id="pencil-card">
-              <div id="pencil">
-              <%= link_to edit_seller_account_product_group_product_ref_path(@product_group, product_ref) do %>
+    <div class="col-sm-12">
+      <div class="seller-product-card">
+        <div class="row">
+          <div class="col-sm-5 col-sm-offset-1">
+            <h1><%= @product_group.name %></h1>
+            <p><b>Type :</b> <%=@product_group.category_type%></p>
+            <p><b>Style :</b> <%=@product_group.category_style%></p>
+            <p><b>Material :</b> <%=@product_group.material%></p>
+            <p><b>Longueur :</b> <%=@product_group.dimensions_length_cm%></p>
+            <p><b>Largeur :</b> <%=@product_group.dimensions_width_cm%></p>
+            <p><b>Hauteur :</b> <%=@product_group.dimensions_height_cm%></p>
+            <p><b>Présentation :</b> <%=@product_group.description%></p>
+            <p><b>Caractéristiques :</b> <%=@product_group.characteristics%></p>
+            <div id="pencil-card-seller">
+              <%= link_to edit_seller_account_product_group_path(@product_group) do %>
                 <i class="fa fa-pencil"></i>
               <% end %>
-              </div>
-              </div>
-              <div id="delete-cross">
-              <%= link_to seller_account_product_group_product_ref_path(@product_group, product_ref), method: :delete,
+            </div>
+            <div id="delete-cross-seller">
+              <%= link_to seller_account_product_group_path(@product_group), method: :delete,
                 data: { confirm: "Are you sure?" } do %>
                 <i class="fa fa-times"></i>
               <% end %>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <br>
+            <h4><%= "Images" %></h4>
+            <div id="add-img-seller">
+              <%= link_to new_seller_account_product_group_picture_product_path(@product_group) do %>
+                <i class="fa fa-plus"></i>
+              <% end %>
+            </div>
+            <p>La première image chargée sera la première à apparaître et sera utilisée comme image de référence</p>
+            <div class="col-xs-12 col-sm-7">
+              <div class="photo-card">
+                <div class="slider">
+                  <% @product_group.picture_products.each do |picture| %>
+                   <div class="slider-item">
+                     <%= image_tag picture.picture.url(:medium) %>
+                      <div class="bin-card-seller">
+                       <%= link_to seller_account_product_group_picture_product_path(@product_group, picture), method: :delete,
+                      data: { confirm: "Are you sure?" } do %>
+                        <i class="fa fa-trash-o"></i>
+                       <% end %>
+                      </div>
+                    </div>
+                  <%end%>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-xs-1"></div>
       </div>
-    <% end %>
-    <div class="row text-center">
-      <%= link_to "Add new reference", new_seller_account_product_group_product_ref_path(@product_group), class: "btn btn-primary"%>
     </div>
-<br>
+  </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+
+
+      $('.slider').slick({
+        dots: true,
+      });
+
+    });
+  <% end %>
+<% end %>
+
+<% @product_group.product_refs.each do |product_ref| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="seller-product-card">
+          <div class="row">
+            <div class="col-sm-5 col-sm-offset-1">
+              <h2> Références pour ce produit </h2>
+              <div id="add-img-seller-ref">
+                <%= link_to new_seller_account_product_group_product_ref_path(@product_group) do%>
+                  <i class="fa fa-plus"></i>
+                <% end %>
+              </div>
+              <h5>Une référence au moins est nécessaire pour que le produit soit référencé sur le site</h5>
+              <br>
+              <br>
+              <%= image_tag product_ref.image.url(:medium) %>
+              <%= image_tag product_ref.picture.url(:thumb), class: "sample-image", id: "sample-seller-show" %>
+            </div>
+            <div class="col-sm-6" id="seller-reference-show">
+              <h4><b>Couleur: <%= product_ref.color_name %></b></h4>
+              <p><b>Prix : </b><%= product_ref.price%> €</p>
+              <p><b>Promotion : </b> <%= product_ref.promotion_percentage * 100 %> %</p>
+              <p><b>Prix net : </b><%= product_ref.price * (1 - product_ref.promotion_percentage) %> €</p>
+              <p><b>Disponibilité : </b><%= product_ref.availability%></p>
+              <p><b>Délais de livraison : </b><%= product_ref.delivery_time%></p>
+              <p><b>Référence :</b> <%= product_ref.reference%></p>
+            </div>
+            <div id="pencil-card-seller-ref">
+              <%= link_to edit_seller_account_product_group_path(@product_group) do %>
+                <i class="fa fa-pencil"></i>
+              <% end %>
+            </div>
+            <div id="delete-cross-seller-ref">
+              <%= link_to seller_account_product_group_path(@product_group), method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+                <i class="fa fa-times"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
