@@ -25,8 +25,9 @@ gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
 
-gem "geocoder"
+gem "jquery-slick-rails"
 
+gem "geocoder"
 gem "gmaps4rails"
 gem "rails-assets-underscore"
 gem 'coffee-rails', '~> 4.1.0'

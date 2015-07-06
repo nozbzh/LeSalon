@@ -96,5 +96,30 @@
       </div>
     </div>
   </div>
+
+
+<div class="slider">
+  <% @product_group.picture_products.each do |pic| %>
+    <div>
+      <%= image_tag pic.picture.url(:large) %>
+    </div>
+  <% end %>
+</div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+
+
+      $('.slider').slick({
+        dots: true,
+
+
+      });
+
+    });
+  <% end %>
+<% end %>
+
 </div>
 <% end %>
