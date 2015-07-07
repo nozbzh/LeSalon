@@ -5,6 +5,17 @@ Rails.application.routes.draw do
   devise_for :sellers
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  namespace :users do
+    resources :bill_clients, only: [:index, :show]
+  end
+
+  resources :bill_clients, only: [:new, :create, :edit, :update]
+
+  # resources :order_items, only: [:new, :create]
+  # resources :orders
+
+
+
   namespace :seller_account do
     resources :picture_sellers, only: [:index, :new, :create, :destroy]
     resources :product_groups do

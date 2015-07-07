@@ -1,0 +1,7 @@
+<h1>My order items</h1>
+<% @items.each do |item| %>
+  <%= item.product_ref.product_group.name %>
+<% end %>
+
+<%= current_user.first_name %>
+<%= current_user.id %>

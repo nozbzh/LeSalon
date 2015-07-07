@@ -80,8 +80,9 @@
         <% @basket.basket_items.each do |item| %>
           <% sum += item.product_ref.price * item.quantity %>
           <% end %>
-          <p><b><%= number_to_currency_fr(sum) %> &euro;</b></p>
-          <br><br>
+        <p><b><%= number_to_currency_fr(sum) %> &euro;</b></p>
+        <br><br>
+        <p><%= link_to "Order", bill_clients_path, method: :post, class: "btn btn-success" %></p>
       </div>
     </div>
   <% end %>

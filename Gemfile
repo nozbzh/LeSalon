@@ -32,6 +32,8 @@ gem "gmaps4rails"
 gem "rails-assets-underscore"
 gem 'coffee-rails', '~> 4.1.0'
 
+gem 'money-rails'
+
 group :development, :test do
   gem "spring"
   gem "annotate"
