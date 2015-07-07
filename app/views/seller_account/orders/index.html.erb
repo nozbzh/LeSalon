@@ -1,0 +1,15 @@
+<h1>Here are all my orders</h1>
+<ul>
+  <% @orders.each do |order| %>
+    <li>
+      <%= link_to order.bill_client.user.first_name, seller_account_order_path(order) %>
+      <ul>
+        <% order.order_items.each do |item| %>
+          <li>
+            <%= item.product_ref.product_group.name %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>

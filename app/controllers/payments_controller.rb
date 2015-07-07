@@ -25,8 +25,9 @@ class PaymentsController < ApplicationController
       @bill.update(payment: charge.to_json, status: 'payed')
 
 
-
-      redirect_to bill_client_path(@bill)
+      BasketItem.delete_all
+      session[:bill_id] = nil
+      redirect_to confirmation_bill_client_path(@bill)
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
@@ -36,7 +37,6 @@ class PaymentsController < ApplicationController
   private
 
     def set_bill
-      #@bill = BillClient.where(status: 'pending').find(session[:bill_id])
-      @bill = BillClient.find(session[:bill_id])
+      @bill = BillClient.where(status: 'pending').find(session[:bill_id])
     end
 end

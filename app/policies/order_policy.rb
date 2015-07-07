@@ -1,12 +1,16 @@
 class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.class == user
-        user.basket.basket_items
+      if user.class == seller
+        seller.orders
       else
-      scope.all
+        scope.all
       end
     end
+  end
+
+  def index?
+    true
   end
 
   def new?
@@ -14,6 +18,10 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def create?
+    true
+  end
+
+  def show?
     true
   end
 
