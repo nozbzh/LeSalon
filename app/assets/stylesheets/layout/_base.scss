@@ -234,7 +234,7 @@ body {
 .show-sidebar {
   background-color: #F5F5F5;
   width: 360px;
-  height: 600px;
+  height: 539px;
   right: 0px;
   margin-top: 38px;
   border-radius: 4px;
@@ -242,5 +242,24 @@ body {
 
 .show-sidebar-title {
   margin-left: 47px;
+  margin-right: 47px;
   padding-top: 13px;
+}
+
+.show-sidebar-quantity {
+  padding-top: 15px;
+}
+
+.price-tag {
+  color: #87bcd1;
+}
+
+.btn-show-ref {
+  background-color: #87bcd1;
+  height: 83px;
+  width: 300px;
+  margin-left: -14px;
+  margin-top: 10px;
+  color: white;
+  font-size: 21px;
 }
