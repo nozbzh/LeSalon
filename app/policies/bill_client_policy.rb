@@ -17,4 +17,8 @@ class BillClientPolicy < ApplicationPolicy
     true
   end
 
+  def confirmation?
+    true
+  end
+
 end

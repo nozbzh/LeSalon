@@ -1,0 +1,13 @@
+<h3>Order number <%= "#{@order.id} for #{@order.bill_client.user.first_name} #{@order.bill_client.user.last_name}" %></h3>
+
+<% sum = 0 %>
+<ul>
+  <% @order.order_items.each do |item| %>
+    <li>
+      <%= "#{item.quantity} x #{item.product_ref.product_group.name} #{item.product_ref.color_name}" %>
+      <% sum += item.price %>
+    </li>
+  <% end %>
+</ul>
+
+<p>Total: <%= number_to_currency_fr(sum) %> &euro;</p>

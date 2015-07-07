@@ -8,6 +8,7 @@
 #  updated_at   :datetime         not null
 #  status       :string
 #  amount_cents :integer          default(0), not null
+#  payment      :json
 #
 # Indexes
 #

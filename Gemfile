@@ -33,6 +33,7 @@ gem "rails-assets-underscore"
 gem 'coffee-rails', '~> 4.1.0'
 
 gem 'money-rails'
+gem 'stripe'
 
 group :development, :test do
   gem "spring"
