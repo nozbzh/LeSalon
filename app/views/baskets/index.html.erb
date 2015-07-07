@@ -102,6 +102,7 @@
           <%# end %>
         <% end %>
         <p id="total-price-basket"><b><%= number_to_currency_fr(sum) %> &euro;</b></p>
+        <p><%= link_to "Order", bill_clients_path, method: :post, class: "btn btn-success" %></p>
       </div>
     </div>
   <% end %>

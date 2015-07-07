@@ -1,24 +1,24 @@
 # == Schema Information
 #
-# Table name: basket_items
+# Table name: order_items
 #
 #  id             :integer          not null, primary key
 #  quantity       :integer
+#  order_id       :integer
 #  product_ref_id :integer
-#  basket_id      :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  price_cents    :integer          default(0), not null
 #
 # Indexes
 #
-#  index_basket_items_on_basket_id       (basket_id)
-#  index_basket_items_on_product_ref_id  (product_ref_id)
+#  index_order_items_on_order_id        (order_id)
+#  index_order_items_on_product_ref_id  (product_ref_id)
 #
 
-class BasketItem < ActiveRecord::Base
+class OrderItem < ActiveRecord::Base
+  belongs_to :order
   belongs_to :product_ref
-  belongs_to :basket
 
   monetize :price_cents
 end

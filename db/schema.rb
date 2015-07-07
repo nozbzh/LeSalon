@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702154624) do
+ActiveRecord::Schema.define(version: 20150707120010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 20150702154624) do
     t.integer  "quantity"
     t.integer  "product_ref_id"
     t.integer  "basket_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "price_cents",    default: 0, null: false
   end
 
   add_index "basket_items", ["basket_id"], name: "index_basket_items_on_basket_id", using: :btree
@@ -35,6 +36,39 @@ ActiveRecord::Schema.define(version: 20150702154624) do
   end
 
   add_index "baskets", ["user_id"], name: "index_baskets_on_user_id", using: :btree
+
+  create_table "bill_clients", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "status"
+    t.integer  "amount_cents", default: 0, null: false
+  end
+
+  add_index "bill_clients", ["user_id"], name: "index_bill_clients_on_user_id", using: :btree
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "order_id"
+    t.integer  "product_ref_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "price_cents",    default: 0, null: false
+  end
+
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+  add_index "order_items", ["product_ref_id"], name: "index_order_items_on_product_ref_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "status_order"
+    t.integer  "seller_id"
+    t.integer  "bill_client_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "orders", ["bill_client_id"], name: "index_orders_on_bill_client_id", using: :btree
+  add_index "orders", ["seller_id"], name: "index_orders_on_seller_id", using: :btree
 
   create_table "picture_products", force: :cascade do |t|
     t.integer  "product_group_id"
@@ -87,12 +121,11 @@ ActiveRecord::Schema.define(version: 20150702154624) do
   create_table "product_refs", force: :cascade do |t|
     t.integer  "product_group_id"
     t.string   "color_name"
-    t.integer  "price"
     t.decimal  "promotion_percentage"
     t.string   "availability"
     t.string   "delivery_time"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "reference"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
@@ -102,6 +135,7 @@ ActiveRecord::Schema.define(version: 20150702154624) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "price_cents",          default: 0, null: false
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -165,5 +199,10 @@ ActiveRecord::Schema.define(version: 20150702154624) do
   add_foreign_key "basket_items", "baskets"
   add_foreign_key "basket_items", "product_refs"
   add_foreign_key "baskets", "users"
+  add_foreign_key "bill_clients", "users"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "product_refs"
+  add_foreign_key "orders", "bill_clients"
+  add_foreign_key "orders", "sellers"
   add_foreign_key "picture_sellers", "sellers"
 end
