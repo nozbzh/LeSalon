@@ -12,7 +12,6 @@
       <div class="show-sidebar">
         <div class="show-sidebar-title">
           <h3><%= @product_group.name %></h3>
-          <p><%= @product_group.description %></p>
           <p>Vendu par <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
         </div>
         <div class="show-sidebar-title">
@@ -30,7 +29,7 @@
             <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product_group.product_refs.first.id } %>
             </div>
             <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</del></p>
-            <p class="s25-font price-tag"><%= number_to_currency_fr(@product_group.product_refs.first.price * (1 - @product_group.product_refs.first.promotion_percentage) * (@basket_item.quantity ? @basket_item.quantity : 1) )%>&euro;</p>
+            <p class="s25-font price-tag"><%= number_to_currency_fr(@product_group.product_refs.first.price * (1 - @product_group.product_refs.first.promotion_percentage))%>&euro;</p>
             <%# raise %>
             <div>
               <%= f.button :submit, "Ajouter au panier", class: "btn-show-ref" %>
@@ -110,7 +109,6 @@
         <div class="show-sidebar">
           <div class="show-sidebar-title">
             <h3><%= @product_group.name %></h3>
-            <p><%= @product_group.description %></p>
             <p>Vendu par <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
           </div>
           <div class="show-sidebar-title">
@@ -124,11 +122,11 @@
               <hr>
               <div class="show-sidebar-quantity">
               <%= f.select :quantity, options_for_select((1..10).to_a)%>
-              <span class="s20-font padding-left"><%= @product_group.product_refs.first.color_name %></span>
-              <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product_group.product_refs.first.id } %>
+              <span class="s20-font padding-left"><%= @product.color_name %></span>
+              <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product.id } %>
               </div>
-              <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</del></p>
-              <p class="s25-font price-tag"><%= number_to_currency_fr(@product_group.product_refs.first.price * (1 - @product_group.product_refs.first.promotion_percentage) * (@basket_item.quantity ? @basket_item.quantity : 1) )%>&euro;</p>
+              <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product.price) %> &euro;</del></p>
+              <p class="s25-font price-tag"><%= number_to_currency_fr(@product.price * (1 - @product.promotion_percentage))%>&euro;</p>
               <%# raise %>
               <div>
                 <%= f.button :submit, "Ajouter au panier", class: "btn-show-ref" %>
@@ -178,6 +176,4 @@
     });
   <% end %>
 <% end %>
-
-</div>
 <% end %>
