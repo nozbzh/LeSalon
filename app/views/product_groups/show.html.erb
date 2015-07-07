@@ -52,23 +52,25 @@
 
 
   <div class="row">
-    <div class="col-xs-6 padded">
-
-
-      <div>
+    <div class="col-xs-6">
+      <div class="card-show">
         <h3><%= @product_group.name %></h3>
-
-        <p><%= @product_group.description %></p>
-        <h4>Mesures</h4>
+        <br>
+        <h4><b>Mesures</b></h4>
         <p>Longueur: <%= @product_group.dimensions_length_cm %> cm</p>
         <p>Largeur: <%= @product_group.dimensions_width_cm %> cm</p>
         <p>Hauteur: <%= @product_group.dimensions_height_cm %> cm</p>
-        <h4>Informations complementaires</h4>
+        <br>
+        <h4><b>Informations complementaires</b></h4>
         <p>Delais de livraison: <%= @product_group.product_refs.first.delivery_time %></p>
         <p>Disponibilite: <%= @product_group.product_refs.first.availability %></p>
       </div>
-
-
+    </div>
+    <div class="col-xs-6">
+      <div class="card-show">
+        <h3>Description</h3>
+        <p><%= @product_group.description %></p>
+      </div>
     </div>
   </div>
 
