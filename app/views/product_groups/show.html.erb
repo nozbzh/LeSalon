@@ -40,12 +40,37 @@
           <%= f.select :quantity, options_for_select((1..10).to_a) %>
           <span class="s20-font padding-left"><%= @product_group.product_refs.first.color_name %></span>
           <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product_group.product_refs.first.id } %>
-          <p class="s25-font"><br><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</p>
+          <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</del></p>
+          <p class="s25-font"><%= number_to_currency_fr(@product_group.product_refs.first.price * (1 - @product_group.product_refs.first.promotion_percentage))%></p>
           <%= f.button :submit, "Ajouter au panier", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
   </div>
+
+  <div class="slider">
+  <% @product_group.picture_products.each do |pic| %>
+    <div>
+      <%= image_tag pic.picture.url(:large) %>
+    </div>
+  <% end %>
+</div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+
+
+      $('.slider').slick({
+        dots: true,
+
+
+      });
+
+    });
+  <% end %>
+<% end %>
+
 </div>
 
 <% else %>
@@ -90,7 +115,8 @@
           <%= f.select :quantity, options_for_select((1..10).to_a) %>
           <span class="s20-font padding-left"><%= @product.color_name %></span>
           <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product.id } %>
-          <p class="s25-font"><br><%= number_to_currency_fr(@product.price) %> &euro;</p>
+          <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product.price) %> &euro;</del></p>
+          <p class="s25-font"><%= number_to_currency_fr(@product.price * (1 - @product.promotion_percentage))%></p>
           <%= f.button :submit, "Ajouter au panier", class: "btn btn-primary" %>
         <% end %>
       </div>

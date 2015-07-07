@@ -5,6 +5,16 @@
  * already a Bootstrap SCSS variable that does the same job
  * ------------------------------------- */
 
+ .Site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  .Site-content {
+    flex: 1;
+  }
+
  #user {
   padding-top: 70px;
  }
@@ -23,6 +33,92 @@
     }
   }
 
+.btn {
+  font-family: Lucida Grande;
+  font-weight: 100;
+}
+
+.btn-facebook {
+  background-color: #3b5998;
+  color: white;
+  width: 567px;
+}
+
+#btn-facebook-sign-in {
+  background-color: #3b5998;
+  color: white;
+  width: 489px;;
+}
+
+#seller-btn {
+  margin-top: 40px;
+}
+
+.seller-product-card {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#pencil-card-seller {
+  position: absolute;
+  top: 5%;
+  right: 20%;
+  font-size: 20px;
+}
+
+#delete-cross-seller {
+  position: absolute;
+  top: 12%;
+  right: 20%;
+  font-size: 20px;
+}
+
+#pencil-card-seller-ref {
+  position: absolute;
+  top: 13%;
+  right: 18%;
+  font-size: 20px;
+}
+
+#delete-cross-seller-ref {
+  position: absolute;
+  top: 20%;
+  right: 18%;
+  font-size: 20px;
+}
+
+#add-img-seller-ref {
+  position: absolute;
+  top: 27%;
+  right: 53%;
+  font-size: 20px;
+}
+
+.bin-card-seller {
+  position: absolute;
+  top: 3%;
+  right: 29%;
+  font-size: 20px;
+}
+
+#add-img-seller {
+  position: absolute;
+  top: 6%;
+  right: 82%;
+  font-size: 20px;
+}
+
+#seller-img-ref {
+  padding-top: 20px;
+}
+
+#seller-reference-show {
+  padding-left: 136px;
+}
+
+#sample-seller-show {
+  position: absolute;
+}
 
 body {
   background-color: white;
@@ -54,6 +150,10 @@ body {
  }
 
  .position {
+  position: relative;
+ }
+
+ .slider-item {
   position: relative;
  }
 
@@ -100,7 +200,34 @@ body {
 
 #total-price-basket {
   position: absolute;
-  top: 29%;
+  top: 3%;
   right: 20%;
+}
+
+#promotion-panier {
+  position: absolute;
+  top: -4%;
+  right: 76%;
+}
+
+#promotion-card-basket {
+  background: rgba(50, 50, 50, 0.4);
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  color: white;
+}
+
+#promotion-basket {
+  position: absolute;
+  top: 31%;
+  bottom: 0;
+  left: 21%;
+  right: 0;
+
+
+  p {
+    font-size: 18px;
+  }
 }
 
