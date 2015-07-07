@@ -107,12 +107,12 @@
               <p><b>Référence :</b> <%= product_ref.reference%></p>
             </div>
             <div id="pencil-card-seller-ref">
-              <%= link_to edit_seller_account_product_group_path(@product_group) do %>
+              <%= link_to edit_seller_account_product_group_product_ref_path(@product_group, product_ref) do %>
                 <i class="fa fa-pencil"></i>
               <% end %>
             </div>
             <div id="delete-cross-seller-ref">
-              <%= link_to seller_account_product_group_path(@product_group), method: :delete,
+              <%= link_to seller_account_product_group_product_ref_path(@product_group, product_ref), method: :delete,
                 data: { confirm: "Are you sure?" } do %>
                 <i class="fa fa-times"></i>
               <% end %>
