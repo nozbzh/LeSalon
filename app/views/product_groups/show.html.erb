@@ -1,18 +1,56 @@
 <% if @product.nil? %>
 
+
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 text-center image-padded">
+    <div class="col-xs-8 image-padded text-center">
       <%= image_tag @product_group.product_refs.first.image.url(:large) %>
-      <div>
-        <% @product_group.product_refs.each do |product_ref| %>
-          <%= link_to product_group_path(@product_group, :product => product_ref) do %>
-            <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
+    </div>
+
+
+    <div class="col-xs-4 col-sm-2">
+      <div class="show-sidebar">
+        <div class="show-sidebar-title">
+          <h3><%= @product_group.name %></h3>
+          <p><%= @product_group.description %></p>
+          <p>Vendu par <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
+        </div>
+        <div class="show-sidebar-title">
+          <%= simple_form_for(@basket_item) do |f| %>
+            <%= f.error_notification %>
+            <% @product_group.product_refs.each do |product_ref| %>
+              <%= link_to product_group_path(@product_group, :product => product_ref) do %>
+                <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
+              <% end %>
+            <% end %>
+            <hr>
+            <div class="show-sidebar-quantity">
+            <%= f.select :quantity, options_for_select((1..10).to_a)%>
+            <span class="s20-font padding-left"><%= @product_group.product_refs.first.color_name %></span>
+            <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product_group.product_refs.first.id } %>
+            </div>
+            <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</del></p>
+            <p class="s25-font price-tag"><%= number_to_currency_fr(@product_group.product_refs.first.price * (1 - @product_group.product_refs.first.promotion_percentage) * (@basket_item.quantity ? @basket_item.quantity : 1) )%>&euro;</p>
+            <%# raise %>
+            <div>
+              <%= f.button :submit, "Ajouter au panier", class: "btn-show-ref" %>
+            </div>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
+
+<!--   <div>
+    <div>
+      <div>
+        <div> -->
+          <%#= image_tag @product_group.product_refs.first.image.url(:large) %>
+<!--         </div>
+      </div>
+    </div>
+  </div> -->
+
 
   <div class="row">
     <div class="col-xs-6 padded">
@@ -20,7 +58,7 @@
 
       <div>
         <h3><%= @product_group.name %></h3>
-        <p>Vendu par <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
+
         <p><%= @product_group.description %></p>
         <h4>Mesures</h4>
         <p>Longueur: <%= @product_group.dimensions_length_cm %> cm</p>
@@ -32,19 +70,6 @@
       </div>
 
 
-    </div>
-    <div class="col-xs-6 padded">
-      <div class="pull-right">
-        <%= simple_form_for(@basket_item) do |f| %>
-          <%= f.error_notification %>
-          <%= f.select :quantity, options_for_select((1..10).to_a) %>
-          <span class="s20-font padding-left"><%= @product_group.product_refs.first.color_name %></span>
-          <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product_group.product_refs.first.id } %>
-          <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</del></p>
-          <p class="s25-font"><%= number_to_currency_fr(@product_group.product_refs.first.price * (1 - @product_group.product_refs.first.promotion_percentage))%></p>
-          <%= f.button :submit, "Ajouter au panier", class: "btn btn-primary" %>
-        <% end %>
-      </div>
     </div>
   </div>
 
@@ -77,14 +102,40 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 text-center image-padded">
+    <div class="col-xs-8 text-center image-padded">
       <%= image_tag @product.image.url(:large) %>
-      <div>
-        <% @product_group.product_refs.each do |product_ref| %>
-          <%= link_to product_group_path(@product_group, :product => product_ref) do %>
-            <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
-          <% end %>
-        <% end %>
+    </div>
+
+    <div class="col-xs-4 col-sm-2">
+        <div class="show-sidebar">
+          <div class="show-sidebar-title">
+            <h3><%= @product_group.name %></h3>
+            <p><%= @product_group.description %></p>
+            <p>Vendu par <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
+          </div>
+          <div class="show-sidebar-title">
+            <%= simple_form_for(@basket_item) do |f| %>
+              <%= f.error_notification %>
+              <% @product_group.product_refs.each do |product_ref| %>
+                <%= link_to product_group_path(@product_group, :product => product_ref) do %>
+                  <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
+                <% end %>
+              <% end %>
+              <hr>
+              <div class="show-sidebar-quantity">
+              <%= f.select :quantity, options_for_select((1..10).to_a)%>
+              <span class="s20-font padding-left"><%= @product_group.product_refs.first.color_name %></span>
+              <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product_group.product_refs.first.id } %>
+              </div>
+              <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</del></p>
+              <p class="s25-font price-tag"><%= number_to_currency_fr(@product_group.product_refs.first.price * (1 - @product_group.product_refs.first.promotion_percentage) * (@basket_item.quantity ? @basket_item.quantity : 1) )%>&euro;</p>
+              <%# raise %>
+              <div>
+                <%= f.button :submit, "Ajouter au panier", class: "btn-show-ref" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -106,20 +157,6 @@
         <p>Disponibilite: <%= @product.availability %></p>
 
       </div>
-
-    </div>
-    <div class="col-xs-6 padded">
-      <div class="pull-right">
-        <%= simple_form_for(@basket_item) do |f| %>
-          <%= f.error_notification %>
-          <%= f.select :quantity, options_for_select((1..10).to_a) %>
-          <span class="s20-font padding-left"><%= @product.color_name %></span>
-          <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product.id } %>
-          <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product.price) %> &euro;</del></p>
-          <p class="s25-font"><%= number_to_currency_fr(@product.price * (1 - @product.promotion_percentage))%></p>
-          <%= f.button :submit, "Ajouter au panier", class: "btn btn-primary" %>
-        <% end %>
-      </div>
     </div>
   </div>
 
@@ -135,14 +172,9 @@
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
-
-
       $('.slider').slick({
         dots: true,
-
-
       });
-
     });
   <% end %>
 <% end %>
