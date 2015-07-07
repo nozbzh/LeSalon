@@ -1,6 +1,6 @@
 class BillClientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_bill, only: [:new]
+  before_action :set_bill, only: [:new, :show]
 
   def new
     authorize @bill
@@ -50,10 +50,16 @@ class BillClientsController < ApplicationController
     redirect_to new_bill_client_path
   end
 
+
+  def show
+    authorize @bill
+  end
+
   private
 
   def set_bill
-    @bill = BillClient.where(status: 'pending').find(session[:bill_id])
+    @bill = BillClient.find(session[:bill_id])
+    #@bill = BillClient.where(status: 'pending').find(session[:bill_id])
   end
 
 end

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     resources :bill_clients, only: [:index, :show]
   end
 
-  resources :bill_clients, only: [:new, :create, :edit, :update]
+  resources :bill_clients, only: [:new, :create, :edit, :update, :show] do
+    resources :payments, only: [:new, :create]
+  end
 
   # resources :order_items, only: [:new, :create]
   # resources :orders
