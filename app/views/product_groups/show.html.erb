@@ -3,12 +3,20 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-8 image-padded text-center">
+    <div class="col-xs-1">
+      <% @product_group.picture_products.each do |pic| %>
+        <div class="show-thumbnails">
+          <%= image_tag pic.picture.url(:thumb) %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-xs-7 image-padded text-center">
       <%= image_tag @product_group.product_refs.first.image.url(:large) %>
     </div>
 
 
-    <div class="col-xs-4 col-sm-2">
+    <div class="col-xs-3 col-sm-2">
       <div class="show-sidebar">
         <div class="show-sidebar-title">
           <h3><%= @product_group.name %></h3>
@@ -141,21 +149,24 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-6 padded">
-
-
-      <div>
+    <div class="col-xs-6">
+      <div class="card-show">
         <h3><%= @product_group.name %></h3>
-        <p>Vendu par <%= link_to @product_group.seller.name, sellers_page_path(@product_group.seller) %></p>
-        <p><%= @product_group.description %></p>
-        <h4>Mesures</h4>
+        <br>
+        <h4><b>Mesures</b></h4>
         <p>Longueur: <%= @product_group.dimensions_length_cm %> cm</p>
         <p>Largeur: <%= @product_group.dimensions_width_cm %> cm</p>
         <p>Hauteur: <%= @product_group.dimensions_height_cm %> cm</p>
-        <h4>Informations complementaires</h4>
+        <br>
+        <h4><b>Informations complementaires</b></h4>
         <p>Delais de livraison: <%= @product.delivery_time %></p>
         <p>Disponibilite: <%= @product.availability %></p>
-
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="card-show">
+        <h3>Description</h3>
+        <p><%= @product_group.description %></p>
       </div>
     </div>
   </div>
