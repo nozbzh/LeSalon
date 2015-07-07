@@ -232,12 +232,25 @@ body {
 }
 
 .show-sidebar {
-  background-color: #F5F5F5;
+  border: 1px solid #f2f2f2;
+  box-shadow: 1px 1px 2px #f2f2f2;
   width: 360px;
   height: 539px;
   right: 0px;
   margin-top: 38px;
   border-radius: 4px;
+}
+
+.card-show {
+  border: 1px solid #f2f2f2;
+  box-shadow: 1px 1px 2px #f2f2f2;
+  width: 553px;
+  height: 470px;
+  border-radius: 4px;
+  padding-left: 53px;
+  padding-top: 15px;
+  margin-top: 54px;
+  margin-bottom: 54px;
 }
 
 .show-sidebar-title {
@@ -251,15 +264,30 @@ body {
 }
 
 .price-tag {
-  color: #87bcd1;
+  color: #606060;
 }
 
 .btn-show-ref {
-  background-color: #87bcd1;
+  background-color: #c9c9c9;
   height: 83px;
   width: 300px;
   margin-left: -14px;
   margin-top: 10px;
   color: white;
   font-size: 21px;
+  &:hover {
+    background-color: white;
+    color: #adabab;
+    border: 1px solid #adabab;
+  }
+
+}
+
+.show-thumbnails {
+  border: 1px solid #f2f2f2;
+  margin: 10px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 75px;
+  padding-bottom: 20px;
 }
