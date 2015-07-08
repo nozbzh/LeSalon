@@ -12,6 +12,4 @@ class SellersController < ApplicationController
      ]
     authorize @seller
   end
-
-
 end
