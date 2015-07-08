@@ -36,6 +36,17 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'pages/home', to: "pages#home", as: :pages_home
+
+    resources :sellers, only: [:index] do
+      collection do # permet de créer une route avec un groupe
+        get :approved
+      end
+
+      member do # permet de créer une route avec l'id
+        patch :approve
+        patch :unapprove
+      end
+    end
   end
 
   resources :product_groups, only: [:index, :show]

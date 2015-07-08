@@ -157,18 +157,18 @@ ActiveRecord::Schema.define(version: 20150708104310) do
   end
 
   create_table "sellers", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "name"
     t.text     "description_short"
     t.text     "description"
@@ -179,8 +179,10 @@ ActiveRecord::Schema.define(version: 20150708104310) do
     t.string   "address_country"
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "approved",               default: false, null: false
   end
 
+  add_index "sellers", ["approved"], name: "index_sellers_on_approved", using: :btree
   add_index "sellers", ["email"], name: "index_sellers_on_email", unique: true, using: :btree
   add_index "sellers", ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true, using: :btree
 
