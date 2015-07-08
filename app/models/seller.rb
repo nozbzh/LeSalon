@@ -25,9 +25,11 @@
 #  address_country        :string
 #  latitude               :float
 #  longitude              :float
+#  approved               :boolean          default(FALSE), not null
 #
 # Indexes
 #
+#  index_sellers_on_approved              (approved)
 #  index_sellers_on_email                 (email) UNIQUE
 #  index_sellers_on_reset_password_token  (reset_password_token) UNIQUE
 #
@@ -65,6 +67,18 @@ class Seller < ActiveRecord::Base
 
   def full_address
     "#{address_street} #{address_zip} #{address_city} #{address_country}"
+  end
+
+  def active_for_authentication?
+    super && approved?
+  end
+
+  def inactive_message
+    if !approved?
+      :not_approved
+    else
+      super # Use whatever other message
+    end
   end
 
 end

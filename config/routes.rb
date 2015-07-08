@@ -19,10 +19,6 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
-
-
-
-
   namespace :seller_account do
     resources :picture_sellers, only: [:index, :new, :create, :destroy]
     resources :product_groups do
@@ -44,12 +40,29 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'pages/home', to: "pages#home", as: :pages_home
+
+    resources :sellers, only: [:index] do
+      collection do # permet de créer une route avec un groupe
+        get :approved
+      end
+
+      member do # permet de créer une route avec l'id
+        patch :approve
+        patch :unapprove
+      end
+    end
+
+    resources :orders, only: [:index]
   end
 
   resources :product_groups, only: [:index, :show]
   # get 'product_groups/index', to: "product#:category_type"
 
   resources :basket_items, only: [:create, :destroy, :update]
+
+  resources :users, only: [:show, :update]
+
+  resources :addresses, only: [:create]
 
   resources :baskets, only: [:index]
 

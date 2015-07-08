@@ -20,6 +20,9 @@
   <% if seller_signed_in? %>
     <%= render "shared/flashes" %>
     <%= render "seller_account/shared/navbar" %>
+  <% elsif user_signed_in? && current_user.admin? %>
+    <%= render "shared/flashes" %>
+    <%= render "admin/shared/navbar" %>
   <% else %>
     <%= render "shared/flashes" %>
     <%= render "shared/navbar" %>

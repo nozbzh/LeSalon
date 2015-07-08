@@ -4,6 +4,8 @@
   <p>Vous êtes connecté à votre compte administrateur</p>
   <br>
   <p>Ci-dessous les demandes de création de comptes vendeur en attente :</p>
+  <br>
+  <p><%= link_to "View all sellers", admin_sellers_path, class: "btn btn-success" %></p>
 <% else %>
   home_path
 <% end %>

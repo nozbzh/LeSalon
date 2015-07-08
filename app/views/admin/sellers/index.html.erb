@@ -1,0 +1,17 @@
+<h1>Fabricants inscrits sur Le Salon :</h1>
+
+<% @sellers.each do |seller| %>
+  <%= seller.name %>
+  <%= seller.approved %>
+  <br>
+  <br>
+
+  <% if policy(seller).approve? %>
+    <%= button_to "Approve seller", approve_admin_seller_path(seller), method: :patch %>
+  <% end %>
+
+  <% if policy(seller).unapprove? %>
+    <%= button_to "Unapprove seller", unapprove_admin_seller_path(seller), method: :patch %>
+  <% end %>
+<% end %>
+<br>
