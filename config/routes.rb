@@ -47,6 +47,8 @@ Rails.application.routes.draw do
         patch :unapprove
       end
     end
+
+    resources :orders, only: [:index]
   end
 
   resources :product_groups, only: [:index, :show]
