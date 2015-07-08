@@ -1,9 +1,8 @@
 class BillClientsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_bill, only: [:show, :update]
 
   def show
-    @bill = BillClient.where(status: 'pending').find(session[:bill_id])
-    authorize @bill
     @address = Address.new
   end
 
@@ -52,10 +51,30 @@ class BillClientsController < ApplicationController
     redirect_to bill_client_path(bill)
   end
 
+  def update
+    address_chosen  = current_user.addresses.find(params[:address_id])
+    @address_bill ||= @bill.address || @bill.build_address
+
+    @address_bill.delivery_address_street = address_chosen.delivery_address_street
+    @address_bill.delivery_address_zip = address_chosen.delivery_address_zip
+    @address_bill.delivery_address_city = address_chosen.delivery_address_city
+
+    if @address_bill.save
+      redirect_to new_bill_client_payment_path(@bill)
+    else
+      render :show
+    end
+  end
 
   def confirmation
     @bill = BillClient.where(status: 'payed').find(params[:id])
     authorize @bill
   end
 
+  private
+
+  def find_bill
+    @bill = BillClient.where(status: 'pending').find(session[:bill_id])
+    authorize @bill
+  end
 end

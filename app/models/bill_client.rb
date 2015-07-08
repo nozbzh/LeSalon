@@ -17,6 +17,7 @@
 
 class BillClient < ActiveRecord::Base
   belongs_to :user
+  has_one :address
   has_many :orders
 
   monetize :amount_cents
