@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'pages/home'
+
   # get 'product_groups/index'
 
   devise_for :sellers
@@ -27,6 +29,10 @@ Rails.application.routes.draw do
     resources :sellers, only: [:edit, :update]
     get 'sellers/home', to: "sellers#home", as: :sellers_home
     get 'sellers/profile', to: "sellers#profile", as: :sellers_profile
+  end
+
+  namespace :admin do
+    get 'pages/home', to: "pages#home", as: :pages_home
   end
 
   resources :product_groups, only: [:index, :show]
