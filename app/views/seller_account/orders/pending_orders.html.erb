@@ -1,5 +1,4 @@
-<h1>All my orders</h1>
-
+<h1>Pending orders</h1>
 <ul>
   <% @orders.each do |order| %>
     <% sum = 0 %>
@@ -23,7 +22,6 @@
 
       Total: <%= number_to_currency_fr(sum) %> &euro;
       <br>
-      <p>Status: <%= order.status_order %></p>
       <%= link_to "View details", seller_account_order_path(order) %>
     </li>
   <% end %>
