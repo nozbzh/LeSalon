@@ -118,13 +118,15 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-1">
-      <% @product_group.picture_products.each do |pic| %>
-        <div class="show-thumbnails">
-          <%= link_to product_group_path(@product_group), "data-large-img" => pic.picture.url(:large), class: "product-thumbnail-img-link" do %>
-            <%= image_tag pic.picture.url(:thumb) %>
-          <% end %>
-        </div>
-      <% end %>
+      <div class="all-thumbs-show">
+        <% @product_group.picture_products.each do |pic| %>
+          <div class="show-thumbnails">
+            <%= link_to product_group_path(@product_group), "data-large-img" => pic.picture.url(:large), class: "product-thumbnail-img-link" do %>
+              <%= image_tag pic.picture.url(:thumb) %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <div class="col-xs-7 text-center image-padded">
