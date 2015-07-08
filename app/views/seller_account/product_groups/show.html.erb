@@ -25,7 +25,7 @@
               <% end %>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 position">
             <br>
             <h4><%= "Images" %></h4>
             <div id="add-img-seller">
@@ -73,7 +73,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-11 col-sm-offset-1">
+    <div class="col-sm-11 col-sm-offset-1 position">
       <h2> Références pour ce produit </h2>
       <div id="add-img-seller-ref">
         <%= link_to new_seller_account_product_group_product_ref_path(@product_group) do%>
@@ -105,8 +105,7 @@
               <p><b>Disponibilité : </b><%= product_ref.availability%></p>
               <p><b>Délais de livraison : </b><%= product_ref.delivery_time%></p>
               <p><b>Référence :</b> <%= product_ref.reference%></p>
-            </div>
-            <div id="pencil-card-seller-ref">
+              <div id="pencil-card-seller-ref">
               <%= link_to edit_seller_account_product_group_product_ref_path(@product_group, product_ref) do %>
                 <i class="fa fa-pencil"></i>
               <% end %>
@@ -116,6 +115,7 @@
                 data: { confirm: "Are you sure?" } do %>
                 <i class="fa fa-times"></i>
               <% end %>
+            </div>
             </div>
           </div>
         </div>
