@@ -1,6 +1,6 @@
 <h1>All my orders</h1>
 <ul>
-<% current_user.bill_clients.each do |bill| %>
+<% @bill_clients.each do |bill| %>
   <li>
     <%= "Bill number: #{bill.id}" %>
     <ul>
@@ -11,11 +11,7 @@
         <%= "Date: #{l bill.created_at.in_time_zone('Paris')}" %>
       </li>
       <li>
-        <% status = [] %>
-        <% bill.orders.each do |order| %>
-          <% status << order if order.status_order == "sent" %>
-        <% end %>
-        <% if status.length == bill.orders.length %>
+        <% if bill.sent? %>
           Status: envoyee <i class="fa fa-check"></i>
         <% else %>
           Statut: en cours de traitement <i class="fa fa-truck"></i>
