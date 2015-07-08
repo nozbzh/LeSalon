@@ -31,6 +31,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if resource.class == Seller
       seller_account_sellers_home_path
+    elsif resource.admin?
+      admin_pages_home_path
     else
       home_path
     end
