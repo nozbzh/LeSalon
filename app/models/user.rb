@@ -50,6 +50,7 @@ class User < ActiveRecord::Base
 
   has_one :basket
   has_many :addresses
+  has_many :bill_clients
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
