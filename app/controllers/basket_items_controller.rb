@@ -6,6 +6,7 @@ class BasketItemsController < ApplicationController
     @basket_item = current_user.basket.basket_items.build(items_params)
     @basket_item.product_ref = @product_ref
     @basket_item.price = @product_ref.price
+    @basket_item.reference = @product_ref.reference
     authorize @basket_item
     @basket_item.save
     redirect_to baskets_path
