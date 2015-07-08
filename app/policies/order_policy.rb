@@ -1,8 +1,8 @@
 class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.class == seller
-        seller.orders
+      if user.class == Seller
+        user.orders
       else
         scope.all
       end
@@ -10,7 +10,14 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    if user.class == User
+      true
+    end
+
+    if user.class == Seller
+      true
+    end
+
   end
 
   def new?
