@@ -41,6 +41,7 @@ class BillClientsController < ApplicationController
         item.product_ref = basket_item.product_ref
         item.quantity = basket_item.quantity
         item.price = basket_item.product_ref.price
+        item.reference = basket_item.reference
         item.save
       end
     end
