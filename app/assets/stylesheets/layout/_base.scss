@@ -239,6 +239,7 @@ body {
   right: 0px;
   margin-top: 38px;
   border-radius: 4px;
+  margin-left: 40px;
 }
 
 .card-show {
@@ -253,6 +254,19 @@ body {
   margin-bottom: 54px;
 }
 
+.card-show-right {
+  border: 1px solid #f2f2f2;
+  box-shadow: 1px 1px 2px #f2f2f2;
+  width: 553px;
+  height: 470px;
+  border-radius: 4px;
+  padding-left: 53px;
+  padding-top: 15px;
+  margin-top: 54px;
+  margin-bottom: 54px;
+  margin-left: 39px;
+}
+
 .show-sidebar-title {
   margin-left: 47px;
   margin-right: 47px;
@@ -265,6 +279,7 @@ body {
 
 .price-tag {
   color: #606060;
+  margin-top: 20px;
 }
 
 .btn-show-ref {
@@ -290,4 +305,16 @@ body {
   padding-top: 20px;
   padding-right: 75px;
   padding-bottom: 20px;
+}
+
+.show-thumb-active {
+  border: 2px solid #aad4e5;
+}
+
+.product-large-img {
+  margin-left: 20px;
+}
+
+.all-thumbs-show {
+  margin-top: 40px;
 }
