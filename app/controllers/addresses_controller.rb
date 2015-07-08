@@ -1,22 +1,10 @@
 class AddressesController < ApplicationController
 
   def create
-
-    # if params[:existing_address]
-    #   @address = current_user.bill_client.address.build(address_params)
-    #   @address.user_id = 0
-    # else
-    #   @address = current_user.bill_client.address.build(address_params)
-    # end
-
-    # if @address
-    #   @address.save
-    # end
+    @bill = find_bill_client
 
     @address = current_user.addresses.build(address_params)
     authorize @address
-
-    @bill = find_bill_client
 
     if @address.save
       if @bill
