@@ -9,6 +9,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  price_cents    :integer          default(0), not null
+#  reference      :string
 #
 # Indexes
 #

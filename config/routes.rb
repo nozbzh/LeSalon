@@ -19,10 +19,6 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
-
-
-
-
   namespace :seller_account do
     resources :picture_sellers, only: [:index, :new, :create, :destroy]
     resources :product_groups do
@@ -57,6 +53,10 @@ Rails.application.routes.draw do
   # get 'product_groups/index', to: "product#:category_type"
 
   resources :basket_items, only: [:create, :destroy, :update]
+
+  resources :users, only: [:show, :update]
+
+  resources :addresses, only: [:create]
 
   resources :baskets, only: [:index]
 

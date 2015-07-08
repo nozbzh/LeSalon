@@ -4,6 +4,7 @@ class BillClientsController < ApplicationController
   def show
     @bill = BillClient.where(status: 'pending').find(session[:bill_id])
     authorize @bill
+    @address = Address.new
   end
 
   def create
@@ -41,6 +42,7 @@ class BillClientsController < ApplicationController
         item.product_ref = basket_item.product_ref
         item.quantity = basket_item.quantity
         item.price = basket_item.product_ref.price
+        item.reference = basket_item.reference
         item.save
       end
     end
