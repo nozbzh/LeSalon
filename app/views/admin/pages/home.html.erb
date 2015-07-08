@@ -1,0 +1,9 @@
+<% if current_user.admin? %>
+  <p>Bienvenue <%= current_user.first_name %></p>
+  <br>
+  <p>Vous êtes connecté à votre compte administrateur</p>
+  <br>
+  <p>Ci-dessous les demandes de création de comptes vendeur en attente :</p>
+<% else %>
+  home_path
+<% end %>
