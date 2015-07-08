@@ -1,8 +1,8 @@
 class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.class == seller
-        seller.orders
+      if user.class == Seller
+        user.orders # ici user est = a seller, mais pundit ne connait que user
       else
         scope.all
       end
@@ -10,6 +10,10 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def index?
+    true
+  end
+
+  def pending_orders?
     true
   end
 
@@ -25,4 +29,7 @@ class OrderPolicy < ApplicationPolicy
     true
   end
 
+  def sent?
+    true
+  end
 end
