@@ -4,6 +4,8 @@ module SellerAccount
     before_action :find_seller, only: [:edit, :update]
 
     def home
+      # @orders = current_seller.orders.where(status_order: "pending")
+      # authorize @orders
     end
 
     def profile
