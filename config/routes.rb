@@ -11,10 +11,15 @@ Rails.application.routes.draw do
     resources :bill_clients, only: [:index, :show]
   end
 
-  resources :bill_clients, only: [:new, :create, :edit, :update]
+  resources :bill_clients, only: [:new, :create, :edit, :update, :show] do
+    member do
+      get :confirmation
+    end
 
-  # resources :order_items, only: [:new, :create]
-  # resources :orders
+    resources :payments, only: [:new, :create]
+  end
+
+
 
 
 
@@ -29,6 +34,8 @@ Rails.application.routes.draw do
     resources :sellers, only: [:edit, :update]
     get 'sellers/home', to: "sellers#home", as: :sellers_home
     get 'sellers/profile', to: "sellers#profile", as: :sellers_profile
+    # resources :order_items
+    resources :orders, only: [:index, :show]
   end
 
   namespace :admin do

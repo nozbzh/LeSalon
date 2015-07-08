@@ -1,0 +1,15 @@
+<h1>Payment for order number <%= @bill.id %></h1>
+<%= form_tag bill_client_payments_path(@bill) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= number_to_currency_fr(@bill.amount) %> &euro;</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="New order"
+    data-description="Order number <%= @bill.id %>"
+    data-amount="<%= @bill.amount_cents %>"
+    data-currency="EUR"></script>
+<% end %>
