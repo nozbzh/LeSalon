@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707153742) do
+ActiveRecord::Schema.define(version: 20150708092229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "delivery_address_street"
+    t.string   "delivery_address_zip"
+    t.string   "delivery_address_city"
+    t.integer  "user_id"
+    t.integer  "bill_client_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "addresses", ["bill_client_id"], name: "index_addresses_on_bill_client_id", using: :btree
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "basket_items", force: :cascade do |t|
     t.integer  "quantity"
@@ -198,6 +211,8 @@ ActiveRecord::Schema.define(version: 20150707153742) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "addresses", "bill_clients"
+  add_foreign_key "addresses", "users"
   add_foreign_key "basket_items", "baskets"
   add_foreign_key "basket_items", "product_refs"
   add_foreign_key "baskets", "users"

@@ -47,6 +47,10 @@ Rails.application.routes.draw do
 
   resources :basket_items, only: [:create, :destroy, :update]
 
+  resources :users, only: [:show, :update]
+
+  resources :address, only: [:new, :update]
+
   resources :baskets, only: [:index]
 
   get '/sellers/:id', to: 'sellers#show_to_user', as: :sellers_page
