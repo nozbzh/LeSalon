@@ -49,6 +49,7 @@ class User < ActiveRecord::Base
   after_create :create_basket
 
   has_one :basket
+  has_many :bill_clients
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
