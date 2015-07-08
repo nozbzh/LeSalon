@@ -1,7 +1,7 @@
 class OrderItemPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.class == user
+      if user.class == User
         user.basket.basket_items
       else
       scope.all

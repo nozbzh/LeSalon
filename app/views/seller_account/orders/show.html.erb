@@ -11,3 +11,8 @@
 </ul>
 
 <p>Total: <%= number_to_currency_fr(sum) %> &euro;</p>
+<p>Status: <%= @order.status_order %></p>
+
+<p>Delivery address:</p>
+
+<p><%= link_to "Mark as sent", sent_seller_account_order_path(@order), class: "btn btn-success" %></p>

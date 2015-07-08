@@ -22,4 +22,8 @@ class BillClient < ActiveRecord::Base
 
   monetize :amount_cents
   # has_one :address
+
+  def sent?
+    orders.where(status_order: "sent").count == orders.count
+  end
 end

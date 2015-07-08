@@ -1,7 +1,7 @@
 class BillClientPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.class == user
+      if user.class == User
         user.bill_clients
       else
         scope
