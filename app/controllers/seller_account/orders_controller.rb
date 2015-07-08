@@ -3,13 +3,12 @@ module SellerAccount
     before_action :authenticate_seller!
 
     def index
-      @orders = policy_scope(Order)
-      # @orders = current_seller.orders.where(status_order: "pending")
+      @orders = policy_scope(Order).order(created_at: :DESC)
     end
 
     def pending_orders
-      @orders = policy_scope(Order).where(status_order: "pending")
-      # @orders = current_seller.orders.where(status_order: "pending")
+      @orders = policy_scope(Order).where(status_order: "pending").order(created_at: :DESC)
+      authorize @orders
     end
 
     def show
