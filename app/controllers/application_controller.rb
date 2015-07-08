@@ -41,11 +41,15 @@ class ApplicationController < ActionController::Base
   private
 
   def devise_or_pages_controller?
-    devise_controller? || pages_controller?
+    devise_controller? || pages_controller? || self.class.to_s.split("::").first == "Admin"
   end
 
   def pages_controller?
     controller_name == "pages"  # Brought by the `high_voltage` gem
+  end
+
+  def module_admin?
+    module_name == "admin"
   end
 
   def user_not_authorized

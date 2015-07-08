@@ -10,7 +10,14 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    if user.class == User
+      true
+    end
+
+    if user.class == Seller
+      true
+    end
+
   end
 
   def pending_orders?

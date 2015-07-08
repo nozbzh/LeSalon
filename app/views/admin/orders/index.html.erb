@@ -1,1 +1,15 @@
 <p>All orders from sellers</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-2">
+      <% @sellers.each do |seller| %>
+        <h4><%= seller.name %></h4>
+        <p><%= seller.name %> has <%= seller.orders.count %> orders: </p>
+        <% seller.orders.each do |order| %>
+          <%= order.status_order %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
