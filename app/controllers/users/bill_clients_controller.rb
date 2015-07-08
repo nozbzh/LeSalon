@@ -3,7 +3,7 @@ module Users
     before_action :authenticate_user!
 
     def index
-      @bill_clients = policy_scope(BillClient).order(created_at: :DESC)
+      @bill_clients = policy_scope(BillClient).where(status: "payed").order(created_at: :DESC)
       authorize @bill_clients
     end
 
