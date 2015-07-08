@@ -22,5 +22,5 @@ class Address < ActiveRecord::Base
   belongs_to :bill_client
   validates :delivery_address_street, presence: true
   validates :delivery_address_zip, presence: true
-  validates :delivery_address_city, presence: true
+  validates :delivery_address_city , presence: true
 end

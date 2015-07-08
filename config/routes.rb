@@ -19,10 +19,6 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
-
-
-
-
   namespace :seller_account do
     resources :picture_sellers, only: [:index, :new, :create, :destroy]
     resources :product_groups do
@@ -49,7 +45,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :update]
 
-  resources :address, only: [:new, :update]
+  resources :addresses, only: [:create]
 
   resources :baskets, only: [:index]
 

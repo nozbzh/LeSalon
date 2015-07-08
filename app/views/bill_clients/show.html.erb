@@ -27,11 +27,29 @@
       <h4>Address</h4>
 
       <p>Add an address if different from your usual address</p>
-      <p>Your usual address is:</p>
-      <p><%= current_user.address_street %></p>
-      <p><%= current_user.address_zip %></p>
-      <p><%= current_user.address_city %></p>
-      <%= link_to "Use this address", address_path, class: "btn btn-primary" %>
+      <p>Your usual addresses are:</p>
+      <% current_user.addresses.each do |address| %>
+        <%= radio_button_tag :address_id, address.id %>
+        <%= label_tag "address_id_#{address.id}" do %>
+          <p><%= address.delivery_address_street %></p>
+          <p><%= address.delivery_address_zip %></p>
+          <p><%= address.delivery_address_city %></p>
+        <% end %>
+      <% end %>
+
+      <p>Add a new address</p>
+      <%= simple_form_for @address, url: addresses_path do |f| %>
+        <%= f.error_notification %>
+
+        <%= hidden_field_tag :from, "bill_client" %>
+
+        <%= f.input :delivery_address_street %>
+        <%= f.input :delivery_address_zip %>
+        <%= f.input :delivery_address_city %>
+
+        <%= f.button :submit %>
+      <% end %>
+
 
     </div>
   </div>
