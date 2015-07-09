@@ -21,6 +21,10 @@ class BillClientPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    record.status == "pending"
+  end
+
   def show?
     true
   end

@@ -22,22 +22,25 @@
         <% end %>
       </ul>
 
-      <p><%= link_to "Confirm", new_bill_client_payment_path(@bill), class: "btn btn-success" %></p>
+      <!-- <p><%#= link_to "Confirm", new_bill_client_payment_path(@bill), class: "btn btn-success" %></p> -->
 
       <h4>Address</h4>
 
-      <p>Add an address if different from your usual address</p>
-      <p>Your usual addresses are:</p>
-      <% current_user.addresses.each do |address| %>
-        <%= radio_button_tag :address_id, address.id %>
-        <%= label_tag "address_id_#{address.id}" do %>
-          <p><%= address.delivery_address_street %></p>
-          <p><%= address.delivery_address_zip %></p>
-          <p><%= address.delivery_address_city %></p>
+      <%= form_tag bill_client_path(@bill), method: :put do %>
+        <p>Choisissez une adresse dans votre carnet d'adresses:</p>
+        <% current_user.addresses.each do |address| %>
+          <%= radio_button_tag :address_id, address.id %>
+          <%= label_tag "address_id_#{address.id}" do %>
+            <p><%= address.delivery_address_street %></p>
+            <p><%= address.delivery_address_zip %></p>
+            <p><%= address.delivery_address_city %></p>
+          <% end %>
         <% end %>
+
+        <p><%= submit_tag "Finaliser la commande",  class: "btn btn-success" %></p>
       <% end %>
 
-      <p>Add a new address</p>
+      <p>Créez une nouvelle adresse</p>
       <%= simple_form_for @address, url: addresses_path do |f| %>
         <%= f.error_notification %>
 
