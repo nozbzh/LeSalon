@@ -327,3 +327,23 @@ $navbar-profile-border-width: 2px;
     }
   }
 }
+
+.image-circle-shop {
+  width: 30px;
+  border-radius: 50%;
+  background-color: #EE5F5B;
+  position: absolute;
+  height: 30px;
+  top: 7px;
+  right: 30px;
+  text-align: center;
+ }
+
+ .image-circle-number-shop {
+  position: absolute;
+  top: 11%;
+  right: 34%;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+ }
