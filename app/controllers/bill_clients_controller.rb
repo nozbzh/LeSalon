@@ -24,8 +24,9 @@ class BillClientsController < ApplicationController
 
     sum = 0
     current_user.basket.basket_items.each do |item|
-      sum += item.product_ref.price * item.quantity
+      sum += item.product_ref.price * (1 - item.product_ref.promotion_percentage) * item.quantity
     end
+
 
     bill.amount = sum
 
