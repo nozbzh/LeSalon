@@ -1,28 +1,37 @@
-<h1>Pending orders</h1>
-<ul>
-  <% @orders.each do |order| %>
-    <% sum = 0 %>
-    <li>
-      Order reference: #<%= order.id %>
-      <br>
-      Date: <%= l order.created_at.in_time_zone('Paris') %>
-      <br>
-      Customer Name: <%= "#{order.bill_client.user.first_name} #{order.bill_client.user.last_name}" %>
-      <br>
-      Items:
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+
+      <h1>Pending orders</h1>
       <ul>
-        <% order.order_items.each do |item| %>
+        <% @orders.each do |order| %>
+          <% sum = 0 %>
           <li>
-            <%= item.product_ref.product_group.name %>
-            <% sum += (item.price * item.quantity) %>
+            Order reference: #<%= order.id %>
+            <br>
+            Date: <%= l order.created_at.in_time_zone('Paris') %>
+            <br>
+            Customer Name: <%= "#{order.bill_client.user.first_name} #{order.bill_client.user.last_name}" %>
+            <br>
+            Items:
+            <ul>
+              <% order.order_items.each do |item| %>
+                <li>
+                  <%= item.product_ref.product_group.name %>
+                  <% sum += (item.price * item.quantity) %>
+                </li>
+              <% end %>
+            </ul>
+
+
+            Total: <%= number_to_currency_fr(sum) %> &euro;
+            <br>
+            <%= link_to "View details", seller_account_order_path(order) %>
           </li>
         <% end %>
       </ul>
 
-
-      Total: <%= number_to_currency_fr(sum) %> &euro;
-      <br>
-      <%= link_to "View details", seller_account_order_path(order) %>
-    </li>
-  <% end %>
-</ul>
+    </div>
+  </div>
+</div>

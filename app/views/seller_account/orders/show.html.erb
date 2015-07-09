@@ -1,18 +1,26 @@
-<h3>Order number <%= "#{@order.id} for #{@order.bill_client.user.first_name} #{@order.bill_client.user.last_name}" %></h3>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
 
-<% sum = 0 %>
-<ul>
-  <% @order.order_items.each do |item| %>
-    <li>
-      <%= "#{item.quantity} x #{item.product_ref.product_group.name} #{item.product_ref.color_name}" %>
-      <% sum += (item.price * item.quantity) %>
-    </li>
-  <% end %>
-</ul>
 
-<p>Total: <%= number_to_currency_fr(sum) %> &euro;</p>
-<p>Status: <%= @order.status_order %></p>
+      <h3>Order number <%= "#{@order.id} for #{@order.bill_client.user.first_name} #{@order.bill_client.user.last_name}" %></h3>
 
-<p>Delivery address:</p>
+      <% sum = 0 %>
+      <ul>
+        <% @order.order_items.each do |item| %>
+          <li>
+            <%= "#{item.quantity} x #{item.product_ref.product_group.name} #{item.product_ref.color_name}" %>
+            <% sum += (item.price * item.quantity) %>
+          </li>
+        <% end %>
+      </ul>
 
-<p><%= link_to "Mark as sent", sent_seller_account_order_path(@order), class: "btn btn-success" %></p>
+      <p>Total: <%= number_to_currency_fr(sum) %> &euro;</p>
+      <p>Status: <%= @order.status_order %></p>
+
+      <p>Delivery address:</p>
+
+      <p><%= link_to "Mark as sent", sent_seller_account_order_path(@order), class: "btn btn-success" %></p>
+   </div>
+  </div>
+</div>
