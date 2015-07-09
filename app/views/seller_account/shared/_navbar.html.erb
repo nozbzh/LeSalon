@@ -50,14 +50,16 @@
             </ul>
           </li>
           <li>
-            <%= link_to pending_orders_seller_account_orders_path do %>
-              <%= image_tag "shop_small.png"%>
-            <% end %>
-            <div class="image-circle-panier">
-              <div class="image-circle-number">
-                <%= current_seller.orders.where(status_order: "pending").count %>
+            <% if current_seller.orders.where(status_order: "pending").count > 0 %>
+              <%= link_to pending_orders_seller_account_orders_path do %>
+                <%= image_tag "shop_small.png"%>
+              <% end %>
+              <div class="image-circle-panier">
+                <div class="image-circle-number">
+                  <%= current_seller.orders.where(status_order: "pending").count %>
+                </div>
               </div>
-            </div>
+            <% end %>
           </li>
         <% end %>
       </ul>
