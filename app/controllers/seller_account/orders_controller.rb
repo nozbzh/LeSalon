@@ -21,7 +21,7 @@ module SellerAccount
       @order.status_order = "sent"
       authorize @order
       @order.save
-      redirect_to seller_account_order_path(@order)
+      redirect_to seller_account_orders_path
     end
 
   end

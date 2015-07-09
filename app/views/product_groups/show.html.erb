@@ -38,10 +38,14 @@
                 <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
               <% end %>
             <% end %>
+            <br><span class="s20-font"><%= @product_group.product_refs.first.color_name %></span>
             <hr>
             <div class="show-sidebar-quantity">
-            <%= f.select :quantity, options_for_select((1..10).to_a)%>
-            <span class="s20-font padding-left"><%= @product_group.product_refs.first.color_name %></span>
+              <div class="row">
+                <div class="col-xs-8">
+                  <%= f.input :quantity, collection: (1..10).to_a, prompt: "Quantite ?", label: false%>
+                </div>
+              </div>
             <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product_group.product_refs.first.id } %>
             </div>
             <% if @product_group.product_refs.first.promotion_percentage == 0 %>
@@ -151,11 +155,15 @@
                 <%= image_tag product_ref.picture.url(:thumb), class: "sample-image" %>
               <% end %>
             <% end %>
+            <br><span class="s20-font"><%= @product.color_name %></span>
             <hr>
             <div class="show-sidebar-quantity">
-              <%= f.select :quantity, options_for_select((1..10).to_a)%>
-              <span class="s20-font padding-left"><%= @product.color_name %></span>
-              <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product.id } %>
+              <div class="row">
+                <div class="col-xs-8">
+                  <%= f.input :quantity, collection: (1..10).to_a, default: 1, label: false%>
+                </div>
+              </div>
+            <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product.id } %>
             </div>
             <% if @product.promotion_percentage == 0 %>
               <p class="s25-font price-tag"><%= number_to_currency_fr(@product.price)%>&euro;</p>
