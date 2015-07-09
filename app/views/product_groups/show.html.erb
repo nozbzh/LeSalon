@@ -43,7 +43,7 @@
             <div class="show-sidebar-quantity">
               <div class="row">
                 <div class="col-xs-8">
-                  <%= f.input :quantity, collection: (1..10).to_a, prompt: "Quantite ?", label: false%>
+                  <%= f.input :quantity, collection: (1..10).to_a, default: 1, label: false%>
                 </div>
               </div>
             <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product_group.product_refs.first.id } %>
