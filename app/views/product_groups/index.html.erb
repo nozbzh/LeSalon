@@ -283,7 +283,7 @@
                <p class="s13-font"><del class="s13-font text-muted"><%= number_to_currency_fr(product_ref.price) %> &euro;</del>     <%= number_to_currency_fr(product_ref.price * (1 - product_ref.promotion_percentage)) %> &euro;</p>
                  <div id="promotion-card">
                  <div id="promotion">
-                   <p class="s13-font"><%= number_to_currency_fr(product_ref.promotion_percentage * 100) %> %</p>
+                   <p class="s13-font promotion-percentage"><%= number_to_currency_fr(product_ref.promotion_percentage * 100) %> %</p>
                  </div>
                </div>
              <% end %>

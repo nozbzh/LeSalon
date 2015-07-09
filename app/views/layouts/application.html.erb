@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) || "Wagon Rails" %></title>
+  <%= favicon_link_tag("favicon.png") %>
+  <title><%= content_for(:title) ? yield(:title) : "Le Salon" %></title>
   <meta name="description" content="<%= (yield(:description) || "").squish %>">
 
   <meta charset="utf-8" />
