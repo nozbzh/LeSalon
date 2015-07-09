@@ -42,7 +42,7 @@
         <div class="col-xs-12 col-md-6">
           <hr>
           <div class="text-center card-address">
-            <p><%= radio_button_tag :address_id, address.id %></p>
+            <p><%= radio_button_tag :address_id, address.id, params[:address_id].to_i == address.id || current_user.addresses.first == address %></p>
             <%= label_tag "address_id_#{address.id}" do %>
               <p><%= address.delivery_address_street %></p>
               <p><%= address.delivery_address_zip %></p>
