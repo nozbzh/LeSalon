@@ -1,10 +1,24 @@
 <%= content_for(:title) do %>
   Welcome <%= current_seller.name %>
 <% end %>
+
+
 <div class="Site-content">
-  <h1>Welcome <%= current_seller.name%></h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <br><br>
+        <h1>Welcome <%= current_seller.name%></h1>
+        <br>
+        <h3>Latest news on Le Salon</h3>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in interdum erat. Vestibulum eget tellus viverra, dictum diam ut, porta orci. Donec vulputate massa nulla, ac cursus nisl vestibulum vitae. Duis fringilla venenatis nisi, vel euismod quam mollis auctor. Sed elementum massa lectus, ac finibus libero congue ac. In vulputate arcu id augue hendrerit, sed laoreet nibh hendrerit. Integer et dui accumsan, dignissim augue ac, fringilla nibh. Maecenas eu molestie eros, id luctus urna. Vivamus commodo, neque ac porttitor suscipit, nibh sapien fringilla ex, quis eleifend augue tortor at felis. Ut mattis lectus sed sapien placerat, nec fermentum ligula scelerisque. Maecenas velit enim, pellentesque fringilla enim et, interdum tempor nulla. Nullam hendrerit, arcu porta pretium tincidunt, dui est porta mi, vitae commodo nisl purus nec arcu. Donec eget lectus sit amet mi interdum elementum. Nulla facilisis ut dolor eget dapibus. Mauris consectetur sodales leo, nec consectetur est pellentesque eu. Aenean condimentum mauris malesuada massa rhoncus, id placerat diam feugiat.</p>
 
-  <h3>Click <%= link_to "here", pending_orders_seller_account_orders_path %> to see new orders for your products.</h3>
-
+        <p>
+          Vivamus euismod ante sed quam facilisis, a malesuada dolor malesuada. Mauris non lobortis nibh. Integer in risus sed risus luctus hendrerit sit amet quis enim. Praesent a augue a tortor malesuada consectetur. Quisque ac risus rutrum, ultricies nunc sed, mollis nulla. Aenean luctus, quam at congue laoreet, erat neque vehicula felis, at viverra ex nisi id turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent at commodo arcu. Pellentesque congue erat vel luctus aliquet. Duis quis nulla sed tellus posuere dignissim. Integer sed eleifend nunc. Etiam vulputate enim vitae orci bibendum venenatis. Vestibulum enim eros, hendrerit sit amet venenatis lobortis, suscipit a odio. Quisque commodo enim volutpat, cursus felis et, tincidunt arcu. Maecenas sollicitudin vel enim eget placerat.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
