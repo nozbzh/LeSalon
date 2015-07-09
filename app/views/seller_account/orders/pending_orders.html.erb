@@ -1,28 +1,60 @@
-<h1>Pending orders</h1>
-<ul>
-  <% @orders.each do |order| %>
-    <% sum = 0 %>
-    <li>
-      Order reference: #<%= order.id %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
       <br>
-      Date: <%= l order.created_at.in_time_zone('Paris') %>
-      <br>
-      Customer Name: <%= "#{order.bill_client.user.first_name} #{order.bill_client.user.last_name}" %>
-      <br>
-      Items:
-      <ul>
-        <% order.order_items.each do |item| %>
-          <li>
-            <%= item.product_ref.product_group.name %>
-            <% sum += (item.price * item.quantity) %>
-          </li>
+      <h1 class="text-center">Pending orders</h1>
+
+
+        <% @orders.each do |order| %>
+          <% sum = 0 %>
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="">
+                <hr>
+                <h3>Order reference: #<%= order.id %></h3>
+                <p>Date: <%= l order.created_at.in_time_zone('Paris') %></p>
+                <p>Customer Name: <%= "#{order.bill_client.user.first_name} #{order.bill_client.user.last_name}" %></p>
+                <p>Delivery address:
+                  <br><%= order.bill_client.address.delivery_address_street %>
+                  <br><%= order.bill_client.address.delivery_address_zip %>
+                  <br><%= order.bill_client.address.delivery_address_city %>
+                </p>
+                <% order.order_items.each do |item| %>
+                    <% sum += item.product_ref.price * (1 - item.product_ref.promotion_percentage) * item.quantity %>
+                <% end %>
+
+                <p>Total: <%= number_to_currency_fr(sum) %> &euro;</p>
+                <p>Status: <%= order.status_order %></p>
+                <div class="row">
+                  <div class="col-xs-4 col-offset-8">
+                    <% if order.status_order == "pending" %>
+                      <p><%= link_to "Mark as sent", sent_seller_account_order_path(order), class: "btn btn-primary" %></p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-5">
+              <div class="">
+                <hr>
+                <% order.order_items.each do |item| %>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <%= "#{item.quantity} x #{item.product_ref.product_group.name} #{item.product_ref.color_name} at #{item.product_ref.price * (1 - item.product_ref.promotion_percentage)}" %> &euro;
+                      <br>
+                      <%= "Reference ##{item.reference}" %>
+                      <div class="row">
+                        <div class="col-xs-5">
+                          <%= image_tag item.product_ref.image.url(:thumb) %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
         <% end %>
-      </ul>
-
-
-      Total: <%= number_to_currency_fr(sum) %> &euro;
-      <br>
-      <%= link_to "View details", seller_account_order_path(order) %>
-    </li>
-  <% end %>
-</ul>
+    </div>
+  </div>
+</div>

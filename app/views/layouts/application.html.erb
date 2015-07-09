@@ -2,7 +2,7 @@
 <html>
 <head>
   <%= favicon_link_tag("favicon.png") %>
-  <title><%= content_for(:title) ? yield(:title) : "Le Salon" %></title>
+  <title><%= yield(:title).blank? ?  "Le Salon" : yield(:title) %></title>
   <meta name="description" content="<%= (yield(:description) || "").squish %>">
 
   <meta charset="utf-8" />
@@ -13,6 +13,7 @@
 </head>
 
 <% if seller_signed_in? %>
+
   <body class="Site">
 <% else %>
   <body id="user" class="Site">

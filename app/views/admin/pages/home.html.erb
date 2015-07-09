@@ -1,3 +1,6 @@
+<%= content_for(:title) do %>
+  Le Salon admin
+<% end %>
 <% if current_user.admin? %>
   <p>Bienvenue <%= current_user.first_name %></p>
   <br>

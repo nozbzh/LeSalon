@@ -1,3 +1,6 @@
+<%= content_for(:title) do %>
+  Le Salon, <%= params[:category] %>
+<% end %>
 <br>
 <div id="sidebar-wrapper">
   <p>Styles</p>
@@ -201,19 +204,19 @@
   <% if params[:category_style] %>
     <% if params[:category_style] == "Moderne" %>
       <div id="style-moderne">
-        <strong><i class="fa fa-search"></i></strong>
+        <strong><i class="fa fa-circle"></i></strong>
       </div>
     <% elsif params[:category_style] == "Classique" %>
     <div id="style-classique">
-        <strong><i class="fa fa-search"></i></strong>
+        <strong><i class="fa fa-circle"></i></strong>
       </div>
     <% elsif params[:category_style] == "Suédois" %>
     <div id="style-suedois">
-        <strong><i class="fa fa-search"></i></strong>
+        <strong><i class="fa fa-circle"></i></strong>
       </div>
     <% elsif params[:category_style] == "Enfant" %>
     <div id="style-enfant">
-        <strong><i class="fa fa-search"></i></strong>
+        <strong><i class="fa fa-circle"></i></strong>
       </div>
     <% end %>
   <% end %>
@@ -221,23 +224,23 @@
   <% if params[:price_min] %>
     <% if params[:price_min] == "0" %>
       <div id="style-min-0">
-        <strong><i class="fa fa-search"></i></strong>
+        <strong><i class="fa fa-circle"></i></strong>
       </div>
     <% elsif params[:price_min] == "100" %>
     <div id="style-min-100">
-        <strong><i class="fa fa-search"></i></strong>
+        <strong><i class="fa fa-circle"></i></strong>
       </div>
     <% elsif params[:price_min] == "500" %>
     <div id="style-min-500">
-        <strong><i class="fa fa-search"></i></strong>
+        <strong><i class="fa fa-circle"></i></strong>
       </div>
     <% elsif params[:price_min] == "1000" %>
     <div id="style-min-1000">
-        <strong><i class="fa fa-search"></i></strong>
+        <strong><i class="fa fa-circle"></i></strong>
       </div>
     <% elsif params[:price_min] == "2000" %>
     <div id="style-min-2000">
-        <strong><i class="fa fa-search"></i></strong>
+        <strong><i class="fa fa-circle"></i></strong>
       </div>
     <% end %>
   <% end %>

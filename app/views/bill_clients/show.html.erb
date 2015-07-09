@@ -1,59 +1,100 @@
+<%= content_for(:title) do %>
+  Votre commande
+<% end %>
+<h1 class="text-center">Votre commande</h1>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h1>Order details</h1>
-
-
-      <p>Your total is: <%= number_to_currency_fr(@bill.amount) %> &euro;</p>
-
-
-
-      <p>
-        Your order details:
-      </p>
-
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-6">
+      <hr>
+      <p><strong>Montant total : <%= number_to_currency_fr(@bill.amount) %> &euro;</strong></p>
+      <p><strong>Détails de votre commande :</strong></p>
       <ul>
         <% @bill.orders.each do |order| %>
           <% order.order_items.each do |item| %>
             <li>
-              <%= "#{item.quantity} x #{item.product_ref.product_group.name} #{item.product_ref.color_name} at #{number_to_currency_fr(item.product_ref.price)}"%> &euro; each
+              <%= "#{item.quantity} x #{item.product_ref.product_group.name} #{item.product_ref.color_name} à #{number_to_currency_fr(item.product_ref.price * (1 - item.product_ref.promotion_percentage))}"%> &euro; par pièce
             </li>
           <% end %>
         <% end %>
       </ul>
+      <hr>
+    </div>
+    <div class="col-xs-3">
+    </div>
+  </div>
+</div>
 
-      <!-- <p><%#= link_to "Confirm", new_bill_client_payment_path(@bill), class: "btn btn-success" %></p> -->
 
-      <h4>Address</h4>
+<br>
+<!-- <p><%#= link_to "Confirm", new_bill_client_payment_path(@bill), class: "btn btn-success" %></p> -->
 
+<h2 class="text-center">Adresse de livraison</h2>
+
+<% if current_user.addresses != [] %>
+<p class="text-center">Choisissez une adresse dans votre carnet d'adresses :</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-6">
+      <div class="row">
       <%= form_tag bill_client_path(@bill), method: :put do %>
-        <p>Choisissez une adresse dans votre carnet d'adresses:</p>
         <% current_user.addresses.each do |address| %>
-          <%= radio_button_tag :address_id, address.id %>
-          <%= label_tag "address_id_#{address.id}" do %>
-            <p><%= address.delivery_address_street %></p>
-            <p><%= address.delivery_address_zip %></p>
-            <p><%= address.delivery_address_city %></p>
-          <% end %>
-        <% end %>
+        <div class="col-xs-12 col-md-6">
+          <hr>
+          <div class="text-center card-address">
+            <p><%= radio_button_tag :address_id, address.id, params[:address_id].to_i == address.id || current_user.addresses.first == address %></p>
+            <%= label_tag "address_id_#{address.id}" do %>
+              <p><%= address.delivery_address_street %></p>
+              <p><%= address.delivery_address_zip %></p>
+              <p><%= address.delivery_address_city %></p>
+            <% end %>
+          </div>
+          <hr>
+        </div>
+    <% end %>
+    <div>
+      <p class="text-center"><%= submit_tag "Finaliser la commande",  class: "btn btn-default btn-bill" %></p>
+    </div>
+<% end %>
+      </div>
+    </div>
+    <div class="col-xs-3">
+    </div>
+  </div>
+</div>
 
-        <p><%= submit_tag "Finaliser la commande",  class: "btn btn-success" %></p>
-      <% end %>
-
-      <p>Créez une nouvelle adresse</p>
+<% else %>
+  <p class="text-center">Vous n'avez aucun adresse de livraison enregistrée. Veuillez en créer une.</p>
+<% end %>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-6">
+      <h3 class="text-center">Créez une nouvelle adresse</h3>
+      <br>
       <%= simple_form_for @address, url: addresses_path do |f| %>
         <%= f.error_notification %>
 
         <%= hidden_field_tag :from, "bill_client" %>
 
-        <%= f.input :delivery_address_street %>
-        <%= f.input :delivery_address_zip %>
-        <%= f.input :delivery_address_city %>
+        <%= f.input :delivery_address_street, :label => "Numéro et voie" %>
+        <%= f.input :delivery_address_zip, :label => "Code postal" %>
+        <%= f.input :delivery_address_city, :label => "Ville" %>
 
-        <%= f.button :submit %>
+        <div class="text-center"><%= submit_tag "Ajouter cette adresse",  class: "btn btn-default" %></div>
       <% end %>
-
-
+      <br>
+      <br>
+    </div>
+    <div class="col-xs-3">
     </div>
   </div>
 </div>
+
