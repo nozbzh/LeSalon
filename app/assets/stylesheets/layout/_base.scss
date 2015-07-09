@@ -335,3 +335,41 @@ body {
 .all-thumbs-show {
   margin-top: 40px;
 }
+
+.card-orders-admin {
+  border: 1px solid #f2f2f2;
+  box-shadow: 1px 1px 2px #f2f2f2;
+  width: 553px;
+  border-radius: 4px;
+  padding-left: 53px;
+  padding-right: 53px;
+  padding-top: 15px;
+  margin-top: 54px;
+  margin-bottom: 54px;
+}
+
+.sidebar-orders-admin {
+  list-style: none;
+}
+
+#sidebar-wrapper-orders {
+  z-index: 1;
+  position: fixed;
+  top: 0px;
+  padding-top: 150px;
+  left: 250px;
+  width: 250px;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  padding-left: 10px;
+}
+
+#padding-title-sidebar {
+  padding-left: 40px;
+}
