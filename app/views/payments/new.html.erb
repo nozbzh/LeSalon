@@ -1,7 +1,7 @@
 <%= content_for(:title) do %>
   Finaliser votre commande
 <% end %>
-<div class="text-center">
+<div class="text-center Site-content ">
 <h1>Paiement de votre commande N° <%= @bill.id %></h1>
 <br>
 <%= form_tag bill_client_payments_path(@bill) do %>

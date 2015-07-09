@@ -199,11 +199,13 @@
 #promotion-card {
   position: absolute;
   background: rgba(50, 50, 50, 0.4);
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   border-radius: 100%;
   color: white;
   font-size: 12px;
+  top: -147%;
+  right: 34%;
 }
 
 #promotion {
@@ -222,6 +224,7 @@
   &-percentage {
     position: relative;
     left: 3px;
+    font-size: 16px;
   }
 }
 
