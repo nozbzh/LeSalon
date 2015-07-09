@@ -1,15 +1,47 @@
-<p>All orders from sellers</p>
+
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-2">
-      <% @sellers.each do |seller| %>
-        <h4><%= seller.name %></h4>
-        <p><%= seller.name %> has <%= seller.orders.count %> orders: </p>
-        <% seller.orders.each do |order| %>
-          <%= order.status_order %>
+    <div class="col-sm-2">
+      <div id="sidebar-wrapper-orders">
+        <h5 id="padding-title-sidebar">Fabricants</h5>
+        <hr>
+        <ul class="sidebar-orders-admin">
+          <% @sellers.each do |seller| %>
+          <li>
+            <%= link_to seller.name, "#seller-#{seller.id}"  %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <br>
+      <div>
+        <h3>Toutes les commandes</h3>
+      </div>
+      <div class="card-orders-admin">
+        <% @sellers.each do |seller| %>
+          <h3 id="seller-<%= seller.id %>"><%= seller.name %></h3>
+          <p><%= seller.name %> a <%= seller.orders.count %> commandes: </p>
+          <ul>
+            <% seller.orders.each do |order| %>
+              <li>
+                <p><b>Status: </b><%= order.status_order %></p>
+              </li>
+              <li>
+                <p><b>Created at: </b><%= order.created_at.to_date %></p>
+              </li>
+              <hr>
+            <% end %>
+          </ul>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
