@@ -218,6 +218,13 @@
   position: relative;
 }
 
+.promotion {
+  &-percentage {
+    position: relative;
+    left: 3px;
+  }
+}
+
 .image-padded {
   margin-top: 100px;
 }
