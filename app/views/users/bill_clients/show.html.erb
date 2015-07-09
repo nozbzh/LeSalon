@@ -9,14 +9,14 @@
       <% order.order_items.each do |item| %>
       <li>
         <%= link_to "#{item.quantity} x #{item.product_ref.product_group.name} ", product_group_path(item.product_ref.product_group) %>
-        <%= "#{item.product_ref.color_name} (prix unitaire : #{number_to_currency_fr(item.product_ref.price)}" %> &euro;)
+        <%= "#{item.product_ref.color_name} (prix unitaire : #{number_to_currency_fr(item.product_ref.price * (1 - item.product_ref.promotion_percentage))}" %> &euro;)
         <br>
         Temps de livraison estime a : <%= item.product_ref.delivery_time %>
         <br>
       </li>
     </ul>
 
-  <% sum += (item.quantity * item.product_ref.price) %>
+  <% sum += item.product_ref.price * (1 - item.product_ref.promotion_percentage) * item.quantity %>
       <% end %>
   Statut : <%= order.status_order %>
   <br>
@@ -25,3 +25,9 @@
 <% end %>
 
 <p>Grand total: <%= number_to_currency_fr(@bill_client.amount) %> &euro;</p>
+<br>
+<p>Adresse de livraison :
+<br><%= @bill_client.address.delivery_address_street %>
+<br><%= @bill_client.address.delivery_address_zip %>
+<br><%= @bill_client.address.delivery_address_city %>
+</p>
