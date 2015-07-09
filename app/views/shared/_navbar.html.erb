@@ -57,11 +57,11 @@
             <%= image_tag "basket_new.png"%>
           <% end %>
         </li>
-          <div class="image-circle-panier">
-            <div class="image-circle-number">
-              <%= current_user.basket.basket_items.count %>
-            </div>
+        <div class="image-circle-panier">
+          <div class="image-circle-number">
+            <%= current_user.basket.basket_items.count %>
           </div>
+        </div>
         <%end%>
       </ul>
     </div><!-- /.navbar-collapse -->

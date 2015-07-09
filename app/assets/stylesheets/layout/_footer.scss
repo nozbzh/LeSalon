@@ -1,13 +1,14 @@
 // Your footer style
 
 #footer {
-  background-color: #aad4e5;
+  background-color: rgba(250, 250, 250, 0.3);
+  border-top: 1px dotted #f2f2f2;
   font-size: 15px;
   // padding-left: 200px;
   a {
-    color: black;
+    color: #848383;
     &:hover {
-      color: rgb(100, 100, 100);
+      color: #cd843c;
       transition: ease 0.3s;
     }
   }
@@ -15,5 +16,13 @@
 
 #padded-li {
   padding-right: 30px;
+  font-size: 23px;
+}
+
+#text-footer {
+  font-family: $header-font;
+  font-size: 17px;
+  padding-top: 12px;
+  color: #848383;
 }
 
