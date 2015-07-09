@@ -20,7 +20,7 @@
                 <% order.order_items.each do |item| %>
                   <li>
                     <%= item.product_ref.product_group.name %>
-                    <% sum += (item.price * item.quantity) %>
+                    <% sum += item.product_ref.price * (1 - item.product_ref.promotion_percentage) * item.quantity %>
                   </li>
                 <% end %>
               </ul>
