@@ -49,18 +49,21 @@
               </li>
             </ul>
           </li>
-          <li>
-            <%= link_to pending_orders_seller_account_orders_path do %>
-            <div>
-              <%= image_tag "shop.png"%>
+
+          <% if current_seller.orders.where(status_order: "pending").count > 0 %>
+            <li>
+              <%= link_to pending_orders_seller_account_orders_path do %>
+              <div>
+                <%= image_tag "shop.png"%>
+              </div>
+              <% end %>
+            </li>
+            <div class="image-circle-shop">
+              <div class="image-circle-number-shop">
+                <%= current_seller.orders.where(status_order: "pending").count %>
+              </div>
             </div>
-            <% end %>
-          </li>
-          <div class="image-circle-shop">
-            <div class="image-circle-number-shop">
-              <%= current_seller.orders.where(status_order: "pending").count %>
-            </div>
-          </div>
+          <% end %>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
