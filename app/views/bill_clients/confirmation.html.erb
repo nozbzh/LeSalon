@@ -1,1 +1,21 @@
-<h1>Congratulations!</h1>
+<%= content_for(:title) do %>
+  Commmande confirmée
+<% end %>
+<h3 class="text-center">Votre commande a été prise en compte par le fabricant</h3>
+<h4 class="text-center">Nous pouvez la suivre <%= link_to "ici", users_bill_clients_path %></h4>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-0 col-sm-3">
+    </div>
+    <div class="col-xs-12 col-sm-6 text-center">
+      <hr>
+      <%= image_tag "sketch-factory.jpg"%>
+      <hr>
+    </div>
+    <div class="col-xs-0 col-sm-3">
+    </div>
+  </div>
+</div>
+<h3 class="text-center">Nous vous remercions pour votre confiance</h3>
+<br>

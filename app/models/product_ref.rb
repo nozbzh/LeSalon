@@ -43,7 +43,7 @@ class ProductRef < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
   has_attached_file :image,
-    styles: { large: "600x400#", medium: "200x200#", thumb: "50x50#" }
+    styles: { large: "400x400#", medium: "200x200#", thumb: "50x50#" }
 
   validates_attachment_content_type :image,
     content_type: /\Aimage\/.*\z/
