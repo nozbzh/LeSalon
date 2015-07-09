@@ -14,7 +14,7 @@
         <% @bill.orders.each do |order| %>
           <% order.order_items.each do |item| %>
             <li>
-              <%= "#{item.quantity} x #{item.product_ref.product_group.name} #{item.product_ref.color_name} à #{number_to_currency_fr(item.product_ref.price)}"%> &euro; par pièce
+              <%= "#{item.quantity} x #{item.product_ref.product_group.name} #{item.product_ref.color_name} à #{number_to_currency_fr(item.product_ref.price * (1 - item.product_ref.promotion_percentage))}"%> &euro; par pièce
             </li>
           <% end %>
         <% end %>
