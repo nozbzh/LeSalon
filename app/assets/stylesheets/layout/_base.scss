@@ -58,6 +58,14 @@
   margin: 0px;
 }
 
+#title-video {
+  position: relative;
+  top: 125px;
+  color: white;
+  z-index: 1;
+  font-size: 40px;
+}
+
 .btn {
   font-family: Lucida Grande;
   font-weight: 100;
@@ -66,7 +74,7 @@
 .btn-facebook {
   background-color: #3b5998;
   color: white;
-  width: 567px;
+  width: 100%;
 }
 
 #btn-facebook-sign-in {
@@ -87,14 +95,14 @@
 #pencil-card-seller {
   position: absolute;
   top: 5%;
-  right: 20%;
+  right: 6%;
   font-size: 20px;
 }
 
 #delete-cross-seller {
   position: absolute;
-  top: 12%;
-  right: 20%;
+  top: 0%;
+  right: 0%;
   font-size: 20px;
 }
 
