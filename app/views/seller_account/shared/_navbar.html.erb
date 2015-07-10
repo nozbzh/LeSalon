@@ -8,11 +8,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
-        <%= link_to seller_account_sellers_home_path do %>
-          <%= image_tag "logo_no_house.png" %>
-        <% end %>
-      </a>
+      <%= link_to seller_account_sellers_home_path do %>
+        <%= image_tag "logo_no_house.png", class: "logo-seller" %>
+      <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,7 +52,7 @@
               <%= link_to pending_orders_seller_account_orders_path do %>
                 <%= image_tag "shop_small.png"%>
               <% end %>
-              <div class="image-circle-panier">
+              <div class="seller-circle-messages">
                 <div class="image-circle-number">
                   <%= current_seller.orders.where(status_order: "pending").count %>
                 </div>
