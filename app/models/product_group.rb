@@ -31,5 +31,5 @@ class ProductGroup < ActiveRecord::Base
   validates :description, presence: true
   validates :characteristics, presence: true
 
-  paginates_per 1
+  #paginates_per 1
 end
