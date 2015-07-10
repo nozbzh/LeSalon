@@ -37,16 +37,20 @@
 <div class="container">
   <div class="row text-center">
     <div class="col-xs-6 col-sm-4">
-      <%= image_tag "outdoor-homepage.jpg", class: "text-center img-relative text-center"%>
+      <%= link_to product_groups_path(category: "Extérieur") do %>
+        <%= image_tag "outdoor-homepage.jpg", class: "text-center img-relative text-center"%>
+      <% end %>
       <div class="legend-absolute">
         <h5>EXTERIEUR</h5>
       </div>
     </div>
       <div class="col-xs-6 col-sm-4">
-        <%= image_tag "lamps-homepage.jpg", class: "text-center img-relative text-center"%>
+        <%= link_to product_groups_path(category: "Suspensions") do %>
+          <%= image_tag "lamps-homepage.jpg", class: "text-center img-relative text-center"%>
+        <% end %>
         <div class="legend-absolute">
-        <h5>LUMINAIRES</h5>
-      </div>
+          <h5>LUMINAIRES</h5>
+        </div>
       </div>
       <div class="col-xs-6 col-sm-4">
         <%= image_tag "italians-homepage.jpg", class: "text-center img-relative text-center"%>
