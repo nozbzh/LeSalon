@@ -208,6 +208,18 @@
   right: 34%;
 }
 
+#promotion-card-show {
+  position: absolute;
+  background: rgba(50, 50, 50, 0.4);
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  color: white;
+  font-size: 12px;
+  top: 62%;
+  right: -33%;
+}
+
 #promotion {
   position: absolute;
   top: 28%;
