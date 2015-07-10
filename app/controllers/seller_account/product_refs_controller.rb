@@ -16,6 +16,7 @@ module SellerAccount
 
     def create
       @product_ref = @product_group.product_refs.build(product_ref_params)
+      @product_ref.promotion_percentage = @product_ref.promotion_percentage / 100
       @product_ref.product_group = @product_group
       authorize @product_ref
       @product_ref.save
@@ -42,6 +43,7 @@ module SellerAccount
       find_product_group
       authorize @product_ref
       @product_ref.update(product_ref_params)
+      @product_ref.promotion_percentage = @product_ref.promotion_percentage
       redirect_to seller_account_product_group_path(@product_group)
     end
 
