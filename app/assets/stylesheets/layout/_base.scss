@@ -58,6 +58,14 @@
   margin: 0px;
 }
 
+#title-video {
+  position: relative;
+  top: 125px;
+  color: white;
+  z-index: 1;
+  font-size: 40px;
+}
+
 .btn {
   font-family: Lucida Grande;
   font-weight: 100;
@@ -66,7 +74,7 @@
 .btn-facebook {
   background-color: #3b5998;
   color: white;
-  width: 567px;
+  width: 100%;
 }
 
 #btn-facebook-sign-in {
