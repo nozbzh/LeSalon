@@ -66,6 +66,10 @@ class User < ActiveRecord::Base
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end
 
+    puts "RECEIVED FROM FACEBOOK:"
+    puts auth
+
+    puts "ERRORS:"
     puts user.errors.full_messages
     user
   end
