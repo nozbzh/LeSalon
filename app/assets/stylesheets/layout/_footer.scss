@@ -26,13 +26,19 @@
   padding-top: 12px;
   color: #848383;
   padding-right: 168px;
+
+  &-links {
+    font-family: $header-font;
+    font-size: 17px;
+    padding-top: 12px;
+    color: #848383;
+    padding-right: 0px;
+  }
+
+  &-log-out {
+    padding-right: 48px;
+  }
 }
 
-.text-footer-links {
-  font-family: $header-font;
-  font-size: 17px;
-  padding-top: 12px;
-  color: #848383;
-  padding-right: 0px;
-}
+
 
