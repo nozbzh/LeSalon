@@ -25,11 +25,19 @@
               <% product_group.product_refs.each do |ref| %>
                 <%= image_tag ref.picture.url(:thumb), class: "sample-image" %>
               <% end %>
+              <div id="delete-cross-seller">
+                <%= link_to seller_account_product_group_path(product_group), method: :delete,
+                  data: { confirm: "Are you sure?" } do %>
+                  <i class="fa fa-times"></i>
+                <% end %>
+              </div>
+        <% end %>
               <br>
             </div>
           </div>
         </div>
-        <% end %>
+
+
         <div class="col-xs-1"></div>
       </div>
     <% end %>
