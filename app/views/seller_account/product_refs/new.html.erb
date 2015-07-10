@@ -9,7 +9,7 @@
         <%= f.error_notification %>
         <%= f.input :color_name, :label => "Couleur" %>
         <%= f.input :price, :label => "Prix en euro" %>
-        <%= f.input :promotion_percentage, :label => "Promotion (compris entre 0,00 et 0,70" %>
+        <%= f.input :promotion_percentage, collection: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70], default: 0, :label => "Promotion en % sur le prix" %>
         <%= f.input :availability, :label => "Disponibilité actuelle" %>
         <%= f.input :delivery_time, :label => "Délai de livraison" %>
         <%= f.input :reference, :label => "Code de référence" %>
