@@ -5,6 +5,26 @@
  * already a Bootstrap SCSS variable that does the same job
  * ------------------------------------- */
 
+
+ .videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;;
+
+  .filter {
+    background: rgba(0,0,0,0.4);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+ }
+ .videoWrapper video {
+  width: 100%;
+ }
+
  .Site {
     display: flex;
     min-height: 100vh;
@@ -32,6 +52,11 @@
       margin: 10px;
     }
   }
+
+#video {
+  left: 0px;
+  margin: 0px;
+}
 
 .btn {
   font-family: Lucida Grande;
