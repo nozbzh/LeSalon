@@ -8,7 +8,9 @@
     <% @product_groups.each do |product_group| %>
       <div class="row">
         <div class="col-xs-1"></div>
+        <%= link_to seller_account_product_group_path(product_group) do %>
         <div class="col-xs-10">
+
           <div class="row white-card">
             <div class="col-xs-12 col-sm-6 text-center">
               <% unless product_group.picture_products.empty? %>
@@ -16,7 +18,7 @@
               <% end %>
             </div>
             <div class="col-xs-12 col-sm-6 text-center">
-              <h4><%=link_to product_group.name, seller_account_product_group_path(product_group) %></h4>
+              <h4><%= product_group.name %></h4>
               <hr>
               <p><%= product_group.category_type %> </p>
               <p><%= product_group.category_style %> </p>
@@ -27,6 +29,7 @@
             </div>
           </div>
         </div>
+        <% end %>
         <div class="col-xs-1"></div>
       </div>
     <% end %>

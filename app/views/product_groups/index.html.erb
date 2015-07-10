@@ -270,10 +270,9 @@
      <div class="row">
        <% @product_groups.each do |product_group| %>
          <div class="col-xs-4">
+          <%= link_to product_group_path(product_group) do %>
            <div class="row">
-             <%= link_to product_group_path(product_group) do %>
                <%= image_tag product_group.picture_products.first.picture.url(:medium) %>
-             <% end %>
            </div>
            <div class="row" id="product-index-card">
              <br>
@@ -285,13 +284,14 @@
              <% else %>
                <p class="s13-font"><del class="s13-font text-muted"><%= number_to_currency_fr(product_ref.price) %> &euro;</del>     <%= number_to_currency_fr(product_ref.price * (1 - product_ref.promotion_percentage)) %> &euro;</p>
                  <div id="promotion-card">
-                 <div id="promotion">
-                   <p class="s13-font promotion-percentage"><%= number_to_currency_fr(product_ref.promotion_percentage * 100) %> %</p>
+                   <div id="promotion">
+                     <p class="s13-font promotion-percentage"><%= number_to_currency_fr(product_ref.promotion_percentage * 100) %> %</p>
+                   </div>
                  </div>
-               </div>
              <% end %>
              <br>
            </div>
+           <% end %>
            <hr>
            </div>
        <% end %>

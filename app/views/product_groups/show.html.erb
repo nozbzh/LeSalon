@@ -52,7 +52,12 @@
               <p class="s25-font price-tag"><%= number_to_currency_fr(@product_group.product_refs.first.price)%>&euro; par piece</p>
             <% else %>
               <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</del></p>
-              <p class="s25-font price-tag"><%= number_to_currency_fr(@product_group.product_refs.first.price * (1 - @product_group.product_refs.first.promotion_percentage))%>&euro;</p>
+              <div id="promotion-card-show">
+                <div id="promotion">
+                  <p class="s13-font promotion-percentage"><%= number_to_currency_fr(@product_group.product_refs.first.promotion_percentage * 100) %> %</p>
+                 </div>
+               </div>
+              <p class="s25-font price-tag"><%= number_to_currency_fr(@product_group.product_refs.first.price * (1 - @product_group.product_refs.first.promotion_percentage))%> &euro; par piece</p>
             <% end %>
             <div>
               <%= f.button :submit, "Ajouter au panier", class: "btn-show-ref" %>
@@ -169,7 +174,12 @@
               <p class="s25-font price-tag"><%= number_to_currency_fr(@product.price)%>&euro; par piece</p>
             <% else %>
               <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product.price) %> &euro;</del></p>
-              <p class="s25-font price-tag"><%= number_to_currency_fr(@product.price * (1 - @product.promotion_percentage))%>&euro;</p>
+              <div id="promotion-card-show">
+                <div id="promotion">
+                  <p class="s13-font promotion-percentage"><%= number_to_currency_fr(@product.promotion_percentage * 100) %> %</p>
+                 </div>
+               </div>
+              <p class="s25-font price-tag"><%= number_to_currency_fr(@product.price * (1 - @product.promotion_percentage))%> &euro; par piece</p>
             <% end %>
             <div>
               <%= f.button :submit, "Ajouter au panier", class: "btn-show-ref" %>
