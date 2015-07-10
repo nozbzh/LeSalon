@@ -9,7 +9,7 @@ class BasketItemsController < ApplicationController
     @basket_item.reference = @product_ref.reference
     authorize @basket_item
     @basket_item.save
-    redirect_to :back
+    redirect_to baskets_path
   end
 
   def destroy

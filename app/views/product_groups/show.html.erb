@@ -49,7 +49,7 @@
             <%= f.input :product_ref_id, as: :hidden, :input_html => { :value => @product_group.product_refs.first.id } %>
             </div>
             <% if @product_group.product_refs.first.promotion_percentage == 0 %>
-              <p class="s25-font price-tag"><%= number_to_currency_fr(@product_group.product_refs.first.price)%>&euro; par piece</p>
+              <p class="s25-font price-tag"><%= number_to_currency_fr(@product_group.product_refs.first.price)%>&euro; par pièce</p>
             <% else %>
               <p class="text-muted"><del class="s25-font"><br><%= number_to_currency_fr(@product_group.product_refs.first.price) %> &euro;</del></p>
               <div id="promotion-card-show">
