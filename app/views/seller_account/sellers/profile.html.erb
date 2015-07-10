@@ -1,29 +1,49 @@
-<h1>My profile</h1>
 
-<h3>Photos of my shop</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-sm-3">
+      <h1>My profile</h1>
 
-<% @pictures.each do |pic| %>
-  <%= image_tag pic.picture.url(:thumb) %>
-  <%= link_to "delete", seller_account_picture_seller_path(pic), method: :delete,
-      data: { confirm: "Are you sure?" } %>
-<% end %>
+      <h3>Photos of my shop</h3>
+      <p><%= link_to "add a photo", new_seller_account_picture_seller_path %></p>
+      <br>
+      <br>
+      <% @pictures.each do |pic| %>
+        <div class="seller-shop">
+          <%= image_tag pic.picture.url(:medium) %>
+        </div>
+        <%= link_to "delete", seller_account_picture_seller_path(pic), method: :delete,
+            data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-5">
+      <div class="seller-shop-card">
+        <h3>My details</h3>
 
+
+        <p><b>Name: </b><%= current_seller.name %></p>
+        <p><b>Brief description: </b><%= current_seller.description_short %></p>
+        <p><b>Full description: </b><%= current_seller.description %></p>
+        <p><b>Phone number: </b><%= current_seller.phone %></p>
+        <p><b>Address: </b><%= current_seller.full_address %></p>
+
+        <%= link_to "Edit", edit_seller_account_seller_path(current_seller) %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+      <div class="seller-shop-card">
+        <p><b>Full description: </b><%= current_seller.description %></p>
+        <%= link_to "Edit", edit_seller_account_seller_path(current_seller) %>
+      </div>
+    </div>
+  </div>
+</div>
 <br>
 <br>
-<br>
-<br>
 
-<%= link_to "add a photo", new_seller_account_picture_seller_path %>
-
-
-<h3>My details</h3>
-
-<%= link_to "Edit", edit_seller_account_seller_path(current_seller) %>
-
-
-<p>Name: <%= current_seller.name %></p>
-<p>Brief description: <%= current_seller.description_short %></p>
-<p>Full description: <%= current_seller.description %></p>
-<p>Phone number: <%= current_seller.phone %></p>
-<p>Address: <%= current_seller.full_address %></p>
 
