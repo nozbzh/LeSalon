@@ -35,6 +35,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'money-rails'
 gem 'stripe'
 
+gem 'kaminari'
+
 group :development, :test do
   gem "spring"
   gem "annotate"

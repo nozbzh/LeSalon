@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
-    background-color: white;
+    background-color: white !important;
     color: rgb(70, 70, 70);
     text-align: center;
   }
@@ -21,12 +21,12 @@
       <h1>Le Salon n'existe pas encore par ici</h1>
       <p>Vous vous êtes peut-être trompé d'adresse, ou le lien a été réaménagé</p>
     </div>
-    <p>Vous pouvez revenir sur <%= link_to "Le Salon", "#" %>.</p>
+    <p>Vous pouvez revenir sur <a href="https://lesalon.herokuapp.com/">Le Salon</a>.</p>
   </div>
   <br>
   <div>
 
   </div>
-  <%= image_tag "antiques-and-furniture.jpg"%>
+  <img src="../app/assets/images/antiques-and-furniture.jpg" alt="broken-chair">
 </body>
 </html>
