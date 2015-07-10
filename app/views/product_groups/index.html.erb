@@ -244,7 +244,6 @@
       </div>
     <% end %>
   <% end %>
-
 </div>
 <br>
 <div class="Site-content">
@@ -269,7 +268,7 @@
     <br>
      <div class="row">
        <% @product_groups.each do |product_group| %>
-         <div class="col-xs-4">
+         <div class="col-xs-12 col-sm-6 col-md-4">
           <%= link_to product_group_path(product_group) do %>
            <div class="row">
                <%= image_tag product_group.picture_products.first.picture.url(:medium) %>
