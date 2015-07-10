@@ -33,6 +33,8 @@ class ApplicationController < ActionController::Base
       seller_account_sellers_home_path
     elsif resource.admin?
       admin_pages_home_path
+    # elsif resource.class == User && params[:redirect_to]
+    #   redirect_to (session[params[:redirect_to]])
     else
       home_path
     end
