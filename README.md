@@ -1,14 +1,19 @@
 # Lesalon
 
-## Configuration
+## Description
 
-The app configuration lies in `config/application.yml` and is **not**
-versionned by git (for security reasons). If you've just cloned this
-repo, ask a colleague for his `application.yml` file over a secure channel.
+This app was built in 2 weeks in July 2015 by me, David Mulberger and Esther Banales. It served as our final project at the end of the immersive fullstack web development course offered by [Le Wagon](www.lewagon.com).
 
-## Credits
+I am in the process of updating it so it can be understood by English speakers.
 
-The first commit of this app has been generated thanks to [lewagon/wagon_rails](https://github.com/lewagon/wagon_rails)'s rails app generator.
-## Deploying
+It's a high-end furniture market place where professional sellers can create an account and upload their products.
 
-    $ bin/deploy
+Users can views all products available, see seller profiles and order. Note that this is a demo app. None of the products are actually for sale.
+
+## Demo
+
+## Technology
+
+## Challenges
+
+## Things to improve
