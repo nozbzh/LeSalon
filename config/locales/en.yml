@@ -20,7 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  pages:
+    home:
+      furniture: Furniture
+      video_tagline: Straight from those who make it
+      cat_1: OUTDOOR
+      cat_2: LIGHTS
+      cat_3: ITALIAN STYLE
   date:
     formats:
       default: "%d/%m/%Y"
