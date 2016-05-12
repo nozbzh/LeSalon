@@ -1,4 +1,19 @@
 fr:
+  site_name: Le Salon
+  shared:
+    navbar_products:
+      cat_1: S'asseoir
+      cat_2: Rangement
+      cat_3: Tables
+      cat_4: Luminaires
+      cat_5: Nuit
+      cat_6: Deco
+      cat_7: Exterieur
+      cat_1_1: Canapés
+      cat_1_2: Fauteuils
+      cat_1_3: Chairs
+      cat_1_4: Tabourets
+      cat_1_5: Chaises de Bureau
   pages:
     home:
       furniture: Les meubles

@@ -20,6 +20,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  site_name: Le Salon
+  shared:
+    navbar_products:
+      cat_1: Seating
+      cat_2: Shelves
+      cat_3: Tables
+      cat_4: Lights
+      cat_5: Night
+      cat_6: Accessories
+      cat_7: Outdoor
+      cat_1_1: Sofas
+      cat_1_2: Armchairs
+      cat_1_3: Chairs
+      cat_1_4: Stools
+      cat_1_5: Office chairs
   pages:
     home:
       furniture: Furniture
