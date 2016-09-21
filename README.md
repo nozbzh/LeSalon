@@ -14,7 +14,7 @@ Before being allowed on the platform, sellers need to be approved by the admin.
 
 ## Demo
 
-![le salon demo GIF](http://g.recordit.co/OgZ4tSuLhW.gif)
+![le salon demo GIF](http://g.recordit.co/1pLVAL5FYe.gif)
 
 You can read more about it on [my blog](http://noestauffert.com/work/le-salon).
 
