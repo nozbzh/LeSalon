@@ -35,6 +35,10 @@ en:
       cat_1_3: Chairs
       cat_1_4: Stools
       cat_1_5: Office chairs
+      cat_2_1: Bookshelves
+      cat_2_2: Shelves
+      cat_2_3: Dressers
+      cat_2_4: Cupboards
   pages:
     home:
       furniture: Furniture

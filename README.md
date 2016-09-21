@@ -2,18 +2,20 @@
 
 ## Description
 
-This app was built in 2 weeks in July 2015 by me, David Mulberger and Esther Banales. It served as our final project at the end of the immersive fullstack web development course offered by [Le Wagon](www.lewagon.com).
+This app was built in 2 weeks in July 2015 by me, David Mulberger and Esther Banales. It served as our final project at the end of the immersive fullstack web development course offered by [Le Wagon](www.lewagon.com). It is deployed on Heroku [here](http://lesalon.herokuapp.com/product_groups?category=Fauteuils). Note that only the category where the link takes you has products.
 
-I am in the process of updating it so it can be understood by English speakers.
-
-It's a high-end furniture market place where professional sellers can create an account and upload their products.
+It's a high-end furniture market place where professional sellers can create an account to sell their products.
 
 Users can views all products available, see seller profiles and order. Note that this is a demo app. None of the products are actually for sale.
 
+Sellers can create products, add special discounts to a specific product (only the orange version of a rocking chair for example) and manage their orders.
+
+Before being allowed on the platform, sellers need to be approved by the admin.
+
 ## Demo
 
-## Technology
+![le salon demo GIF](http://g.recordit.co/OgZ4tSuLhW.gif)
 
-## Challenges
+You can read more about it on [my blog](http://noestauffert.com/work/le-salon).
 
-## Things to improve
+
