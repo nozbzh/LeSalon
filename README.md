@@ -2,7 +2,7 @@
 
 ## Description
 
-This app was built in 2 weeks in July 2015 by me, David Mulberger and Esther Banales. It served as our final project at the end of the immersive fullstack web development course offered by [Le Wagon](www.lewagon.com). It is deployed on Heroku [here](http://lesalon.herokuapp.com/product_groups?category=Fauteuils). Note that only the category where the link takes you has products.
+This app was built in 2 weeks in July 2015 by me, David Mulberger and Esther Banales. It is deployed on Heroku [here](http://lesalon.herokuapp.com/product_groups?category=Fauteuils). Note that only the category where the link takes you has products.
 
 It's a high-end furniture market place where professional sellers can create an account to sell their products.
 
